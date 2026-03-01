@@ -1117,11 +1117,6 @@ ul, ol {
 
   .hero {
     min-height: 100vh;
-    background: url('images/palette-hero-poster.webp') center/cover no-repeat;
-  }
-
-  .hero-video {
-    display: none;
   }
 
   .hero-container {
