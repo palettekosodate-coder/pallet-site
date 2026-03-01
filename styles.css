@@ -1079,8 +1079,16 @@ ul, ol {
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
+  .header-inner {
+    position: relative;
+  }
+
   .hamburger {
     display: block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .nav-list {
