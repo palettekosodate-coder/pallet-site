@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" fill="none">
+  <!-- 背景の丸い装飾 -->
+  <circle cx="300" cy="150" r="130" fill="#FFE0F0" opacity="0.5"/>
+  <circle cx="160" cy="200" r="60" fill="#FFCCE5" opacity="0.3"/>
+  <circle cx="450" cy="100" r="50" fill="#FFB8DA" opacity="0.3"/>
+
+  <!-- 親子シルエット -->
+  <!-- 大人 -->
+  <circle cx="260" cy="110" r="22" fill="#FF53B0"/>
+  <path d="M235 140 Q260 135 285 140 L290 200 Q260 210 230 200 Z" fill="#FF53B0" rx="8"/>
+  <rect x="238" y="195" width="14" height="40" rx="7" fill="#FF53B0"/>
+  <rect x="268" y="195" width="14" height="40" rx="7" fill="#FF53B0"/>
+
+  <!-- 子ども1 -->
+  <circle cx="320" cy="140" r="16" fill="#FF85C8"/>
+  <path d="M302 162 Q320 158 338 162 L340 205 Q320 212 300 205 Z" fill="#FF85C8" rx="6"/>
+  <rect x="306" y="200" width="10" height="30" rx="5" fill="#FF85C8"/>
+  <rect x="326" y="200" width="10" height="30" rx="5" fill="#FF85C8"/>
+
+  <!-- 子ども2 (小さい) -->
+  <circle cx="215" cy="148" r="14" fill="#FFB8DA"/>
+  <path d="M200 167 Q215 163 230 167 L232 205 Q215 211 198 205 Z" fill="#FFB8DA" rx="5"/>
+  <rect x="203" y="200" width="9" height="28" rx="4.5" fill="#FFB8DA"/>
+  <rect x="220" y="200" width="9" height="28" rx="4.5" fill="#FFB8DA"/>
+
+  <!-- 虹 -->
+  <path d="M380 220 Q420 80 520 120" stroke="#FF53B0" stroke-width="6" fill="none" opacity="0.6"/>
+  <path d="M385 228 Q430 90 530 128" stroke="#FFB8DA" stroke-width="5" fill="none" opacity="0.5"/>
+  <path d="M390 236 Q440 100 540 136" stroke="#FFE0F0" stroke-width="4" fill="none" opacity="0.4"/>
+
+  <!-- 星 -->
+  <polygon points="480,70 485,82 498,84 488,92 491,105 480,98 469,105 472,92 462,84 475,82" fill="#FFD700" opacity="0.7"/>
+  <polygon points="140,80 143,88 152,89 146,95 147,104 140,99 133,104 134,95 128,89 137,88" fill="#FFD700" opacity="0.5"/>
+  <polygon points="520,180 523,188 530,189 525,194 526,201 520,197 514,201 515,194 510,189 517,188" fill="#FFD700" opacity="0.6"/>
+
+  <!-- ハート -->
+  <path d="M100 130 C100 120 115 115 115 125 C115 115 130 120 130 130 C130 145 115 155 115 155 C115 155 100 145 100 130Z" fill="#FF53B0" opacity="0.3"/>
+  <path d="M500 200 C500 193 510 190 510 196 C510 190 520 193 520 200 C520 210 510 216 510 216 C510 216 500 210 500 200Z" fill="#FF53B0" opacity="0.25"/>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" fill="none">
+  <!-- テーブル -->
+  <rect x="60" y="160" width="280" height="12" rx="6" fill="#FFE0F0"/>
+  <rect x="80" y="172" width="10" height="60" rx="3" fill="#FFB8DA"/>
+  <rect x="310" y="172" width="10" height="60" rx="3" fill="#FFB8DA"/>
+
+  <!-- お皿 -->
+  <ellipse cx="200" cy="145" rx="70" ry="20" fill="#fff" stroke="#FF53B0" stroke-width="2"/>
+  <!-- 食材 -->
+  <circle cx="180" cy="135" r="12" fill="#FF8C42"/>
+  <circle cx="205" cy="130" r="10" fill="#4CAF50"/>
+  <circle cx="220" cy="138" r="9" fill="#FFD700"/>
+  <rect x="185" y="126" width="16" height="10" rx="3" fill="#E57373"/>
+
+  <!-- フライパン -->
+  <ellipse cx="120" cy="130" rx="35" ry="12" fill="#888" opacity="0.3"/>
+  <rect x="148" y="124" width="40" height="6" rx="3" fill="#666" opacity="0.4"/>
+
+  <!-- 本 -->
+  <rect x="270" y="110" width="45" height="55" rx="3" fill="#FF85C8" opacity="0.7"/>
+  <rect x="275" y="116" width="35" height="3" rx="1" fill="#fff" opacity="0.6"/>
+  <rect x="275" y="124" width="28" height="3" rx="1" fill="#fff" opacity="0.6"/>
+  <rect x="275" y="132" width="32" height="3" rx="1" fill="#fff" opacity="0.6"/>
+
+  <!-- 子どもの手 -->
+  <circle cx="160" cy="90" r="8" fill="#FFCC80"/>
+  <rect x="155" y="95" width="10" height="25" rx="3" fill="#FFCC80"/>
+  <circle cx="240" cy="85" r="7" fill="#FFCC80"/>
+  <rect x="236" y="90" width="8" height="22" rx="3" fill="#FFCC80"/>
+
+  <!-- 蒸気 -->
+  <path d="M185 105 Q190 90 185 75" stroke="#FFB8DA" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M200 100 Q205 85 200 70" stroke="#FFB8DA" stroke-width="2" fill="none" opacity="0.4"/>
+  <path d="M215 103 Q220 88 215 73" stroke="#FFB8DA" stroke-width="2" fill="none" opacity="0.5"/>
+
+  <!-- 星の装飾 -->
+  <polygon points="60,50 63,58 72,59 66,64 67,73 60,68 53,73 54,64 48,59 57,58" fill="#FFD700" opacity="0.5"/>
+  <polygon points="340,45 342,51 349,52 344,56 345,63 340,59 335,63 336,56 331,52 338,51" fill="#FFD700" opacity="0.4"/>
+</svg>
