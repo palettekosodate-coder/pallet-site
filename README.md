@@ -1,74 +1,87 @@
-# 子育て応援隊ぱれっと - ウェブサイト
+# 子育て応援隊ぱれっと - 公式Webサイト
 
-東京都世田谷区の子育て支援団体「子育て応援隊ぱれっと」の公式ウェブサイトです。
+東京都世田谷区の子育て支援団体「子育て応援隊ぱれっと」の公式Webサイトです。
+
+🌐 **https://palette-kosodate.jp**
+
+## 概要
+
+食育・学習支援、季節のワークショップ、発達に関する茶話会を通じて、子どもも保護者も安心して過ごせる場をつくっています。
+
+## 技術スタック
+
+- HTML / CSS（静的サイト、フレームワーク不使用）
+- Google Fonts（Zen Maru Gothic）
+- Cloudflare Pages（ホスティング）
+- 独自ドメイン：palette-kosodate.jp（お名前.com）
+- メール：Google Workspace
 
 ## ファイル構成
 
 ```
 palette-site/
-├── index.html      … トップページ
-├── shokuiku.html   … 食育＆学習支援
-├── workshop.html   … 季節のワークショップ
-├── sawakai.html    … 茶話会
-├── privacy.html    … プライバシーポリシー
-├── palette-logo.png … ロゴ画像
-├── styles.css      … 共通スタイルシート
-├── images/         … イラスト画像（SVG）
-└── README.md       … このファイル
+├── index.html              … トップページ
+├── shokuiku.html           … 食育＆学習支援
+├── workshop.html           … 季節のワークショップ
+├── sawakai.html            … 茶話会
+├── privacy.html            … プライバシーポリシー
+├── styles.css              … 共通スタイルシート
+├── favicon.ico             … ファビコン
+├── events/                 … イベントLP
+│   ├── shokuiku-01.html    … 春のおにぎりパーティー＆学習会
+│   ├── shokuiku-02.html    … 旬の野菜で作ろう！カレー教室
+│   ├── workshop-01.html    … 春のお花見ピクニック＆工作会
+│   ├── workshop-02.html    … こいのぼり工作＆春の自然観察
+│   ├── sawakai-01.html     … 3月の茶話会
+│   └── sawakai-02.html     … 4月の茶話会
+├── images/
+│   ├── palette-logo.png    … ロゴ画像
+│   ├── palette-hero.mp4    … ヒーロー動画
+│   ├── apple-touch-icon.png … Apple Touch Icon
+│   ├── shokuiku.svg        … 食育イラスト
+│   ├── workshop.svg        … ワークショップイラスト
+│   ├── sawakai.svg         … 茶話会イラスト
+│   ├── hero-illustration.svg
+│   ├── fincscreateaccount.png
+│   └── ogp/                … OGP画像（各ページ用）
+│       ├── ogp-index.png
+│       ├── ogp-shokuiku.png
+│       ├── ogp-workshop.png
+│       ├── ogp-sawakai.png
+│       ├── ogp-privacy.png
+│       └── ogp-event-*.png
+└── README.md
 ```
 
-## デプロイ方法
+## デプロイ
 
-静的HTMLサイトなので、以下のサービスで無料ホスティングできます。
+Cloudflare PagesでGitHub連携済み。mainブランチへのpushで自動デプロイされます。
 
-### Cloudflare Pages（推奨）
+```bash
+git add .
+git commit -m "変更内容の説明"
+git push
+```
 
-1. [Cloudflare](https://dash.cloudflare.com/) にアカウント登録
-2. 「Pages」→「Create a project」→「Direct Upload」を選択
-3. `palette-site` フォルダをドラッグ＆ドロップでアップロード
-4. プロジェクト名を入力して「Deploy」
+## ドメイン・DNS設定
 
-### Netlify
-
-1. [Netlify](https://app.netlify.com/) にアカウント登録
-2. トップページ下部の「Deploy manually」エリアに `palette-site` フォルダをドロップ
-3. 自動でデプロイされます
-
-## 独自ドメインの接続
-
-1. お名前.com / ムームードメイン等でドメインを取得
-2. Cloudflare Pages / Netlify の管理画面で「Custom domains」を設定
-3. ドメイン管理画面でDNSレコード（CNAMEまたはAレコード）を設定
-4. SSL証明書は自動で発行されます
-
-## コンテンツの更新方法
-
-HTMLファイルをテキストエディタで開いて編集します。
-
-### テキストの変更
-該当するHTMLファイル内のテキストを直接書き換えてください。
-
-### 画像の追加
-1. 画像ファイルを `palette-site` フォルダ内に配置
-2. HTMLファイル内で `<img src="ファイル名.jpg" alt="説明">` として参照
-
-### ロゴの差し替え
-`palette-logo.png` ファイルを差し替えてください。ヘッダーで `<img src="palette-logo.png">` として参照しています
+| 項目 | 設定 |
+|---|---|
+| ドメイン | palette-kosodate.jp（お名前.com） |
+| DNS | Cloudflare |
+| SSL | Cloudflare（自動発行） |
+| メール | Google Workspace（MXレコード設定済み） |
 
 ## 差し替えが必要な箇所（TODO）
 
-HTMLファイル内に `<!-- TODO: ... -->` コメントで目印をつけています。以下を実際の情報に差し替えてください。
+HTML内の `<!-- TODO: ... -->` コメントで目印あり。
 
-- **メールアドレス**: `info@example.com` → 実際のアドレスに
-- **Instagramアカウント**: `@palette_setagaya` → 実際のアカウントに
-- **利用者の声**: プレースホルダーテキストを実際の感想に
-- **定員**: `○名` を実際の人数に
-- **寄付方法**: 振込先やオンライン決済リンクを追記
+- メールアドレス：`info@example.com` → 実際のアドレス
+- Instagramアカウント：`@palette_setagaya` → 実際のアカウント
+- 利用者の声：プレースホルダーを実際の感想に
+- Fincs登録URL：モーダル内のリンク先
+- イベントLP内の申し込みリンク
 
-## Google Search Console への登録
+## ライセンス
 
-1. [Google Search Console](https://search.google.com/search-console/) にアクセス
-2. 「プロパティを追加」→「URLプレフィックス」で自分のサイトURLを入力
-3. 表示される確認用HTMLファイルを `palette-site` フォルダに追加してデプロイ
-4. Search Console上で「確認」ボタンを押す
-5. 「サイトマップ」→ `sitemap.xml` のURLを送信（必要に応じて作成）
+© 2023-2026 子育て応援隊ぱれっと All Rights Reserved.
