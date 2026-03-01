@@ -17,8 +17,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.min.css">
   <style>
     .event-lp-hero { background: linear-gradient(135deg, #FFF8F2 0%, #FFE0F0 100%); padding: 60px 20px 40px; text-align: center; }
     .event-lp-hero h1 { font-size: 1.8rem; color: #4A3728; margin-bottom: 8px; }
@@ -82,7 +83,7 @@
 
   <header class="site-header">
     <div class="header-inner">
-      <a href="../index.html" class="site-logo"><img src="../images/palette-logo.png" alt="ぱれっと ロゴ" class="logo-img">ぱれっと</a>
+      <a href="../index.html" class="site-logo"><picture><source srcset="../images/palette-logo-small.webp" type="image/webp"><img src="../images/palette-logo.png" alt="ぱれっと ロゴ" class="logo-img" width="40" height="40"></picture>ぱれっと</a>
       <button class="hamburger" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav>        <ul class="nav-list" role="list">
           <li><a href="../index.html">ホーム</a></li>

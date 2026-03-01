@@ -17,8 +17,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.min.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -45,7 +46,7 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="site-logo">
-        <img src="images/palette-logo.png" alt="ぱれっと ロゴ" class="logo-img">
+        <picture><source srcset="images/palette-logo-small.webp" type="image/webp"><img src="images/palette-logo.png" alt="ぱれっと ロゴ" class="logo-img" width="40" height="40"></picture>
         ぱれっと
       </a>
       <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
@@ -65,8 +66,8 @@
 
   <!-- ===== Hero (Video Background) ===== -->
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="images/palette-hero.mp4" type="video/mp4">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/palette-hero-poster.webp">
+      <source src="images/palette-hero-compressed.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
 
@@ -370,7 +371,7 @@
       </p>
       <div class="modal-screenshot">
         <p class="modal-screenshot-caption">Fincs登録画面の操作イメージ</p>
-        <img src="images/fincscreateaccount.png" alt="Fincsアカウント作成画面の操作手順">
+        <picture><source srcset="images/fincscreateaccount.webp" type="image/webp"><img src="images/fincscreateaccount.png" alt="Fincsアカウント作成画面の操作手順" loading="lazy" width="640" height="730"></picture>
       </div>
       <a href="#" class="btn btn-primary" style="display:block; width:100%; text-align:center;" target="_blank" rel="noopener noreferrer">Fincsの登録画面へ進む</a>
       <p class="modal-footer-note">
