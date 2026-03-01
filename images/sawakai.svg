@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" fill="none">
+  <!-- 背景 -->
+  <circle cx="200" cy="140" r="110" fill="#FFF0F7" opacity="0.3"/>
+
+  <!-- テーブル(丸テーブル) -->
+  <ellipse cx="200" cy="185" rx="100" ry="30" fill="#FFE0F0" opacity="0.6"/>
+
+  <!-- カップ1 -->
+  <rect x="145" y="148" width="28" height="32" rx="4" fill="#fff" stroke="#FF53B0" stroke-width="2"/>
+  <path d="M173 158 Q185 162 173 172" stroke="#FF53B0" stroke-width="2" fill="none"/>
+  <path d="M152 143 Q156 133 160 143" stroke="#FFB8DA" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M160 140 Q164 130 168 140" stroke="#FFB8DA" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+  <!-- カップ2 -->
+  <rect x="225" y="150" width="28" height="32" rx="4" fill="#fff" stroke="#FF85C8" stroke-width="2"/>
+  <path d="M253 160 Q265 164 253 174" stroke="#FF85C8" stroke-width="2" fill="none"/>
+  <path d="M232 145 Q236 135 240 145" stroke="#FFB8DA" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+  <!-- カップ3 -->
+  <rect x="185" y="155" width="25" height="28" rx="4" fill="#fff" stroke="#FFB8DA" stroke-width="2"/>
+  <path d="M192 150 Q195 142 198 150" stroke="#FFB8DA" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+  <!-- 人物シルエット(3人が丸テーブルを囲む) -->
+  <!-- 左の人 -->
+  <circle cx="120" cy="105" r="15" fill="#FF53B0" opacity="0.7"/>
+  <path d="M105 125 Q120 120 135 125 L138 165 Q120 172 102 165 Z" fill="#FF53B0" opacity="0.7" rx="5"/>
+
+  <!-- 右の人 -->
+  <circle cx="280" cy="108" r="15" fill="#FF85C8" opacity="0.7"/>
+  <path d="M265 128 Q280 123 295 128 L298 168 Q280 175 262 168 Z" fill="#FF85C8" opacity="0.7" rx="5"/>
+
+  <!-- 奥の人 -->
+  <circle cx="200" cy="85" r="13" fill="#FFB8DA" opacity="0.7"/>
+  <path d="M188 102 Q200 98 212 102 L214 135 Q200 141 186 135 Z" fill="#FFB8DA" opacity="0.7" rx="4"/>
+
+  <!-- 吹き出し -->
+  <rect x="70" y="55" width="60" height="35" rx="12" fill="#fff" stroke="#FF53B0" stroke-width="1.5"/>
+  <polygon points="105,88 110,90 100,95" fill="#fff" stroke="#FF53B0" stroke-width="1.5"/>
+  <circle cx="88" cy="68" r="3" fill="#FF53B0" opacity="0.4"/>
+  <circle cx="97" cy="72" r="2.5" fill="#FFB8DA" opacity="0.5"/>
+  <circle cx="105" cy="68" r="2" fill="#FF85C8" opacity="0.4"/>
+
+  <rect x="280" y="50" width="55" height="32" rx="12" fill="#fff" stroke="#FF85C8" stroke-width="1.5"/>
+  <polygon points="295,80 290,82 300,88" fill="#fff" stroke="#FF85C8" stroke-width="1.5"/>
+  <circle cx="298" cy="63" r="3" fill="#FF85C8" opacity="0.4"/>
+  <circle cx="307" cy="66" r="2.5" fill="#FFB8DA" opacity="0.5"/>
+  <circle cx="316" cy="63" r="2" fill="#FF53B0" opacity="0.4"/>
+
+  <!-- ハート -->
+  <path d="M195 30 C195 24 203 22 203 27 C203 22 211 24 211 30 C211 38 203 43 203 43 C203 43 195 38 195 30Z" fill="#FF53B0" opacity="0.3"/>
+</svg>
