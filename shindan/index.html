@@ -462,12 +462,12 @@ const childTypes = [
   {id:"EASYGOING",name:"マイペース型"}
 ];
 
-// ===== PARENT TYPE WEIGHTS (for weighted scoring) =====
+// ===== PARENT TYPE WEIGHTS (centered scoring: Baumrind 2-axis model) =====
 const parentTypeWeights = {
-  AUTHORITATIVE:{WARMTH:0.24,STRUCTURE:0.2,AUTONOMY_SUPPORT:0.2,CONSISTENCY:0.16,RESPONSIVENESS:0.2,CONTROL:0},
-  AUTHORITARIAN:{CONTROL:0.28,STRUCTURE:0.22,CONSISTENCY:0.18,WARMTH:-0.14,AUTONOMY_SUPPORT:-0.1,RESPONSIVENESS:-0.14},
-  PERMISSIVE:{WARMTH:0.22,AUTONOMY_SUPPORT:0.18,STRUCTURE:-0.18,CONSISTENCY:-0.14,CONTROL:-0.18,RESPONSIVENESS:0.1},
-  NEGLECTFUL:{RESPONSIVENESS:-0.26,WARMTH:-0.22,STRUCTURE:-0.16,CONSISTENCY:-0.14,CONTROL:-0.08,AUTONOMY_SUPPORT:-0.14}
+  AUTHORITATIVE:{WARMTH:0.22,RESPONSIVENESS:0.18,AUTONOMY_SUPPORT:0.18,STRUCTURE:0.20,CONSISTENCY:0.16,CONTROL:-0.16},
+  AUTHORITARIAN:{CONTROL:0.26,STRUCTURE:0.18,CONSISTENCY:0.16,WARMTH:-0.18,AUTONOMY_SUPPORT:-0.16,RESPONSIVENESS:-0.14},
+  PERMISSIVE:{WARMTH:0.22,AUTONOMY_SUPPORT:0.20,RESPONSIVENESS:0.16,STRUCTURE:-0.18,CONSISTENCY:-0.16,CONTROL:-0.20},
+  NEGLECTFUL:{WARMTH:-0.22,RESPONSIVENESS:-0.22,AUTONOMY_SUPPORT:-0.16,STRUCTURE:-0.14,CONSISTENCY:-0.12,CONTROL:0}
 };
 
 // ===== LIKERT LABELS =====
@@ -793,13 +793,18 @@ function calcParentTypeShares(dimScores){
   for(const [type,weights] of Object.entries(parentTypeWeights)){
     let score=0;
     for(const [dim,w] of Object.entries(weights)){
-      score += (dim01[dim]!==undefined ? dim01[dim] : 0.5) * w;
+      const centered = (dim01[dim]!==undefined ? dim01[dim] : 0.5) - 0.5;
+      score += centered * w;
     }
-    raw[type] = Math.max(0.01, score);
+    raw[type] = score;
   }
-  const total = Object.values(raw).reduce((a,b)=>a+b,0);
+  // Shift so minimum becomes a small positive value, then normalize
+  const minScore = Math.min(...Object.values(raw));
+  const shifted={};
+  for(const [type,val] of Object.entries(raw)) shifted[type] = val - minScore + 0.05;
+  const total = Object.values(shifted).reduce((a,b)=>a+b,0);
   const shares={};
-  for(const [type,val] of Object.entries(raw)) shares[type]=Math.round((val/total)*100);
+  for(const [type,val] of Object.entries(shifted)) shares[type]=Math.round((val/total)*100);
   const sum=Object.values(shares).reduce((a,b)=>a+b,0);
   if(sum!==100){
     const maxT=Object.entries(shares).sort((a,b)=>b[1]-a[1])[0][0];
