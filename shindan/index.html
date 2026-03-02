@@ -34,7 +34,7 @@
   --royal:#3A6FF7;--royal-hover:#2F5BE5;--gold:#F5B800;--gold-light:#FFF3C4;
   --ivory:#FFF8EC;--bar-base:#E5E7EB;
   --paladin:#4DA8FF;--commander:#1E2A78;--druid:#2F9E44;--ranger:#1F6B4F;
-  --guardian:#C7CCD6;--berserker:#FF4C4C;--alchemist:#7B5CFF;--monk:#FFC83D;
+  --guardian:#C7CCD6;--berserker:#FF4C4C;--alchemist:#7B5CFF;--monk:#FFC83D;--scout:#E8870E;--bard:#E8609A;--healer:#66BB9E;--sage:#7E6CC7;
   --text:#2D2A26;--text-light:#6B6560;--card-bg:#FFFFFF;
   --unselected:#F1F3F9;--shadow:rgba(30,42,120,.07);
   --radius:20px;--max-w:640px;
@@ -422,13 +422,17 @@ const parentChara = {
   AUTHORITATIVE:{name:"パラディン・エルダ",catch:"愛と秩序で守る守護騎士",img:"asset/guradian.png",color:"var(--paladin)",colorHex:"#4DA8FF"},
   AUTHORITARIAN:{name:"コマンダー・ヴァルク",catch:"規律で未来を切り拓く戦略家",img:"asset/commander.png",color:"var(--commander)",colorHex:"#1E2A78"},
   PERMISSIVE:{name:"ドルイド・リーフ",catch:"自由を育てる森の守り手",img:"asset/droid.png",color:"var(--druid)",colorHex:"#2F9E44"},
-  NEGLECTFUL:{name:"レンジャー・ノクス",catch:"静かに見守る孤高の観察者",img:"asset/ranger.png",color:"var(--ranger)",colorHex:"#1F6B4F"}
+  NEGLECTFUL:{name:"レンジャー・ノクス",catch:"静かに見守る孤高の観察者",img:"asset/ranger.png",color:"var(--ranger)",colorHex:"#1F6B4F"},
+  EMPATHIC:{name:"ヒーラー・ルーチェ",catch:"共感と受容で心を照らす癒し手",img:"asset/healer.png",color:"var(--healer)",colorHex:"#66BB9E"},
+  COACH:{name:"セージ・カイル",catch:"知恵と導きで未来を拓く賢者",img:"asset/sage.png",color:"var(--sage)",colorHex:"#7E6CC7"}
 };
 const childChara = {
   BALANCE:{name:"ガーディアン・ソル",catch:"安定と勇気をあわせ持つ若き守り手",img:"asset/guradiankids.png",color:"var(--guardian)",colorHex:"#C7CCD6"},
   ENERGETIC:{name:"バーサーカー・ブレイズ",catch:"情熱ほとばしるエネルギーの塊",img:"asset/berseker.png",color:"var(--berserker)",colorHex:"#FF4C4C"},
   CAUTIOUS:{name:"アルケミスト・ミラ",catch:"知恵と観察で道を拓く探究者",img:"asset/archemist.png",color:"var(--alchemist)",colorHex:"#7B5CFF"},
-  EASYGOING:{name:"モンク・ルーナ",catch:"静かな強さを秘めた癒しの存在",img:"asset/monk.png",color:"var(--monk)",colorHex:"#FFC83D"}
+  EASYGOING:{name:"モンク・ルーナ",catch:"静かな強さを秘めた癒しの存在",img:"asset/monk.png",color:"var(--monk)",colorHex:"#FFC83D"},
+  EXPLORER:{name:"スカウト・リオ",catch:"好奇心で世界を冒険する探検家",img:"asset/scout.png",color:"var(--scout)",colorHex:"#E8870E"},
+  SOCIAL:{name:"バード・ハル",catch:"人とつながり輪を広げる吟遊詩人",img:"asset/bard.png",color:"var(--bard)",colorHex:"#E8609A"}
 };
 
 // ===== DIMENSION DEFINITIONS =====
@@ -453,21 +457,27 @@ const parentTypes = [
   {id:"AUTHORITATIVE",name:"あたたかルール型"},
   {id:"AUTHORITARIAN",name:"ルール優先型"},
   {id:"PERMISSIVE",name:"ゆるやか見守り型"},
-  {id:"NEGLECTFUL",name:"距離おき型"}
+  {id:"NEGLECTFUL",name:"距離おき型"},
+  {id:"EMPATHIC",name:"共感ベース型"},
+  {id:"COACH",name:"コーチ型"}
 ];
 const childTypes = [
   {id:"BALANCE",name:"バランス型"},
   {id:"ENERGETIC",name:"勢い型"},
   {id:"CAUTIOUS",name:"慎重型"},
-  {id:"EASYGOING",name:"マイペース型"}
+  {id:"EASYGOING",name:"マイペース型"},
+  {id:"EXPLORER",name:"探究型"},
+  {id:"SOCIAL",name:"社交型"}
 ];
 
 // ===== PARENT TYPE WEIGHTS (centered scoring: Baumrind 2-axis model) =====
 const parentTypeWeights = {
-  AUTHORITATIVE:{WARMTH:0.22,RESPONSIVENESS:0.18,AUTONOMY_SUPPORT:0.18,STRUCTURE:0.20,CONSISTENCY:0.16,CONTROL:-0.16},
-  AUTHORITARIAN:{CONTROL:0.26,STRUCTURE:0.18,CONSISTENCY:0.16,WARMTH:-0.18,AUTONOMY_SUPPORT:-0.16,RESPONSIVENESS:-0.14},
-  PERMISSIVE:{WARMTH:0.22,AUTONOMY_SUPPORT:0.20,RESPONSIVENESS:0.16,STRUCTURE:-0.18,CONSISTENCY:-0.16,CONTROL:-0.20},
-  NEGLECTFUL:{WARMTH:-0.22,RESPONSIVENESS:-0.22,AUTONOMY_SUPPORT:-0.16,STRUCTURE:-0.14,CONSISTENCY:-0.12,CONTROL:0}
+  AUTHORITATIVE:{WARMTH:0.20,RESPONSIVENESS:0.16,AUTONOMY_SUPPORT:0.16,STRUCTURE:0.22,CONSISTENCY:0.18,CONTROL:-0.18},
+  AUTHORITARIAN:{CONTROL:0.26,STRUCTURE:0.18,CONSISTENCY:0.16,WARMTH:-0.18,AUTONOMY_SUPPORT:-0.18,RESPONSIVENESS:-0.16},
+  PERMISSIVE:{WARMTH:0.20,AUTONOMY_SUPPORT:0.22,RESPONSIVENESS:0.16,STRUCTURE:-0.20,CONSISTENCY:-0.16,CONTROL:-0.22},
+  NEGLECTFUL:{WARMTH:-0.24,RESPONSIVENESS:-0.24,AUTONOMY_SUPPORT:-0.18,STRUCTURE:-0.14,CONSISTENCY:-0.12,CONTROL:0},
+  EMPATHIC:{WARMTH:0.28,RESPONSIVENESS:0.24,AUTONOMY_SUPPORT:0.14,STRUCTURE:-0.12,CONSISTENCY:-0.10,CONTROL:-0.20},
+  COACH:{STRUCTURE:0.24,CONSISTENCY:0.20,AUTONOMY_SUPPORT:0.18,WARMTH:-0.06,RESPONSIVENESS:-0.06,CONTROL:0.10}
 };
 
 // ===== LIKERT LABELS =====
@@ -606,34 +616,60 @@ const comboComments = {
     BALANCE:{feature:"安定感のある理想的な組み合わせ。安心と挑戦が自然に両立しやすい関係です。",strengths:["信頼関係が深まりやすい","子どもが自律しやすい","衝突が比較的少ない"],caution:"理想像を高く持ちすぎると、子どもが「期待に応えなきゃ」と無理をする可能性。",growth:"「完璧よりプロセス」を言語化する。"},
     ENERGETIC:{feature:"情熱と安定の組み合わせ。エネルギーを良い方向に導けます。",strengths:["挑戦を応援できる","感情爆発を受け止められる"],caution:"ルールが多すぎると反発が強くなる。",growth:"選択肢を提示して主体性を活かす。"},
     CAUTIOUS:{feature:"安心感があるため、慎重型が力を出しやすい。",strengths:["不安を言語化できる","小さな成功体験を積ませやすい"],caution:"背中を押しすぎると不安が強まる。",growth:"「一歩ずつ」の挑戦設計。"},
-    EASYGOING:{feature:"穏やかな関係が築きやすい。",strengths:["焦らず見守れる","安心基地になれる"],caution:"先延ばしが固定化しやすい。",growth:"「始めるハードルを下げる」工夫。"}
+    EASYGOING:{feature:"穏やかな関係が築きやすい。",strengths:["焦らず見守れる","安心基地になれる"],caution:"先延ばしが固定化しやすい。",growth:"「始めるハードルを下げる」工夫。"},
+    EXPLORER:{feature:"知的好奇心と安定ルールの好相性。探究をルールで支えられます。",strengths:["好奇心を安全に伸ばせる","調べ学習を応援できる"],caution:"興味の脱線をルールで縛りすぎない。",growth:"「調べていい時間」を設けて自由に探究させる。"},
+    SOCIAL:{feature:"温かさと社交性が共鳴する組み合わせ。",strengths:["友人関係を温かく見守れる","コミュニケーション力が伸びる"],caution:"人付き合い優先で学習が後回しになりやすい。",growth:"友だちとの学び合い活動を取り入れる。"}
   },
   AUTHORITARIAN:{
     BALANCE:{feature:"規律と適応力が噛み合う。",strengths:["生活リズムが整いやすい","目標達成力が高まる"],caution:"自分で考える機会を奪わないこと。",growth:"任せる領域を1つ作る。"},
     ENERGETIC:{feature:"衝突が起きやすいが、成長余地は大きい。",strengths:["危険行動を抑制できる","エネルギーを整理できる"],caution:"強い統制は反発を招きやすい。",growth:"短く具体的な指示＋即承認。"},
     CAUTIOUS:{feature:"明確なルールで安心感が生まれる。",strengths:["見通しが立ちやすい","不安を減らせる"],caution:"厳しさが萎縮につながらないよう配慮。",growth:"「できた部分」を先に伝える。"},
-    EASYGOING:{feature:"生活習慣は整えやすい。",strengths:["型を作れる","行動開始を促せる"],caution:"完璧主義にならない。",growth:"小分けで達成感を作る。"}
+    EASYGOING:{feature:"生活習慣は整えやすい。",strengths:["型を作れる","行動開始を促せる"],caution:"完璧主義にならない。",growth:"小分けで達成感を作る。"},
+    EXPLORER:{feature:"知的好奇心が統制と衝突しやすい。",strengths:["集中力を鍛えられる","目標設定が明確になる"],caution:"「なぜ？」を封じると探究心が萎える。",growth:"質問タイムを設けて好奇心の出口を作る。"},
+    SOCIAL:{feature:"社交性がルール環境でやや窮屈に。",strengths:["礼儀やマナーが身につく","対人スキルが磨かれる"],caution:"友人関係への干渉が反発を生みやすい。",growth:"友人との時間を「ご褒美枠」として活用する。"}
   },
   PERMISSIVE:{
     BALANCE:{feature:"自由度の高い安定関係。",strengths:["主体性が伸びる","安心感がある"],caution:"ルール不足で習慣が崩れないように。",growth:"最低限の枠を作る。"},
     ENERGETIC:{feature:"自由が活きるが、暴走の可能性も。",strengths:["挑戦を応援できる","自己表現が伸びる"],caution:"境界が曖昧にならないこと。",growth:"安全ルールだけは明確に。"},
     CAUTIOUS:{feature:"プレッシャーが少なく力を出しやすい。",strengths:["自然体で成長できる","安心して考えられる"],caution:"挑戦機会を逃さない。",growth:"選べる挑戦メニューを用意。"},
-    EASYGOING:{feature:"非常に穏やかな関係。",strengths:["ストレスが少ない","心理的安全性が高い"],caution:"先延ばしが定着しやすい。",growth:"「やる時間」だけ決める。"}
+    EASYGOING:{feature:"非常に穏やかな関係。",strengths:["ストレスが少ない","心理的安全性が高い"],caution:"先延ばしが定着しやすい。",growth:"「やる時間」だけ決める。"},
+    EXPLORER:{feature:"自由な探究に最高の環境。",strengths:["好奇心が制限なく伸びる","創造力が育つ"],caution:"没頭しすぎて生活リズムが崩れやすい。",growth:"「探究→報告」のサイクルを作る。"},
+    SOCIAL:{feature:"社交活動を自由に伸ばせる。",strengths:["友人関係が豊かになる","自己表現力が育つ"],caution:"人間関係トラブル時のサポートが弱くなりがち。",growth:"困った時の相談ルートを決めておく。"}
   },
   NEGLECTFUL:{
     BALANCE:{feature:"子どもが自立しやすい。",strengths:["自主性が育つ","干渉が少ない"],caution:"承認不足にならないこと。",growth:"短時間でも毎日対話。"},
     ENERGETIC:{feature:"自走力は伸びるが、トラブルも起きやすい。",strengths:["自主性が強く育つ"],caution:"安全管理は明確に。",growth:"最低限の連絡ルール設定。"},
     CAUTIOUS:{feature:"静かな環境は合うが、不安を抱えやすい。",strengths:["集中しやすい"],caution:"相談の場を意識的に作る。",growth:"定期的な共有時間を持つ。"},
-    EASYGOING:{feature:"のんびり関係だが、停滞リスクあり。",strengths:["衝突が少ない"],caution:"習慣化が遅れやすい。",growth:"最小ルーティンを一緒に決める。"}
+    EASYGOING:{feature:"のんびり関係だが、停滞リスクあり。",strengths:["衝突が少ない"],caution:"習慣化が遅れやすい。",growth:"最小ルーティンを一緒に決める。"},
+    EXPLORER:{feature:"自由に探究できるが孤立しやすい。",strengths:["独学力が育つ","自分のペースで深掘りできる"],caution:"成果を誰にも共有できないと意欲が下がる。",growth:"「今日の発見」を1つ報告する習慣を。"},
+    SOCIAL:{feature:"外での人間関係に依存しやすい。",strengths:["社交スキルが鍛えられる","自分で居場所を作れる"],caution:"家庭の安心感が不足しがち。",growth:"帰宅後の短い会話タイムを作る。"}
+  },
+  EMPATHIC:{
+    BALANCE:{feature:"共感と安定が調和する穏やかな関係。",strengths:["感情の言語化が上手になる","自己肯定感が育つ"],caution:"甘やかしに偏らないようルールの枠も意識。",growth:"感情を受け止めた上で行動の選択肢を示す。"},
+    ENERGETIC:{feature:"感情の爆発を受け止められる安心の組み合わせ。",strengths:["クールダウンを助けられる","気持ちの切り替えを学べる"],caution:"共感だけで終わると行動が変わらない。",growth:"共感→行動の流れを習慣化。"},
+    CAUTIOUS:{feature:"不安に寄り添える最高のパートナー。",strengths:["安心して挑戦できる","気持ちを素直に出せる"],caution:"一緒に不安になりすぎない。",growth:"「不安OK、でも一歩だけ」の声かけ。"},
+    EASYGOING:{feature:"穏やかで居心地のよい関係。",strengths:["プレッシャーがない","自然体で過ごせる"],caution:"動き出しのきっかけが弱い。",growth:"小さな約束を一つだけ決める。"},
+    EXPLORER:{feature:"好奇心を感情面から支えられる。",strengths:["探究の喜びを一緒に味わえる","失敗しても安心できる"],caution:"方向性の助言が不足しがち。",growth:"興味の優先順位を一緒に整理する。"},
+    SOCIAL:{feature:"共感力同士が響き合う。",strengths:["人間関係の悩みを一緒に考えられる","コミュ力が育つ"],caution:"感情に流されやすい。",growth:"「気持ち→事実→次の行動」の整理を一緒に。"}
+  },
+  COACH:{
+    BALANCE:{feature:"導きと適応力の好バランス。",strengths:["目標設定と振り返りが上手になる","計画力が育つ"],caution:"指導が多すぎると自発性が下がる。",growth:"問いかけで考えさせる時間を増やす。"},
+    ENERGETIC:{feature:"エネルギーを目標に向けられる。",strengths:["集中の仕方を学べる","達成感を積める"],caution:"指導口調が反発を招くことも。",growth:"短期目標を一緒に決めて即フィードバック。"},
+    CAUTIOUS:{feature:"丁寧な導きが安心感を生む。",strengths:["手順が明確で取り組みやすい","見通しが立つ"],caution:"「正解」を求めすぎるプレッシャー。",growth:"プロセスを褒め、間違いOKの空気を作る。"},
+    EASYGOING:{feature:"行動のきっかけを上手に作れる。",strengths:["スモールステップで導ける","習慣化を助けられる"],caution:"指示待ちが固定化しないように。",growth:"自分で決める小さな場面を作る。"},
+    EXPLORER:{feature:"知的探究を体系的に導ける最高の組み合わせ。",strengths:["調べ方・学び方を教えられる","探究が深まる"],caution:"型にはめすぎると好奇心が窮屈に。",growth:"探究テーマは子どもに選ばせる。"},
+    SOCIAL:{feature:"対人スキルを論理的に磨ける。",strengths:["コミュニケーションのコツを教えられる","振り返りが上手になる"],caution:"感情面のケアが手薄になりがち。",growth:"「気持ちはどうだった？」を必ず聞く。"}
   }
 };
 
 // ===== DETAILED MATCH GUIDES (do/dont/examples from v1) =====
 const matchGuides = {
-  AUTHORITATIVE:{BALANCE:{do:["方針を2〜3個に絞って一貫させる","努力プロセスを言語化してほめる","困った時の\"相談ルート\"を決めておく"],dont:["細かいミスを全部指摘する","結果だけで評価する","話を聞かずに結論を急ぐ"],examples:["『どうしたい？一緒に決めよう』","『ここまでやれたのすごいね。次はどこを工夫する？』"]},ENERGETIC:{do:["ルールは\"3つまで\"にする（短く）","先に選択肢を出して選ばせる","行動の前に\"合図\"を入れる"],dont:["長い説教","禁止だけで終わる","その場の感情で罰を重くする"],examples:["『AかBならどっち？』","『いまはストップ。10まで数えたら再開しよう』"]},CAUTIOUS:{do:["小さな一歩に分解して挑戦させる","事前に見通しを伝える","できたら\"具体的に\"認める"],dont:["急かす","人前で比べる","いきなり難しい課題を渡す"],examples:["『まずはここだけやってみよう』","『慎重に考えられたのは強みだよ』"]},EASYGOING:{do:["\"始めるハードル\"を下げる（2分だけ）","やる順番を固定する","達成を見える化"],dont:["気分任せで放置する","一気に量を増やす","急に厳しく締める"],examples:["『まず2分だけやってみよう』","『いつもの順番でいこう』"]}},
-  AUTHORITARIAN:{BALANCE:{do:["ルールの\"目的\"を1行で説明する","任せる領域を1つ決める","指摘：承認＝1：2を意識する"],dont:["命令口調だけで押す","理由を言わない","失敗を許さない"],examples:["『このルールは安全のためだよ』","『ここは任せる。どうやる？』"]},ENERGETIC:{do:["短い指示＋すぐ褒める","禁止より\"代替行動\"を出す","クールダウン場所を決める"],dont:["大声での叱責","長時間の正座説教","全否定（性格批判）"],examples:["『ストップ。次はこれをしよう』","『落ち着く場所で1分休もう』"]},CAUTIOUS:{do:["\"できた所\"を先に言う","手順を紙にして渡す","期限は余裕を持って設定する"],dont:["プレッシャーをかける","失敗への罰を強くする","人前で叱る"],examples:["『ここはよくできた。次はここだけ直そう』","『ゆっくりでいい、確実にいこう』"]},EASYGOING:{do:["スタート合図（タイマー）を使う","小分けで達成感を作る","できたらすぐ肯定する"],dont:["一度で完璧を求める","ダラダラを人格否定する","脅しで動かす"],examples:["『タイマー鳴ったら始めよう』","『始められたのえらい』"]}},
-  PERMISSIVE:{BALANCE:{do:["最低限の\"安全ルール\"だけ決める","期限・時間だけは親が枠を作る","振り返りを週1で一緒にする"],dont:["全部子ども任せ","困ってから一気に介入","ルールをコロコロ変える"],examples:["『安全のためのルールはこれだけね』","『今週どうだった？次どうする？』"]},ENERGETIC:{do:["\"危険・迷惑\"の境界だけは明確にする","体力の出口を用意する","約束を短くして守れたら即承認"],dont:["注意を曖昧にする","その場しのぎで許す","後から突然怒る"],examples:["『それは危ないからNG。代わりにこれね』","『約束守れた、ナイス！』"]},CAUTIOUS:{do:["選べる\"挑戦メニュー\"を用意する","事前練習の場を作る","小さく成功させて自信を積む"],dont:["放置して機会を逃す","突然大きな挑戦を投げる","不安を軽く扱う"],examples:["『この中ならどれならできそう？』","『できた！次は少しだけ増やそう』"]},EASYGOING:{do:["\"やる時間\"だけは決める（短く）","環境を整える","ご褒美は\"行動\"に紐づける"],dont:["気分に合わせて全て延期","締切直前に慌てて怒る","やる気待ちで放置"],examples:["『この10分だけやろう』","『始められたら○○しよう』"]}},
-  NEGLECTFUL:{BALANCE:{do:["短時間でも\"毎日5分\"の接点を作る","予定の共有をする","困った時の連絡手段を決める"],dont:["連絡が不定期","反応が遅すぎる","成功・努力への無反応"],examples:["『今日のハイライト1つ教えて』","『困ったらこの方法で連絡してね』"]},ENERGETIC:{do:["最低限の\"安全ルール\"と\"連絡ルール\"を作る","エネルギーの出口を確保","行動が良かった瞬間を短く褒める"],dont:["完全放置","問題が起きた時だけ怒る","後出しルール"],examples:["『帰る時は必ず連絡してね』","『今日のここ、良かった』"]},CAUTIOUS:{do:["\"相談していい時間\"を決める","不安の言語化を手伝う","学校/先生との連携を作る"],dont:["我慢前提で任せきり","不安を否定する","気づかないまま放置"],examples:["『毎日この時間は話していいよ』","『不安はA？B？どっちに近い？』"]},EASYGOING:{do:["最小ルーティンを一緒に作る","環境だけ整えて短く見守る","週1で一緒に\"立て直し\""],dont:["無計画に放置","期限切れで急に怒る","できない前提で決めつける"],examples:["『この3つだけ一緒に守ろう』","『今週はここから立て直そう』"]}}
+  AUTHORITATIVE:{BALANCE:{do:["方針を2〜3個に絞って一貫させる","努力プロセスを言語化してほめる","困った時の\"相談ルート\"を決めておく"],dont:["細かいミスを全部指摘する","結果だけで評価する","話を聞かずに結論を急ぐ"],examples:["『どうしたい？一緒に決めよう』","『ここまでやれたのすごいね。次はどこを工夫する？』"]},ENERGETIC:{do:["ルールは\"3つまで\"にする（短く）","先に選択肢を出して選ばせる","行動の前に\"合図\"を入れる"],dont:["長い説教","禁止だけで終わる","その場の感情で罰を重くする"],examples:["『AかBならどっち？』","『いまはストップ。10まで数えたら再開しよう』"]},CAUTIOUS:{do:["小さな一歩に分解して挑戦させる","事前に見通しを伝える","できたら\"具体的に\"認める"],dont:["急かす","人前で比べる","いきなり難しい課題を渡す"],examples:["『まずはここだけやってみよう』","『慎重に考えられたのは強みだよ』"]},EASYGOING:{do:["\"始めるハードル\"を下げる（2分だけ）","やる順番を固定する","達成を見える化"],dont:["気分任せで放置する","一気に量を増やす","急に厳しく締める"],examples:["『まず2分だけやってみよう』","『いつもの順番でいこう』"]},EXPLORER:{do:["調べる時間を\"ルール内\"で確保する","発見を報告する場を作る","脱線を完全否定せず軌道修正"],dont:["好奇心を\"余計なこと\"と片付ける","調べ物を禁止する","正解だけを求める"],examples:["『面白いね！あと10分調べたらご飯にしよう』","『何がわかった？教えて』"]},SOCIAL:{do:["友だちとの時間をルールに組み込む","対人トラブルを一緒に振り返る","グループ学習を活用する"],dont:["友人関係を否定する","一人の時間を強制しすぎる","SNSを一方的に禁止する"],examples:["『友だちと遊ぶ日は宿題を先に終わらせよう』","『そのとき、どんな気持ちだった？』"]}},
+  AUTHORITARIAN:{BALANCE:{do:["ルールの\"目的\"を1行で説明する","任せる領域を1つ決める","指摘：承認＝1：2を意識する"],dont:["命令口調だけで押す","理由を言わない","失敗を許さない"],examples:["『このルールは安全のためだよ』","『ここは任せる。どうやる？』"]},ENERGETIC:{do:["短い指示＋すぐ褒める","禁止より\"代替行動\"を出す","クールダウン場所を決める"],dont:["大声での叱責","長時間の正座説教","全否定（性格批判）"],examples:["『ストップ。次はこれをしよう』","『落ち着く場所で1分休もう』"]},CAUTIOUS:{do:["\"できた所\"を先に言う","手順を紙にして渡す","期限は余裕を持って設定する"],dont:["プレッシャーをかける","失敗への罰を強くする","人前で叱る"],examples:["『ここはよくできた。次はここだけ直そう』","『ゆっくりでいい、確実にいこう』"]},EASYGOING:{do:["スタート合図（タイマー）を使う","小分けで達成感を作る","できたらすぐ肯定する"],dont:["一度で完璧を求める","ダラダラを人格否定する","脅しで動かす"],examples:["『タイマー鳴ったら始めよう』","『始められたのえらい』"]},EXPLORER:{do:["調べ物は時間枠を決めて許可する","調査報告をさせて褒める","ルールの理由を論理的に説明する"],dont:["質問を\"うるさい\"と封じる","好奇心を無駄扱いする","一方的に禁止する"],examples:["『この30分は自由に調べていいよ』","『なるほど、そう考えたんだね』"]},SOCIAL:{do:["友だち付き合いのルールを一緒に決める","交友を評価でなく関心で聞く","チーム活動で達成感を味わわせる"],dont:["友人を選別・否定する","孤立させて罰とする","人間関係に過干渉する"],examples:["『友だちとの約束は週2回までにしよう』","『今日は誰と何した？』"]}},
+  PERMISSIVE:{BALANCE:{do:["最低限の\"安全ルール\"だけ決める","期限・時間だけは親が枠を作る","振り返りを週1で一緒にする"],dont:["全部子ども任せ","困ってから一気に介入","ルールをコロコロ変える"],examples:["『安全のためのルールはこれだけね』","『今週どうだった？次どうする？』"]},ENERGETIC:{do:["\"危険・迷惑\"の境界だけは明確にする","体力の出口を用意する","約束を短くして守れたら即承認"],dont:["注意を曖昧にする","その場しのぎで許す","後から突然怒る"],examples:["『それは危ないからNG。代わりにこれね』","『約束守れた、ナイス！』"]},CAUTIOUS:{do:["選べる\"挑戦メニュー\"を用意する","事前練習の場を作る","小さく成功させて自信を積む"],dont:["放置して機会を逃す","突然大きな挑戦を投げる","不安を軽く扱う"],examples:["『この中ならどれならできそう？』","『できた！次は少しだけ増やそう』"]},EASYGOING:{do:["\"やる時間\"だけは決める（短く）","環境を整える","ご褒美は\"行動\"に紐づける"],dont:["気分に合わせて全て延期","締切直前に慌てて怒る","やる気待ちで放置"],examples:["『この10分だけやろう』","『始められたら○○しよう』"]},EXPLORER:{do:["探究テーマは自由に選ばせる","図書館や博物館に連れて行く","発見を家族に発表する場を作る"],dont:["興味を否定する","成果を求めすぎる","没頭を放置しすぎる"],examples:["『好きなだけ調べていいよ。終わったら教えてね』","『すごい発見！みんなに教えてあげよう』"]},SOCIAL:{do:["友だちを家に呼ぶことを歓迎する","人間関係の悩みを聞く姿勢を持つ","グループ活動への参加を応援する"],dont:["友人トラブルを放置する","交友を制限しすぎる","一人の時間を全く作らない"],examples:["『お友だち呼んでいいよ』","『何かあったら教えてね』"]}},
+  NEGLECTFUL:{BALANCE:{do:["短時間でも\"毎日5分\"の接点を作る","予定の共有をする","困った時の連絡手段を決める"],dont:["連絡が不定期","反応が遅すぎる","成功・努力への無反応"],examples:["『今日のハイライト1つ教えて』","『困ったらこの方法で連絡してね』"]},ENERGETIC:{do:["最低限の\"安全ルール\"と\"連絡ルール\"を作る","エネルギーの出口を確保","行動が良かった瞬間を短く褒める"],dont:["完全放置","問題が起きた時だけ怒る","後出しルール"],examples:["『帰る時は必ず連絡してね』","『今日のここ、良かった』"]},CAUTIOUS:{do:["\"相談していい時間\"を決める","不安の言語化を手伝う","学校/先生との連携を作る"],dont:["我慢前提で任せきり","不安を否定する","気づかないまま放置"],examples:["『毎日この時間は話していいよ』","『不安はA？B？どっちに近い？』"]},EASYGOING:{do:["最小ルーティンを一緒に作る","環境だけ整えて短く見守る","週1で一緒に\"立て直し\""],dont:["無計画に放置","期限切れで急に怒る","できない前提で決めつける"],examples:["『この3つだけ一緒に守ろう』","『今週はここから立て直そう』"]},EXPLORER:{do:["興味を示したら短くてもリアクションする","調べ物に必要な環境を用意する","週1で発見を聞く時間を作る"],dont:["無関心を続ける","質問を面倒がる","成果を無視する"],examples:["『それ面白そうだね、もっと教えて』","『日曜に今週の発見を聞かせて』"]},SOCIAL:{do:["友人関係を把握する最低限の会話をする","学校行事に関心を示す","困った時の相談先を確保する"],dont:["完全に無関心","友人の名前も知らない","問題が起きてから初めて介入する"],examples:["『最近よく遊ぶ友だちは？』","『何かあったらいつでも言ってね』"]}},
+  EMPATHIC:{BALANCE:{do:["感情を受け止めた後に選択肢を示す","共感＋行動提案のセットで関わる","安心基地として機能する"],dont:["共感だけで終わる","ルールを曖昧にする","子どもの判断を全て肯定する"],examples:["『気持ちはわかるよ。でもどうしたい？』","『一緒に考えよう。AとBどっちがいい？』"]},ENERGETIC:{do:["まず気持ちを受け止めてからクールダウン","感情ラベリングを一緒にする","爆発後の振り返りを穏やかに"],dont:["感情的になって一緒に爆発する","叱らずに全て許す","我慢を強要する"],examples:["『イライラしたんだね。少し落ち着こう』","『どんな気持ちだった？言葉にしてみよう』"]},CAUTIOUS:{do:["不安を否定せず言語化を手伝う","スモールステップで安心を積む","「怖くてもOK」のメッセージ"],dont:["一緒に不安になりすぎる","過保護になる","挑戦を全て避けさせる"],examples:["『怖いよね。でも一歩だけ一緒にやってみよう』","『不安でも動けたの、すごいことだよ』"]},EASYGOING:{do:["気持ちに共感しつつ小さな行動を促す","「やりたくない気持ち」を認めた上で提案","一緒に始める"],dont:["共感だけで行動につながらない","先延ばしを毎回許す","プレッシャーをかける"],examples:["『やりたくないよね。2分だけ一緒にやろう』","『始められたね、えらい！』"]},EXPLORER:{do:["発見の喜びに心から共感する","一緒に驚き・感動する","調べた結果を聞いて褒める"],dont:["興味を否定する","感情だけで論理的支援をしない","調べすぎを感情的に止める"],examples:["『すごい！そんなこと調べたの？』","『ワクワクするね、もっと教えて』"]},SOCIAL:{do:["友人関係の喜びも悩みも共感する","感情の整理を一緒にする","対人スキルを褒める"],dont:["人間関係を軽視する","感情に巻き込まれすぎる","友人の悪口に同調する"],examples:["『それは嬉しかったね！』","『辛かったね。相手はどう思ってたと思う？』"]}},
+  COACH:{BALANCE:{do:["目標を一緒に設定して定期振り返り","問いかけで思考を引き出す","計画→実行→改善のサイクルを教える"],dont:["一方的に教え続ける","子どもの意見を待たずに答えを出す","評価ばかりする"],examples:["『今週の目標は何にする？』","『うまくいった理由はなんだと思う？』"]},ENERGETIC:{do:["短期目標で小さな達成感を積む","行動→即フィードバック","体を動かす学習方法を提案する"],dont:["長い講義をする","じっとさせて教える","失敗を分析しすぎる"],examples:["『5分で3問やってみよう。よーいドン！』","『ナイストライ！次はここを変えてみよう』"]},CAUTIOUS:{do:["手順を明確に示してから始めさせる","プロセスを重視して評価する","間違いを学びとして扱う"],dont:["正解主義を押し付ける","ミスを厳しく指摘する","比較で発破をかける"],examples:["『まずこの順番でやってみよう』","『間違えた所から一番学べるんだよ』"]},EASYGOING:{do:["スモールステップで導く","環境を整えてから始めさせる","できた部分を即座に認める"],dont:["大きな目標を最初に掲げる","指示待ちに慣れさせすぎる","「自分で考えて」だけで放置する"],examples:["『まずこの1つだけやってみよう』","『できた！次はどうする？』"]},EXPLORER:{do:["調べ方・学び方そのものを教える","探究のフレームワークを一緒に作る","発見を論理的にまとめる練習"],dont:["テーマを親が決める","効率だけを求める","遊びの探究を否定する"],examples:["『仮説を立ててから調べてみよう』","『面白い発見だね。なぜそうなるんだろう？』"]},SOCIAL:{do:["コミュニケーションのコツを論理的に教える","対人トラブルの解決策を一緒に考える","プレゼンやリーダーシップの場を作る"],dont:["人間関係を効率で語る","感情面を無視する","一人の時間を認めない"],examples:["『相手の気持ちはどうだったと思う？』","『チームでやる時、どう声かける？』"]}}
 };
 
 // ===== STATE =====
@@ -815,10 +851,18 @@ function calcParentTypeShares(dimScores){
 
 function calcChildTypeFromDims(dimScores){
   const S=dimScores.SURGENCY||50, EC=dimScores.EFFORTFUL_CONTROL||50;
-  if(S>=60&&EC>=60) return "BALANCE";
-  if(S>=60&&EC<40) return "ENERGETIC";
-  if(S<40&&EC>=60) return "CAUTIOUS";
-  if(S<40&&EC<40) return "EASYGOING";
+  const CU=dimScores.CURIOSITY||50, SO=dimScores.SOCIAL||50;
+  // Check dominant third-axis first
+  if(CU>=68&&CU>SO&&CU>S) return "EXPLORER";
+  if(SO>=68&&SO>CU&&SO>=S) return "SOCIAL";
+  // Then classic 2-axis quadrants
+  if(S>=55&&EC>=55) return "BALANCE";
+  if(S>=55&&EC<45) return "ENERGETIC";
+  if(S<45&&EC>=55) return "CAUTIOUS";
+  if(S<45&&EC<45) return "EASYGOING";
+  // Middle zone with third-axis tiebreak
+  if(CU>=58&&CU>SO) return "EXPLORER";
+  if(SO>=58&&SO>CU) return "SOCIAL";
   return (S>=50?(EC>=50?"BALANCE":"ENERGETIC"):(EC>=50?"CAUTIOUS":"EASYGOING"));
 }
 
