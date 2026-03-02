@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>親子クエスト — 3分で"わが家の攻略ヒント"が見つかる</title>
+<meta name="description" content="親の養育スタイルと子どもの気質タイプをRPGキャラで楽しく診断。各16問・約3分で、わが家に合った接し方のヒントが見つかります。ぱれっとが無料で提供。">
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- OGP (Open Graph Protocol) -->
+<meta property="og:title" content="親子クエスト — 3分で わが家の攻略ヒントが見つかる">
+<meta property="og:description" content="親の養育スタイルと子どもの気質タイプをRPGキャラで診断。各16問・約3分で、親子の接し方ヒントが見つかります。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://palette-kosodate.jp/shindan/">
+<meta property="og:image" content="https://palette-kosodate.jp/shindan/asset/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="親子クエスト by ぱれっと">
+<meta property="og:locale" content="ja_JP">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="親子クエスト — 3分で わが家の攻略ヒントが見つかる">
+<meta name="twitter:description" content="親の養育スタイルと子どもの気質タイプをRPGキャラで診断。各16問・約3分で、親子の接し方ヒントが見つかります。">
+<meta name="twitter:image" content="https://palette-kosodate.jp/shindan/asset/ogp.png">
+<link rel="canonical" href="https://palette-kosodate.jp/shindan/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --royal:#3A6FF7;--royal-hover:#2F5BE5;--gold:#F5B800;--gold-light:#FFF3C4;
+  --ivory:#FFF8EC;--bar-base:#E5E7EB;
+  --paladin:#4DA8FF;--commander:#1E2A78;--druid:#2F9E44;--ranger:#1F6B4F;
+  --guardian:#C7CCD6;--berserker:#FF4C4C;--alchemist:#7B5CFF;--monk:#FFC83D;
+  --text:#2D2A26;--text-light:#6B6560;--card-bg:#FFFFFF;
+  --unselected:#F1F3F9;--shadow:rgba(30,42,120,.07);
+  --radius:20px;--max-w:540px;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:"M PLUS Rounded 1c","Hiragino Kaku Gothic ProN",sans-serif;background:var(--ivory);color:var(--text);line-height:1.7;min-height:100dvh}
+
+/* --- Palette Site Header --- */
+.site-header{background:#fff;border-bottom:2px solid #ffe0f0;padding:12px 0;position:fixed;top:0;left:0;width:100%;z-index:100;font-family:"Zen Maru Gothic","Hiragino Kaku Gothic ProN",sans-serif}
+.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:960px;margin:0 auto;padding:0 20px}
+.site-logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:1.1rem;color:#FF53B0;text-decoration:none}
+.site-logo .logo-img{width:44px;height:44px;object-fit:contain;border-radius:8px}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:200}
+.hamburger span{display:block;width:24px;height:2px;background:#3a3a3a;margin:5px 0;transition:0.3s;border-radius:2px}
+.nav-list{display:flex;gap:24px;align-items:center;list-style:none}
+.nav-list a{color:#3a3a3a;font-size:0.9rem;font-weight:400;padding:4px 0;border-bottom:2px solid transparent;transition:border-color 0.2s,color 0.2s;text-decoration:none}
+.nav-list a:hover,.nav-list a[aria-current="page"]{color:#FF53B0;border-bottom-color:#FF53B0;opacity:1}
+
+/* --- Palette Site Footer --- */
+.site-footer{background:#FF53B0;color:#fff;padding:40px 20px 24px;text-align:center;font-family:"Zen Maru Gothic","Hiragino Kaku Gothic ProN",sans-serif;margin-top:-2px}
+.footer-inner{max-width:960px;margin:0 auto}
+.footer-name{font-size:1.1rem;color:#fff;margin-bottom:8px;font-weight:700}
+.footer-info{font-size:0.8rem;color:rgba(255,255,255,0.8);line-height:1.8;margin-bottom:20px}
+.footer-links{margin-bottom:20px}
+.footer-links a{color:rgba(255,255,255,0.85);font-size:0.8rem;margin:0 12px;text-decoration:none}
+.footer-links a:hover{color:#fff}
+.footer-copy{font-size:0.75rem;color:rgba(255,255,255,0.6);border-top:1px solid rgba(255,255,255,0.3);padding-top:16px}
+.footer-wave-wrapper{position:relative;width:100%;line-height:0;margin-top:40px}
+.footer-wave{display:block;width:100%;height:auto}
+
+@media(max-width:768px){
+  .header-inner{position:relative}
+  .hamburger{display:block;position:absolute;right:20px;top:50%;transform:translateY(-50%)}
+  .nav-list{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,0.98);flex-direction:column;justify-content:center;align-items:center;gap:28px;z-index:150}
+  .nav-list.active{display:flex}
+  .nav-list a{font-size:1.1rem}
+}
+
+.app{max-width:var(--max-w);margin:0 auto;padding:20px 16px 40px}
+.screen{display:none;animation:fadeUp .4s ease}
+.screen.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.header{text-align:center;padding:28px 0 8px}
+.header h1{font-size:1.45rem;color:var(--text);font-weight:700;letter-spacing:.02em}
+.header p{font-size:.85rem;color:var(--text-light);margin-top:4px}
+
+.card{background:var(--card-bg);border-radius:var(--radius);padding:24px;margin:16px 0;box-shadow:0 2px 16px var(--shadow);transition:transform .15s}
+.card:hover{transform:translateY(-2px)}
+.card h2{font-size:1.05rem;color:var(--text);margin-bottom:6px;font-weight:700}
+.card p{font-size:.88rem;color:var(--text-light)}
+
+.btn{display:block;width:100%;padding:14px;border:none;border-radius:24px;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;letter-spacing:.02em;font-family:inherit}
+.btn-primary{background:var(--royal);color:#fff}
+.btn-primary:hover{background:var(--royal-hover);transform:translateY(-1px)}
+.btn-secondary{background:var(--unselected);color:var(--text)}
+.btn-secondary:hover{background:#E2E5EE}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:#E0A800}
+.btn-outline{background:transparent;border:2px solid var(--bar-base);color:var(--text-light)}
+.btn-outline:hover{background:var(--bar-base);color:var(--text)}
+.btn-small{display:inline-block;width:auto;padding:10px 20px;font-size:.9rem}
+
+.menu-card{cursor:pointer;border-left:4px solid var(--royal);position:relative}
+.menu-card .emoji{font-size:1.6rem;margin-bottom:8px;display:block}
+
+.progress-wrap{margin:16px 0}
+.progress-bar{height:6px;background:var(--bar-base);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:var(--royal);border-radius:3px;transition:width .3s}
+.progress-text{font-size:.78rem;color:var(--text-light);text-align:right;margin-top:4px}
+
+/* Question */
+.question-card{background:var(--card-bg);border-radius:var(--radius);padding:28px 24px;margin:12px 0;box-shadow:0 2px 16px var(--shadow)}
+.question-num{font-size:.75rem;color:var(--royal);font-weight:700;margin-bottom:8px}
+.question-text{font-size:1.05rem;color:var(--text);font-weight:500;margin-bottom:24px;line-height:1.6;min-height:3.2em;display:flex;align-items:center}
+
+/* Scale likert */
+.likert-scale{display:flex;justify-content:space-between;align-items:flex-end;gap:6px;padding:0 4px}
+.likert-scale .scale-option{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;flex:1;transition:transform .15s}
+.likert-scale .scale-option:hover{transform:translateY(-2px)}
+.likert-scale .scale-dot{width:44px;height:44px;border-radius:50%;border:3px solid var(--bar-base);background:var(--unselected);transition:all .2s;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;color:#B0B5C0}
+.likert-scale .scale-option.selected .scale-dot{border-color:var(--royal);background:var(--royal);color:#fff;transform:scale(1.1);box-shadow:0 3px 12px rgba(58,111,247,.3)}
+.likert-scale .scale-label{font-size:.66rem;color:var(--text-light);text-align:center;line-height:1.3;min-height:2.6em;display:flex;align-items:center}
+.likert-scale .scale-option.selected .scale-label{color:var(--royal);font-weight:600}
+.scale-ends{display:flex;justify-content:space-between;margin-top:4px;padding:0 4px}
+.scale-ends span{font-size:.72rem;color:#B0B5C0;font-weight:500}
+.scale-dot.just-selected{animation:dotPulse .35s ease}
+@keyframes dotPulse{0%{transform:scale(1)}40%{transform:scale(1.25)}100%{transform:scale(1.1)}}
+
+/* Result */
+.result-card{background:var(--card-bg);border-radius:var(--radius);padding:28px 24px;margin:16px 0;box-shadow:0 2px 16px var(--shadow);text-align:center}
+.result-chara{margin:12px auto;width:150px;height:170px}
+.result-chara img{width:100%;height:100%;object-fit:contain;border-radius:18px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.1))}
+.result-chara-name{font-size:1.1rem;font-weight:800;margin:4px 0 2px}
+.result-type-label{font-size:.82rem;font-weight:500;color:var(--text-light);margin-bottom:4px}
+.result-catchcopy{font-size:.85rem;color:var(--text-light);font-style:italic;margin-bottom:16px}
+.score-bars{text-align:left;margin:16px 0}
+.score-row{margin:8px 0}
+.score-label{font-size:.82rem;color:var(--text-light);margin-bottom:2px;display:flex;justify-content:space-between}
+.score-track{height:8px;background:var(--bar-base);border-radius:4px;overflow:hidden}
+.score-value{height:100%;border-radius:4px;transition:width .6s ease}
+
+/* Type detail sections */
+.type-detail{text-align:left;margin:20px 0 0}
+.type-detail h3{font-size:.92rem;color:var(--text);margin:14px 0 6px;font-weight:700;display:flex;align-items:center;gap:6px}
+.type-detail p{font-size:.88rem;line-height:1.7;color:var(--text-light)}
+.type-detail ul{list-style:none;padding:0}
+.type-detail li{padding:4px 0 4px 16px;position:relative;font-size:.88rem;line-height:1.5;color:var(--text-light)}
+.type-detail li::before{content:"•";position:absolute;left:0;color:var(--royal)}
+.message-box{background:var(--gold-light);border-radius:12px;padding:14px 16px;margin:12px 0;font-size:.88rem;line-height:1.6;color:var(--text);text-align:center}
+
+/* Stage cards (child development) */
+.stage-card{background:var(--unselected);border-radius:14px;padding:16px;margin:10px 0;text-align:left}
+.stage-header{font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:2px}
+.stage-theme{font-size:.75rem;font-weight:600;color:var(--royal);margin-bottom:6px}
+.stage-trait{font-size:.84rem;color:var(--text-light);line-height:1.5;margin:0 0 8px}
+.stage-tips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.stage-tips-label{font-size:.74rem;color:var(--text-light);font-weight:600}
+.stage-tip{display:inline-block;font-size:.78rem;background:var(--card-bg);color:var(--text);padding:4px 10px;border-radius:10px;border:1px solid var(--bar-base)}
+
+/* Type share bars */
+.share-bars{text-align:left;margin:16px 0}
+.share-row{display:flex;align-items:center;gap:8px;margin:6px 0}
+.share-label{font-size:.78rem;color:var(--text-light);min-width:100px;text-align:right}
+.share-track{flex:1;height:10px;background:var(--bar-base);border-radius:5px;overflow:hidden}
+.share-fill{height:100%;border-radius:5px;transition:width .6s ease}
+.share-pct{font-size:.78rem;font-weight:700;min-width:36px}
+
+/* Diagnosed banner on top */
+.diagnosed-banner{background:var(--card-bg);border-radius:var(--radius);padding:20px;margin:16px 0;box-shadow:0 2px 16px var(--shadow);display:flex;align-items:center;gap:16px;transition:transform .15s,box-shadow .15s}
+.diagnosed-banner:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(58,111,247,.15)}
+.diagnosed-banner .db-avatar{width:60px;height:68px;flex-shrink:0}
+.diagnosed-banner .db-avatar img{width:100%;height:100%;object-fit:contain;border-radius:14px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.1))}
+.diagnosed-banner .db-info{flex:1;min-width:0}
+.diagnosed-banner .db-label{font-size:.68rem;color:var(--text-light);font-weight:500}
+.diagnosed-banner .db-name{font-size:.95rem;font-weight:800;line-height:1.3;margin:2px 0}
+.diagnosed-banner .db-type{font-size:.75rem;color:var(--text-light)}
+.diagnosed-banner .db-check{color:var(--gold);font-size:1.1rem;flex-shrink:0}
+.diagnosed-pair{display:flex;gap:12px;margin:16px 0}
+.diagnosed-pair .diagnosed-banner{flex:1;margin:0;padding:16px;flex-direction:column;text-align:center;gap:8px}
+.diagnosed-pair .db-avatar{width:52px;height:58px;margin:0 auto}
+.diagnosed-pair .db-info{text-align:center}
+
+/* Match */
+.select-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.type-btn{padding:14px 10px;border:2px solid var(--bar-base);border-radius:16px;background:var(--card-bg);font-size:.86rem;font-weight:500;cursor:pointer;transition:all .15s;text-align:center;color:var(--text);font-family:inherit}
+.type-btn:hover{border-color:var(--royal);background:#f0f4ff}
+.type-btn.selected{border-color:var(--royal);background:var(--royal);color:#fff;font-weight:700}
+.type-btn .type-btn-sub{font-size:.7rem;opacity:.7;display:block;margin-top:2px}
+
+/* Compatibility circle */
+.compat-circle-wrap{display:flex;flex-direction:column;align-items:center;margin:16px 0}
+.compat-circle{width:100px;height:100px;border-radius:50%;background:var(--gold-light);position:relative;display:flex;align-items:center;justify-content:center}
+.compat-circle svg{position:absolute;top:0;left:0;width:100%;height:100%;transform:rotate(-90deg)}
+.compat-circle .compat-pct{font-size:1.3rem;font-weight:800;color:var(--text);z-index:1}
+.compat-stars{margin:8px 0 4px;font-size:1.2rem;letter-spacing:2px}
+.compat-note{font-size:.78rem;color:var(--text-light);margin-top:2px}
+.compat-label-tag{display:inline-block;padding:4px 14px;border-radius:20px;font-size:.8rem;font-weight:700;background:var(--gold-light);color:#B8860B;margin-top:6px}
+
+.guide-section{text-align:left;margin:16px 0}
+.guide-section h3{font-size:.95rem;color:var(--text);margin:16px 0 8px;padding-bottom:4px;border-bottom:2px solid var(--bar-base);font-weight:700}
+.guide-section p{font-size:.88rem;line-height:1.7}
+.guide-list{list-style:none;padding:0}
+.guide-list li{padding:8px 0 8px 20px;position:relative;font-size:.88rem;line-height:1.6}
+.guide-list li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:8px;border-radius:50%}
+.guide-list.do li::before{background:var(--royal)}
+.guide-list.dont li::before{background:var(--berserker)}
+.guide-list.examples li::before{background:var(--gold)}
+.guide-list.examples li{color:var(--text-light)}
+.guide-list.strengths li::before{background:var(--druid)}
+
+.back-link{display:inline-block;font-size:.85rem;color:var(--text-light);cursor:pointer;padding:8px 0;margin-top:12px;border:none;background:none;text-decoration:underline;font-family:inherit}
+.divider{height:1px;background:var(--bar-base);margin:20px 0}
+.badge{display:inline-block;padding:4px 14px;border-radius:20px;font-size:.75rem;font-weight:700}
+.badge-royal{background:rgba(58,111,247,.1);color:var(--royal)}
+.badge-gold{background:var(--gold-light);color:#B8860B}
+.badge-green{background:rgba(47,158,68,.1);color:#2F9E44}
+.nav-btns{display:flex;gap:10px;margin-top:20px}
+.nav-btns .btn{flex:1}
+
+.slide-enter{animation:slideIn .3s ease}
+@keyframes slideIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+
+.reset-wrap{text-align:center;margin-top:8px}
+.reset-btn{background:none;border:none;font-size:.78rem;color:var(--text-light);cursor:pointer;padding:6px 12px;text-decoration:underline;opacity:.6;transition:opacity .2s;font-family:inherit}
+.reset-btn:hover{opacity:1}
+
+.ethics-note{font-size:.72rem;color:#B0B5C0;text-align:center;margin-top:8px;line-height:1.5}
+
+/* Hero block */
+.hero{text-align:center;padding:32px 0 12px}
+.hero-title{font-size:1.55rem;font-weight:800;color:var(--text);letter-spacing:.03em}
+.hero-sub{font-size:.92rem;color:var(--text-light);margin-top:4px;font-weight:500}
+.hero-provider{font-size:.76rem;color:var(--text-light);margin-top:10px}
+.hero-badges{display:flex;justify-content:center;gap:10px;margin-top:14px;flex-wrap:wrap}
+.hero-badge{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600;background:var(--card-bg);box-shadow:0 1px 6px var(--shadow)}
+.hero-badge.hb-free{color:#2F9E44}
+.hero-badge.hb-time{color:var(--royal)}
+.hero-badge.hb-safe{color:#B8860B}
+
+/* CTA cards (prioritized) */
+.cta-primary{cursor:pointer;background:var(--royal);border-radius:var(--radius);padding:22px 24px;margin:16px 0;box-shadow:0 4px 20px rgba(58,111,247,.18);transition:all .15s;text-align:center;color:#fff}
+.cta-primary:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(58,111,247,.25)}
+.cta-primary .cta-emoji{font-size:1.5rem;margin-bottom:6px;display:block}
+.cta-primary h2{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:4px}
+.cta-primary p{font-size:.84rem;color:rgba(255,255,255,.8)}
+.cta-secondary{cursor:pointer;background:var(--card-bg);border-radius:var(--radius);padding:18px 24px;margin:10px 0;box-shadow:0 2px 12px var(--shadow);transition:all .15s;text-align:center;border-left:4px solid var(--royal)}
+.cta-secondary:hover{transform:translateY(-2px)}
+.cta-secondary h2{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:2px}
+.cta-secondary p{font-size:.82rem;color:var(--text-light)}
+.cta-tertiary{cursor:pointer;background:var(--unselected);border-radius:16px;padding:14px 20px;margin:10px 0;transition:all .15s;text-align:center;border:1px dashed var(--bar-base)}
+.cta-tertiary:hover{background:var(--card-bg);border-color:var(--gold)}
+.cta-tertiary h2{font-size:.88rem;font-weight:600;color:var(--text-light);margin-bottom:2px}
+.cta-tertiary p{font-size:.78rem;color:#B0B5C0}
+.cta-tertiary.cta-highlight{background:var(--gold-light);border:2px solid var(--gold);border-style:solid}
+.cta-tertiary.cta-highlight h2{color:var(--text);font-weight:700}
+.cta-tertiary.cta-highlight p{color:#B8860B}
+
+/* Current status area (diagnosed) */
+.status-area{background:var(--card-bg);border-radius:var(--radius);padding:20px;margin:20px 0;box-shadow:0 2px 16px var(--shadow)}
+.status-title{font-size:.82rem;color:var(--text-light);font-weight:600;text-align:center;margin-bottom:12px}
+.status-pair{display:flex;gap:10px;margin-bottom:12px}
+.status-mini{flex:1;display:flex;align-items:center;gap:10px;background:var(--unselected);border-radius:14px;padding:10px 12px;cursor:pointer;transition:all .15s}
+.status-mini:hover{background:#E2E5EE}
+.status-mini img{width:42px;height:48px;border-radius:10px;object-fit:contain;filter:drop-shadow(0 2px 4px rgba(0,0,0,.08))}
+.status-mini-info{min-width:0;flex:1}
+.status-mini-label{font-size:.65rem;color:var(--text-light);font-weight:500}
+.status-mini-name{font-size:.82rem;font-weight:800;line-height:1.2;margin:1px 0}
+.status-mini-type{font-size:.7rem;color:var(--text-light)}
+.status-next{text-align:center;margin-top:12px}
+.status-next .btn{padding:12px 28px;margin:0 auto}
+.status-next .btn+.btn{margin-top:8px}
+.status-redo{text-align:center;margin-top:8px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.status-redo button{background:none;border:none;font-size:.75rem;color:var(--text-light);cursor:pointer;text-decoration:underline;font-family:inherit;opacity:.7}
+.status-redo button:hover{opacity:1}
+
+/* Sample preview */
+.sample-preview{background:var(--card-bg);border-radius:var(--radius);padding:20px;margin:20px 0;box-shadow:0 2px 12px var(--shadow);position:relative;overflow:hidden}
+.sample-preview::before{content:"※ これはサンプルです";position:absolute;top:10px;right:12px;font-size:.68rem;color:#B0B5C0;font-weight:600;background:var(--ivory);padding:2px 8px;border-radius:8px}
+.sample-chara{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.sample-chara img{width:56px;height:64px;border-radius:12px;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,.08));opacity:.85}
+.sample-chara-info h3{font-size:.92rem;font-weight:700;color:var(--paladin);line-height:1.2}
+.sample-chara-info p{font-size:.78rem;color:var(--text-light)}
+.sample-items{display:flex;flex-direction:column;gap:8px}
+.sample-item{font-size:.82rem;line-height:1.5;color:var(--text-light);padding-left:20px;position:relative}
+.sample-item::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%}
+.sample-item.si-str::before{background:var(--druid)}
+.sample-item.si-care::before{background:var(--berserker)}
+.sample-item.si-msg::before{background:var(--gold)}
+
+/* Footer disclaimer */
+.top-footer{margin-top:28px;padding:20px 0;border-top:1px solid var(--bar-base)}
+.top-footer-item{font-size:.74rem;color:#B0B5C0;line-height:1.6;margin:6px 0;text-align:center}
+.top-footer-item strong{color:var(--text-light);font-weight:600}
+
+/* Social share buttons */
+.social-share{display:flex;justify-content:center;gap:12px;margin:24px 0 8px;flex-wrap:wrap}
+.social-share-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 16px;border:none;border-radius:24px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;text-decoration:none;color:#fff;min-width:0}
+.social-share-btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
+.social-share-btn.share-x{background:#000}
+.social-share-btn.share-insta{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.social-share-btn.share-line{background:#06C755}
+.social-share-btn.share-url{background:var(--unselected);color:var(--text);border:1px solid var(--bar-base)}
+.social-share-btn svg{width:18px;height:18px;flex-shrink:0}
+.copy-toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 24px;border-radius:24px;font-size:.85rem;font-weight:600;z-index:999;animation:toastIn .3s ease}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+@media(max-width:400px){
+  .select-grid{grid-template-columns:1fr}
+  .header h1{font-size:1.25rem}
+  .hero-title{font-size:1.3rem}
+  .likert-scale .scale-dot{width:38px;height:38px;font-size:1rem}
+  .likert-scale .scale-label{font-size:.6rem}
+  .result-chara{width:120px;height:136px}
+  .share-label{min-width:72px;font-size:.7rem}
+  .status-pair{flex-direction:column}
+  .hero-badges{gap:6px}
+  .hero-badge{padding:5px 10px;font-size:.72rem}
+}
+</style>
+</head>
+<body>
+
+<div class="app" id="app">
+
+  <!-- ========== TOP ========== -->
+  <div class="screen active" id="top">
+    <!-- A. Hero block -->
+    <div class="hero">
+      <div class="hero-title">⚔️ 親子クエスト</div>
+      <div class="hero-sub">3分で"わが家の攻略ヒント"が見つかる</div>
+      <div class="hero-provider">ぱれっとが無料で提供</div>
+      <div class="hero-badges">
+        <span class="hero-badge hb-free">🎁 無料</span>
+        <span class="hero-badge hb-time">⏱ 各16問・約3分</span>
+        <span class="hero-badge hb-safe">🔒 データは端末内のみ</span>
+      </div>
+    </div>
+
+    <!-- Status area + navigation (all integrated) -->
+    <div id="topDiagnosedArea"></div>
+
+    <!-- Sample preview (shown only when not diagnosed) -->
+    <div id="topSampleArea"></div>
+
+    <!-- Footer disclaimer -->
+    <div class="top-footer">
+      <div class="top-footer-item"><strong>この診断の目的</strong>：親を評価するものではなく、わが家に合った接し方のヒントをお届けするものです。</div>
+      <div class="top-footer-item"><strong>ご注意</strong>：医療・心理の診断ではありません。お子さまの発達に不安がある場合は、専門家にご相談ください。</div>
+      <div class="top-footer-item">データはいつでも消せます。ぱれっとで利用することは一切ありません。</div>
+    </div>
+
+    <div class="reset-wrap" id="topResetWrap">
+      <button class="reset-btn" onclick="resetAll()">診断データをリセット</button>
+    </div>
+  </div>
+
+  <!-- ========== PARENT QUIZ ========== -->
+  <div class="screen" id="parentQuiz">
+    <div class="header">
+      <h1>🛡 親の養育スタイル診断</h1>
+      <p>あてはまる度合いを選んでください</p>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="parentProgress" style="width:0%"></div></div>
+      <div class="progress-text" id="parentProgressText">1 / 16</div>
+    </div>
+    <div id="parentQuestionArea"></div>
+    <div class="nav-btns" id="parentNav">
+      <button class="btn btn-outline btn-small" id="parentPrev" onclick="parentPrevQ()">← 戻る</button>
+      <button class="btn btn-primary btn-small" id="parentNext" onclick="parentNextQ()" style="visibility:hidden">次へ →</button>
+    </div>
+    <button class="back-link" onclick="goTop()">トップに戻る</button>
+  </div>
+
+  <!-- ========== PARENT RESULT ========== -->
+  <div class="screen" id="parentResult">
+    <div class="header">
+      <h1>🛡 あなたの養育スタイル</h1>
+    </div>
+    <div class="result-card" id="parentResultCard"></div>
+    <div class="nav-btns" id="parentResultNav"></div>
+  </div>
+
+  <!-- ========== CHILD QUIZ ========== -->
+  <div class="screen" id="childQuiz">
+    <div class="header">
+      <h1>🧭 子どもの気質タイプ診断</h1>
+      <p>お子さまにあてはまる度合いを選んでください</p>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="childProgress" style="width:0%"></div></div>
+      <div class="progress-text" id="childProgressText">1 / 16</div>
+    </div>
+    <div id="childQuestionArea"></div>
+    <div class="nav-btns" id="childNav">
+      <button class="btn btn-outline btn-small" id="childPrev" onclick="childPrevQ()">← 戻る</button>
+      <button class="btn btn-primary btn-small" id="childNext" onclick="childNextQ()" style="visibility:hidden">次へ →</button>
+    </div>
+    <button class="back-link" onclick="goTop()">トップに戻る</button>
+  </div>
+
+  <!-- ========== CHILD RESULT ========== -->
+  <div class="screen" id="childResult">
+    <div class="header">
+      <h1>🧭 お子さまの気質タイプ</h1>
+    </div>
+    <div class="result-card" id="childResultCard"></div>
+    <div class="nav-btns" id="childResultNav"></div>
+  </div>
+
+  <!-- ========== MATCH ========== -->
+  <div class="screen" id="matchScreen">
+    <div class="header">
+      <h1>⚔️ 相性ヒント</h1>
+    </div>
+    <div id="guideArea"></div>
+    <button class="back-link" onclick="goTop()">トップに戻る</button>
+  </div>
+</div>
+
+<script>
+// ===== CHARACTER DATA =====
+const parentChara = {
+  AUTHORITATIVE:{name:"パラディン・エルダ",catch:"愛と秩序で守る守護騎士",img:"asset/paradin.png",color:"var(--paladin)",colorHex:"#4DA8FF"},
+  AUTHORITARIAN:{name:"コマンダー・ヴァルク",catch:"規律で未来を切り拓く戦略家",img:"asset/commander.png",color:"var(--commander)",colorHex:"#1E2A78"},
+  PERMISSIVE:{name:"ドルイド・リーフ",catch:"自由を育てる森の守り手",img:"asset/droid.png",color:"var(--druid)",colorHex:"#2F9E44"},
+  NEGLECTFUL:{name:"レンジャー・ノクス",catch:"静かに見守る孤高の観察者",img:"asset/ranger.png",color:"var(--ranger)",colorHex:"#1F6B4F"}
+};
+const childChara = {
+  BALANCE:{name:"ガーディアン・ソル",catch:"安定と勇気をあわせ持つ若き守り手",img:"asset/guradian.png",color:"var(--guardian)",colorHex:"#C7CCD6"},
+  ENERGETIC:{name:"バーサーカー・ブレイズ",catch:"情熱ほとばしるエネルギーの塊",img:"asset/berseker.png",color:"var(--berserker)",colorHex:"#FF4C4C"},
+  CAUTIOUS:{name:"アルケミスト・ミラ",catch:"知恵と観察で道を拓く探究者",img:"asset/archemist.png",color:"var(--alchemist)",colorHex:"#7B5CFF"},
+  EASYGOING:{name:"モンク・ルーナ",catch:"静かな強さを秘めた癒しの存在",img:"asset/monk.png",color:"var(--monk)",colorHex:"#FFC83D"}
+};
+
+// ===== DIMENSION DEFINITIONS =====
+const parentDimDefs = [
+  {id:"WARMTH",name:"あたたかさ",color:"#4DA8FF"},
+  {id:"STRUCTURE",name:"構造化（ルール）",color:"#1E2A78"},
+  {id:"CONTROL",name:"統制（指示）",color:"#FF4C4C"},
+  {id:"AUTONOMY_SUPPORT",name:"自律支援",color:"#2F9E44"},
+  {id:"CONSISTENCY",name:"一貫性",color:"#7B5CFF"},
+  {id:"RESPONSIVENESS",name:"反応性",color:"#FFC83D"}
+];
+const childDimDefs = [
+  {id:"SURGENCY",name:"エネルギー（活動性）",color:"#3A6FF7"},
+  {id:"EFFORTFUL_CONTROL",name:"切り替え（自己コントロール）",color:"#2F9E44"},
+  {id:"NEGATIVE_AFFECT",name:"ストレス反応",color:"#FF4C4C"},
+  {id:"SOCIAL",name:"社交性",color:"#FFC83D"},
+  {id:"CURIOSITY",name:"探究心",color:"#7B5CFF"}
+];
+
+// ===== TYPE DEFINITIONS =====
+const parentTypes = [
+  {id:"AUTHORITATIVE",name:"あたたかルール型"},
+  {id:"AUTHORITARIAN",name:"ルール優先型"},
+  {id:"PERMISSIVE",name:"ゆるやか見守り型"},
+  {id:"NEGLECTFUL",name:"距離おき型"}
+];
+const childTypes = [
+  {id:"BALANCE",name:"バランス型"},
+  {id:"ENERGETIC",name:"勢い型"},
+  {id:"CAUTIOUS",name:"慎重型"},
+  {id:"EASYGOING",name:"マイペース型"}
+];
+
+// ===== PARENT TYPE WEIGHTS (for weighted scoring) =====
+const parentTypeWeights = {
+  AUTHORITATIVE:{WARMTH:0.24,STRUCTURE:0.2,AUTONOMY_SUPPORT:0.2,CONSISTENCY:0.16,RESPONSIVENESS:0.2,CONTROL:0},
+  AUTHORITARIAN:{CONTROL:0.28,STRUCTURE:0.22,CONSISTENCY:0.18,WARMTH:-0.14,AUTONOMY_SUPPORT:-0.1,RESPONSIVENESS:-0.14},
+  PERMISSIVE:{WARMTH:0.22,AUTONOMY_SUPPORT:0.18,STRUCTURE:-0.18,CONSISTENCY:-0.14,CONTROL:-0.18,RESPONSIVENESS:0.1},
+  NEGLECTFUL:{RESPONSIVENESS:-0.26,WARMTH:-0.22,STRUCTURE:-0.16,CONSISTENCY:-0.14,CONTROL:-0.08,AUTONOMY_SUPPORT:-0.14}
+};
+
+// ===== LIKERT LABELS =====
+const parentLabels = {1:"まったく\n当てはまらない",2:"あまり\n当てはまらない",3:"どちらとも\nいえない",4:"わりと\n当てはまる",5:"とても\n当てはまる"};
+const childLabels = {1:"ぜんぜん\nない",2:"あまり\nない",3:"どっちでも\nない",4:"けっこう\nある",5:"とても\nある"};
+
+// ===== QUESTIONS v2 (16 each, multi-dim mapping) =====
+const parentQs = [
+  {id:"P01",text:"子どもの気持ちをまず受け止めてから話すことが多い",maps:[{dim:"WARMTH",w:1.0},{dim:"RESPONSIVENESS",w:0.7}],rev:false},
+  {id:"P02",text:"子どもが困っている時、声をかけて状況を一緒に整理する",maps:[{dim:"RESPONSIVENESS",w:1.0},{dim:"WARMTH",w:0.6}],rev:false},
+  {id:"P03",text:"子どもをほめる時、結果よりも取り組み方をほめる",maps:[{dim:"AUTONOMY_SUPPORT",w:0.7},{dim:"WARMTH",w:0.5}],rev:false},
+  {id:"P04",text:"子どもが話している最中は、途中で遮らず最後まで聞くようにしている",maps:[{dim:"RESPONSIVENESS",w:1.0}],rev:false},
+  {id:"P05",text:"家庭のルールは短く明確にしている（例：3つまで）",maps:[{dim:"STRUCTURE",w:1.0}],rev:false},
+  {id:"P06",text:"約束を破った時の対応は、場面が違っても大きくブレない",maps:[{dim:"CONSISTENCY",w:1.0},{dim:"STRUCTURE",w:0.3}],rev:false},
+  {id:"P07",text:"忙しいと、子どもの話に反応できないまま終わることが多い",maps:[{dim:"RESPONSIVENESS",w:1.0}],rev:true},
+  {id:"P08",text:"ルールを作る時は、理由（目的）もセットで伝える",maps:[{dim:"STRUCTURE",w:0.7},{dim:"AUTONOMY_SUPPORT",w:0.5}],rev:false},
+  {id:"P09",text:"子どもが自分で決められる場面は、意識して任せる",maps:[{dim:"AUTONOMY_SUPPORT",w:1.0}],rev:false},
+  {id:"P10",text:"やる順番ややり方は、まず子どもに考えさせてから必要なら助ける",maps:[{dim:"AUTONOMY_SUPPORT",w:0.8},{dim:"CONTROL",w:-0.3}],rev:false},
+  {id:"P11",text:"危ない/迷惑になる時は、すぐ止めて指示することが多い",maps:[{dim:"CONTROL",w:1.0},{dim:"STRUCTURE",w:0.3}],rev:false},
+  {id:"P12",text:"子どもにはまず「言われた通りに」動いてほしいと思う",maps:[{dim:"CONTROL",w:0.9},{dim:"AUTONOMY_SUPPORT",w:-0.5},{dim:"WARMTH",w:-0.2}],rev:false},
+  {id:"P13",text:"子どもの学校や日々の様子を、把握できていないと感じることがある",maps:[{dim:"RESPONSIVENESS",w:-0.7},{dim:"WARMTH",w:-0.5}],rev:false},
+  {id:"P14",text:"しつけやルール作りは、気分や状況で変わりやすい",maps:[{dim:"CONSISTENCY",w:1.0}],rev:true},
+  {id:"P15",text:"子どもの相談を後回しにしてしまうことがある",maps:[{dim:"RESPONSIVENESS",w:0.8},{dim:"WARMTH",w:0.4}],rev:true},
+  {id:"P16",text:"子どもが困っていても、まず自分で何とかしてほしいと思うことが多い",maps:[{dim:"AUTONOMY_SUPPORT",w:-0.4},{dim:"RESPONSIVENESS",w:-0.6}],rev:false}
+];
+const childQs = [
+  {id:"C01",text:"新しい遊びや場所に行くと、すぐやってみたくなる",maps:[{dim:"SURGENCY",w:1.0}],rev:false},
+  {id:"C02",text:"思いついたらすぐ動くほうだ",maps:[{dim:"SURGENCY",w:0.9}],rev:false},
+  {id:"C03",text:"体を動かす遊びが好き",maps:[{dim:"SURGENCY",w:0.8}],rev:false},
+  {id:"C04",text:"人がいる場所はわくわくする",maps:[{dim:"SOCIAL",w:0.8},{dim:"SURGENCY",w:0.3}],rev:false},
+  {id:"C05",text:"「あとでね」と言われたら待てることが多い",maps:[{dim:"EFFORTFUL_CONTROL",w:1.0}],rev:false},
+  {id:"C06",text:"急に予定が変わると、気持ちを切り替えるのがむずかしい",maps:[{dim:"EFFORTFUL_CONTROL",w:1.0}],rev:true},
+  {id:"C07",text:"やることを最後まで続けられるほうだ",maps:[{dim:"EFFORTFUL_CONTROL",w:0.9}],rev:false},
+  {id:"C08",text:"落ち着くために深呼吸したり、少し休んだりできる",maps:[{dim:"EFFORTFUL_CONTROL",w:0.8}],rev:false},
+  {id:"C09",text:"心配ごとがあると、頭の中でずっと考えてしまう",maps:[{dim:"NEGATIVE_AFFECT",w:0.9},{dim:"CURIOSITY",w:0.1}],rev:false},
+  {id:"C10",text:"思い通りにならないと、イライラしやすい",maps:[{dim:"NEGATIVE_AFFECT",w:1.0}],rev:false},
+  {id:"C11",text:"失敗しても、すぐ気持ちを立て直せる",maps:[{dim:"NEGATIVE_AFFECT",w:1.0}],rev:true},
+  {id:"C12",text:"「なんでだろう？」と考えるのが好き",maps:[{dim:"CURIOSITY",w:1.0}],rev:false},
+  {id:"C13",text:"本や動画で知ったことを試してみたくなる",maps:[{dim:"CURIOSITY",w:0.8},{dim:"SURGENCY",w:0.2}],rev:false},
+  {id:"C14",text:"友だちに自分から話しかけることが多い",maps:[{dim:"SOCIAL",w:1.0}],rev:false},
+  {id:"C15",text:"一人の時間も好き",maps:[{dim:"SOCIAL",w:0.8}],rev:true},
+  {id:"C16",text:"知らない人の前だと、少し緊張する",maps:[{dim:"NEGATIVE_AFFECT",w:0.6},{dim:"SOCIAL",w:0.3}],rev:false}
+];
+
+// ===== 8 TYPE DETAILS =====
+const typeDetails = {
+  AUTHORITATIVE:{
+    essence:"あなたは「関係を壊さずに導く人」です。子どもの気持ちを尊重しながらも、必要な枠組みを整えようとします。〝優しさ〟と〝秩序〟の両立を目指す、成熟した守護者タイプです。",
+    strengths:["子どもが安心して本音を話せる空気を作れる","ルールに意味を持たせられる","感情を言語化する力が高い"],
+    habits:["理想の親像を自分に求めすぎる","「話せば分かる」と信じすぎる"],
+    stress:"余裕がなくなると〝ルール優先型〟に寄ることがあります。指示が増え、柔軟さが少し減る傾向があります。",
+    lever:"「境界線を短く伝える」— 長い説明より、一文で。",
+    message:"あなたの家庭は、安心と挑戦が同時に存在できる場所です。それは、とても価値のある土台です。"
+  },
+  AUTHORITARIAN:{
+    essence:"あなたは「秩序を作れる人」です。家庭に安定と明確さをもたらします。",
+    strengths:["ブレない軸がある","安全を守れる","決断力がある"],
+    habits:["結果を急ぎすぎる","正しさを優先しすぎる"],
+    stress:"指示が増え、対話が減りやすい。",
+    lever:"「指示の前に一呼吸」",
+    message:"あなたの〝軸〟は家庭の安心の柱です。そこに少しの柔らかさが加われば、さらに強くなります。"
+  },
+  PERMISSIVE:{
+    essence:"あなたは「信じて待てる人」です。",
+    strengths:["子どもの主体性を尊重できる","安心感がある","干渉しすぎない"],
+    habits:["境界線が曖昧になりやすい","困ってから介入することがある"],
+    stress:"距離を取りすぎる傾向。",
+    lever:"「最低限のルールを3つ決める」",
+    message:"あなたの〝信じる力〟は、子どもの自信の源です。"
+  },
+  NEGLECTFUL:{
+    essence:"あなたは「静かな観察者」です。",
+    strengths:["冷静","干渉しすぎない","自立を促せる"],
+    habits:["感情表現が少なくなる","関与不足に見られることがある"],
+    stress:"さらに距離を取る。",
+    lever:"「1日5分の対話時間」",
+    message:"あなたの静けさは、子どもにとって安心の背景音です。"
+  },
+  BALANCE:{
+    essence:"エネルギーと落ち着きのバランスが良い。",
+    strengths:["適応力","協調性","安定感"],
+    habits:["空気を読みすぎる"],
+    stress:"内側にため込む。",
+    lever:"「安心＋適度な挑戦」",
+    message:"あなたはどんな場面でも自分を整えられる力を持っています。",
+    stages:[
+      {label:"🍼 幼児期（3〜6歳）",theme:"自主性 vs 恥・疑惑",task:"「自分でやってみたい」という気持ちを育てる。",trait:"安定型のため挑戦は慎重。失敗経験が強いと自信を失いやすい。",tips:["失敗より「挑戦した事実」を承認","小さな選択肢を与える"]},
+      {label:"🎒 学童期（6〜12歳）",theme:"勤勉性 vs 劣等感",task:"「できる」という感覚を積み重ねる。",trait:"周囲に合わせすぎると自己評価が下がることがある。",tips:["他者比較を避ける","得意分野を明確に言語化"]},
+      {label:"🎓 思春期（12〜18歳）",theme:"同一性 vs 同一性拡散",task:"「自分は何者か」を探す。",trait:"空気を読みすぎると自己像が曖昧になる。",tips:["意見を尊重する対話","本音を引き出す質問"]}
+    ]
+  },
+  ENERGETIC:{
+    essence:"エネルギーの塊。",
+    strengths:["行動力","挑戦力","影響力"],
+    habits:["衝動的"],
+    stress:"爆発しやすい。",
+    lever:"「動ける自由＋明確な境界」",
+    message:"あなたの情熱は、世界を動かす力です。",
+    stages:[
+      {label:"🍼 幼児期（3〜6歳）",theme:"自主性 vs 恥・疑惑",task:"挑戦心は強いが失敗で感情爆発しやすい。",trait:"挑戦心は強いが失敗で感情爆発しやすい。",tips:["行動を止めるより方向修正","成功体験を短期間で作る"]},
+      {label:"🎒 学童期（6〜12歳）",theme:"勤勉性 vs 劣等感",task:"競争で伸びるが失敗時に劣等感が強く出る。",trait:"競争で伸びるが失敗時に劣等感が強く出る。",tips:["結果よりプロセス評価","身体活動を組み込む"]},
+      {label:"🎓 思春期（12〜18歳）",theme:"同一性 vs 同一性拡散",task:"強い自己主張と衝突が増える時期。",trait:"強い自己主張と衝突が増える時期。",tips:["境界線を明確に","選択肢提示型コミュニケーション"]}
+    ]
+  },
+  CAUTIOUS:{
+    essence:"深く考える知性派。",
+    strengths:["集中力","分析力","丁寧さ"],
+    habits:["心配しすぎる"],
+    stress:"動けなくなる。",
+    lever:"「見通しがある安心」",
+    message:"あなたの慎重さは、未来を守る知恵です。",
+    stages:[
+      {label:"🍼 幼児期（3〜6歳）",theme:"自主性 vs 恥・疑惑",task:"恥や不安を感じやすい。",trait:"恥や不安を感じやすい。",tips:["事前説明で安心を作る","「大丈夫」の具体化"]},
+      {label:"🎒 学童期（6〜12歳）",theme:"勤勉性 vs 劣等感",task:"完璧主義傾向で劣等感を抱えやすい。",trait:"完璧主義傾向で劣等感を抱えやすい。",tips:["小さな成功体験の積み重ね","失敗談を共有する"]},
+      {label:"🎓 思春期（12〜18歳）",theme:"同一性 vs 同一性拡散",task:"自己分析が深まりすぎ迷いやすい。",trait:"自己分析が深まりすぎ迷いやすい。",tips:["段階的な意思決定支援","安心できる対話空間"]}
+    ]
+  },
+  EASYGOING:{
+    essence:"自分のリズムを大切にする。",
+    strengths:["穏やか","粘り強い","安定感"],
+    habits:["先延ばし"],
+    stress:"さらにスローダウン。",
+    lever:"「小さなスタート」",
+    message:"あなたのペースは、あなたの強さです。",
+    stages:[
+      {label:"🍼 幼児期（3〜6歳）",theme:"自主性 vs 恥・疑惑",task:"急かされると自信を失いやすい。",trait:"急かされると自信を失いやすい。",tips:["待つ姿勢","開始のきっかけ作り"]},
+      {label:"🎒 学童期（6〜12歳）",theme:"勤勉性 vs 劣等感",task:"勤勉性がゆっくり育つ。",trait:"勤勉性がゆっくり育つ。",tips:["ルーティン化","小さな目標設定"]},
+      {label:"🎓 思春期（12〜18歳）",theme:"同一性 vs 同一性拡散",task:"自己主張が弱くなる可能性。",trait:"自己主張が弱くなる可能性。",tips:["比較を避ける","本人のリズム尊重＋最低限の約束"]}
+    ]
+  }
+};
+
+// ===== COMBINATION COMMENTS (16 patterns) =====
+const comboComments = {
+  AUTHORITATIVE:{
+    BALANCE:{feature:"安定感のある理想的な組み合わせ。安心と挑戦が自然に両立しやすい関係です。",strengths:["信頼関係が深まりやすい","子どもが自律しやすい","衝突が比較的少ない"],caution:"理想像を高く持ちすぎると、子どもが「期待に応えなきゃ」と無理をする可能性。",growth:"「完璧よりプロセス」を言語化する。"},
+    ENERGETIC:{feature:"情熱と安定の組み合わせ。エネルギーを良い方向に導けます。",strengths:["挑戦を応援できる","感情爆発を受け止められる"],caution:"ルールが多すぎると反発が強くなる。",growth:"選択肢を提示して主体性を活かす。"},
+    CAUTIOUS:{feature:"安心感があるため、慎重型が力を出しやすい。",strengths:["不安を言語化できる","小さな成功体験を積ませやすい"],caution:"背中を押しすぎると不安が強まる。",growth:"「一歩ずつ」の挑戦設計。"},
+    EASYGOING:{feature:"穏やかな関係が築きやすい。",strengths:["焦らず見守れる","安心基地になれる"],caution:"先延ばしが固定化しやすい。",growth:"「始めるハードルを下げる」工夫。"}
+  },
+  AUTHORITARIAN:{
+    BALANCE:{feature:"規律と適応力が噛み合う。",strengths:["生活リズムが整いやすい","目標達成力が高まる"],caution:"自分で考える機会を奪わないこと。",growth:"任せる領域を1つ作る。"},
+    ENERGETIC:{feature:"衝突が起きやすいが、成長余地は大きい。",strengths:["危険行動を抑制できる","エネルギーを整理できる"],caution:"強い統制は反発を招きやすい。",growth:"短く具体的な指示＋即承認。"},
+    CAUTIOUS:{feature:"明確なルールで安心感が生まれる。",strengths:["見通しが立ちやすい","不安を減らせる"],caution:"厳しさが萎縮につながらないよう配慮。",growth:"「できた部分」を先に伝える。"},
+    EASYGOING:{feature:"生活習慣は整えやすい。",strengths:["型を作れる","行動開始を促せる"],caution:"完璧主義にならない。",growth:"小分けで達成感を作る。"}
+  },
+  PERMISSIVE:{
+    BALANCE:{feature:"自由度の高い安定関係。",strengths:["主体性が伸びる","安心感がある"],caution:"ルール不足で習慣が崩れないように。",growth:"最低限の枠を作る。"},
+    ENERGETIC:{feature:"自由が活きるが、暴走の可能性も。",strengths:["挑戦を応援できる","自己表現が伸びる"],caution:"境界が曖昧にならないこと。",growth:"安全ルールだけは明確に。"},
+    CAUTIOUS:{feature:"プレッシャーが少なく力を出しやすい。",strengths:["自然体で成長できる","安心して考えられる"],caution:"挑戦機会を逃さない。",growth:"選べる挑戦メニューを用意。"},
+    EASYGOING:{feature:"非常に穏やかな関係。",strengths:["ストレスが少ない","心理的安全性が高い"],caution:"先延ばしが定着しやすい。",growth:"「やる時間」だけ決める。"}
+  },
+  NEGLECTFUL:{
+    BALANCE:{feature:"子どもが自立しやすい。",strengths:["自主性が育つ","干渉が少ない"],caution:"承認不足にならないこと。",growth:"短時間でも毎日対話。"},
+    ENERGETIC:{feature:"自走力は伸びるが、トラブルも起きやすい。",strengths:["自主性が強く育つ"],caution:"安全管理は明確に。",growth:"最低限の連絡ルール設定。"},
+    CAUTIOUS:{feature:"静かな環境は合うが、不安を抱えやすい。",strengths:["集中しやすい"],caution:"相談の場を意識的に作る。",growth:"定期的な共有時間を持つ。"},
+    EASYGOING:{feature:"のんびり関係だが、停滞リスクあり。",strengths:["衝突が少ない"],caution:"習慣化が遅れやすい。",growth:"最小ルーティンを一緒に決める。"}
+  }
+};
+
+// ===== DETAILED MATCH GUIDES (do/dont/examples from v1) =====
+const matchGuides = {
+  AUTHORITATIVE:{BALANCE:{do:["方針を2〜3個に絞って一貫させる","努力プロセスを言語化してほめる","困った時の\"相談ルート\"を決めておく"],dont:["細かいミスを全部指摘する","結果だけで評価する","話を聞かずに結論を急ぐ"],examples:["『どうしたい？一緒に決めよう』","『ここまでやれたのすごいね。次はどこを工夫する？』"]},ENERGETIC:{do:["ルールは\"3つまで\"にする（短く）","先に選択肢を出して選ばせる","行動の前に\"合図\"を入れる"],dont:["長い説教","禁止だけで終わる","その場の感情で罰を重くする"],examples:["『AかBならどっち？』","『いまはストップ。10まで数えたら再開しよう』"]},CAUTIOUS:{do:["小さな一歩に分解して挑戦させる","事前に見通しを伝える","できたら\"具体的に\"認める"],dont:["急かす","人前で比べる","いきなり難しい課題を渡す"],examples:["『まずはここだけやってみよう』","『慎重に考えられたのは強みだよ』"]},EASYGOING:{do:["\"始めるハードル\"を下げる（2分だけ）","やる順番を固定する","達成を見える化"],dont:["気分任せで放置する","一気に量を増やす","急に厳しく締める"],examples:["『まず2分だけやってみよう』","『いつもの順番でいこう』"]}},
+  AUTHORITARIAN:{BALANCE:{do:["ルールの\"目的\"を1行で説明する","任せる領域を1つ決める","指摘：承認＝1：2を意識する"],dont:["命令口調だけで押す","理由を言わない","失敗を許さない"],examples:["『このルールは安全のためだよ』","『ここは任せる。どうやる？』"]},ENERGETIC:{do:["短い指示＋すぐ褒める","禁止より\"代替行動\"を出す","クールダウン場所を決める"],dont:["大声での叱責","長時間の正座説教","全否定（性格批判）"],examples:["『ストップ。次はこれをしよう』","『落ち着く場所で1分休もう』"]},CAUTIOUS:{do:["\"できた所\"を先に言う","手順を紙にして渡す","期限は余裕を持って設定する"],dont:["プレッシャーをかける","失敗への罰を強くする","人前で叱る"],examples:["『ここはよくできた。次はここだけ直そう』","『ゆっくりでいい、確実にいこう』"]},EASYGOING:{do:["スタート合図（タイマー）を使う","小分けで達成感を作る","できたらすぐ肯定する"],dont:["一度で完璧を求める","ダラダラを人格否定する","脅しで動かす"],examples:["『タイマー鳴ったら始めよう』","『始められたのえらい』"]}},
+  PERMISSIVE:{BALANCE:{do:["最低限の\"安全ルール\"だけ決める","期限・時間だけは親が枠を作る","振り返りを週1で一緒にする"],dont:["全部子ども任せ","困ってから一気に介入","ルールをコロコロ変える"],examples:["『安全のためのルールはこれだけね』","『今週どうだった？次どうする？』"]},ENERGETIC:{do:["\"危険・迷惑\"の境界だけは明確にする","体力の出口を用意する","約束を短くして守れたら即承認"],dont:["注意を曖昧にする","その場しのぎで許す","後から突然怒る"],examples:["『それは危ないからNG。代わりにこれね』","『約束守れた、ナイス！』"]},CAUTIOUS:{do:["選べる\"挑戦メニュー\"を用意する","事前練習の場を作る","小さく成功させて自信を積む"],dont:["放置して機会を逃す","突然大きな挑戦を投げる","不安を軽く扱う"],examples:["『この中ならどれならできそう？』","『できた！次は少しだけ増やそう』"]},EASYGOING:{do:["\"やる時間\"だけは決める（短く）","環境を整える","ご褒美は\"行動\"に紐づける"],dont:["気分に合わせて全て延期","締切直前に慌てて怒る","やる気待ちで放置"],examples:["『この10分だけやろう』","『始められたら○○しよう』"]}},
+  NEGLECTFUL:{BALANCE:{do:["短時間でも\"毎日5分\"の接点を作る","予定の共有をする","困った時の連絡手段を決める"],dont:["連絡が不定期","反応が遅すぎる","成功・努力への無反応"],examples:["『今日のハイライト1つ教えて』","『困ったらこの方法で連絡してね』"]},ENERGETIC:{do:["最低限の\"安全ルール\"と\"連絡ルール\"を作る","エネルギーの出口を確保","行動が良かった瞬間を短く褒める"],dont:["完全放置","問題が起きた時だけ怒る","後出しルール"],examples:["『帰る時は必ず連絡してね』","『今日のここ、良かった』"]},CAUTIOUS:{do:["\"相談していい時間\"を決める","不安の言語化を手伝う","学校/先生との連携を作る"],dont:["我慢前提で任せきり","不安を否定する","気づかないまま放置"],examples:["『毎日この時間は話していいよ』","『不安はA？B？どっちに近い？』"]},EASYGOING:{do:["最小ルーティンを一緒に作る","環境だけ整えて短く見守る","週1で一緒に\"立て直し\""],dont:["無計画に放置","期限切れで急に怒る","できない前提で決めつける"],examples:["『この3つだけ一緒に守ろう』","『今週はここから立て直そう』"]}}
+};
+
+// ===== STATE =====
+let parentAnswers = new Array(parentQs.length).fill(0);
+let childAnswers = new Array(childQs.length).fill(0);
+let parentIdx = 0, childIdx = 0;
+let savedParentType = null, savedChildType = null;
+let savedParentTraits = null, savedChildTraits = null;
+let savedParentShares = null;
+let selectedMatchParent = null, selectedMatchChild = null;
+let isTransitioning = false;
+
+// ===== NAV =====
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function goTop(){updateTopDiagnosed();showScreen('top')}
+
+function updateTopDiagnosed(){
+  const area=document.getElementById('topDiagnosedArea');
+  const sampleArea=document.getElementById('topSampleArea');
+  const hasPar=!!savedParentType;
+  const hasChi=!!savedChildType;
+  const topReset=document.getElementById('topResetWrap');
+  if(topReset) topReset.style.display=(hasPar||hasChi)?'none':'block';
+
+  // Sample preview: show only when nothing is diagnosed
+  if(!hasPar&&!hasChi){
+    sampleArea.innerHTML=`<div class="sample-preview">
+      <div class="sample-chara">
+        <img src="asset/paradin.png" alt="パラディン">
+        <div class="sample-chara-info">
+          <h3>パラディン・エルダ</h3>
+          <p>あたたかルール型</p>
+        </div>
+      </div>
+      <div class="sample-items">
+        <div class="sample-item si-str"><strong>強み：</strong>子どもが安心して本音を話せる空気を作れる</div>
+        <div class="sample-item si-care"><strong>困りやすい場面：</strong>理想の親像を自分に求めすぎる</div>
+        <div class="sample-item si-msg"><strong>今日の一言：</strong>安心と挑戦が同時に存在できる家庭は、とても価値のある土台です。</div>
+      </div>
+    </div>`;
+  } else {
+    sampleArea.innerHTML='';
+  }
+
+  // "あなたの現在地" — always shown, integrates all navigation
+  let html='<div class="status-area">';
+  html+='<div class="status-title">📍 あなたの現在地</div>';
+  html+='<div class="status-pair">';
+
+  // Parent slot
+  if(hasPar){
+    const pc=parentChara[savedParentType],pd=parentTypes.find(d=>d.id===savedParentType);
+    html+=`<div class="status-mini" onclick="showSavedParentResult()">
+      <img src="${pc.img}" alt="${pc.name}">
+      <div class="status-mini-info">
+        <div class="status-mini-label">親タイプ</div>
+        <div class="status-mini-name" style="color:${pc.colorHex}">${pc.name.split('・')[0]}</div>
+        <div class="status-mini-type">${pd.name}</div>
+      </div>
+    </div>`;
+  } else {
+    html+=`<div class="status-mini" onclick="startParent()" style="cursor:pointer">
+      <div style="width:42px;height:42px;border-radius:50%;background:var(--bar-base);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🛡</div>
+      <div class="status-mini-info">
+        <div class="status-mini-label">親タイプ</div>
+        <div class="status-mini-name" style="color:var(--royal)">診断する</div>
+        <div class="status-mini-type">16問・約3分</div>
+      </div>
+    </div>`;
+  }
+
+  // Child slot
+  if(hasChi){
+    const cc=childChara[savedChildType],cd=childTypes.find(c=>c.id===savedChildType);
+    html+=`<div class="status-mini" onclick="showSavedChildResult()">
+      <img src="${cc.img}" alt="${cc.name}">
+      <div class="status-mini-info">
+        <div class="status-mini-label">子タイプ</div>
+        <div class="status-mini-name" style="color:${cc.colorHex}">${cc.name.split('・')[0]}</div>
+        <div class="status-mini-type">${cd.name}</div>
+      </div>
+    </div>`;
+  } else {
+    html+=`<div class="status-mini" onclick="startChild()" style="cursor:pointer">
+      <div style="width:42px;height:42px;border-radius:50%;background:var(--bar-base);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🧭</div>
+      <div class="status-mini-info">
+        <div class="status-mini-label">子タイプ</div>
+        <div class="status-mini-name" style="color:var(--royal)">診断する</div>
+        <div class="status-mini-type">16問・約3分</div>
+      </div>
+    </div>`;
+  }
+  html+='</div>';
+
+  // Action buttons
+  if(hasPar&&hasChi){
+    html+=`<div class="status-next"><button class="btn btn-gold btn-small" onclick="startMatch()">⚔️ 相性ヒントを見る</button></div>`;
+    html+=`<div class="status-redo">
+      <button onclick="startParent()">🛡 親を再診断</button>
+      <button onclick="startChild()">🧭 子を再診断</button>
+      <button onclick="resetAll()">リセット</button>
+    </div>`;
+  } else if(hasPar){
+    html+=`<div class="status-next"><button class="btn btn-primary btn-small" onclick="startChild()">🧭 次は子どもの診断へ</button></div>`;
+    html+=`<div class="status-redo">
+      <button onclick="startParent()">🛡 親を再診断</button>
+      <button onclick="resetAll()">リセット</button>
+    </div>`;
+  } else if(hasChi){
+    html+=`<div class="status-next"><button class="btn btn-primary btn-small" onclick="startParent()">🛡 次は親の診断へ</button></div>`;
+    html+=`<div class="status-redo">
+      <button onclick="startChild()">🧭 子を再診断</button>
+      <button onclick="resetAll()">リセット</button>
+    </div>`;
+  } else {
+    // Both undiagnosed — show start buttons
+    html+=`<div class="status-next"><button class="btn btn-primary" onclick="startParent()" style="margin-bottom:8px">🛡 まず親のタイプを見る</button>
+    <button class="btn btn-secondary" onclick="startChild()">🧭 子どものタイプを見る</button></div>`;
+  }
+
+  html+='</div>';
+  area.innerHTML=html;
+}
+
+// ===== SCORING ENGINE =====
+function calcDimensionScores(answers, questions){
+  const dimData = {};
+  questions.forEach((q,i)=>{
+    if(answers[i]===0) return;
+    let ans = answers[i];
+    if(q.rev) ans = 6 - ans;
+    q.maps.forEach(m=>{
+      if(!dimData[m.dim]) dimData[m.dim]={sumVal:0,sumW:0};
+      let ea = ans, w = m.w;
+      if(w<0){ ea = 6 - ans; w = Math.abs(w); }
+      dimData[m.dim].sumVal += ea * w;
+      dimData[m.dim].sumW += w;
+    });
+  });
+  const scores={};
+  for(const [dim,d] of Object.entries(dimData)){
+    if(d.sumW===0){scores[dim]=50;continue;}
+    const mean = d.sumVal / d.sumW;
+    scores[dim] = Math.round(((mean-1)/4)*100);
+  }
+  return scores;
+}
+
+function calcParentTypeShares(dimScores){
+  const dim01={};
+  for(const [k,v] of Object.entries(dimScores)) dim01[k]=v/100;
+  const raw={};
+  for(const [type,weights] of Object.entries(parentTypeWeights)){
+    let score=0;
+    for(const [dim,w] of Object.entries(weights)){
+      score += (dim01[dim]!==undefined ? dim01[dim] : 0.5) * w;
+    }
+    raw[type] = Math.max(0.01, score);
+  }
+  const total = Object.values(raw).reduce((a,b)=>a+b,0);
+  const shares={};
+  for(const [type,val] of Object.entries(raw)) shares[type]=Math.round((val/total)*100);
+  const sum=Object.values(shares).reduce((a,b)=>a+b,0);
+  if(sum!==100){
+    const maxT=Object.entries(shares).sort((a,b)=>b[1]-a[1])[0][0];
+    shares[maxT]+=100-sum;
+  }
+  return shares;
+}
+
+function calcChildTypeFromDims(dimScores){
+  const S=dimScores.SURGENCY||50, EC=dimScores.EFFORTFUL_CONTROL||50;
+  if(S>=60&&EC>=60) return "BALANCE";
+  if(S>=60&&EC<40) return "ENERGETIC";
+  if(S<40&&EC>=60) return "CAUTIOUS";
+  if(S<40&&EC<40) return "EASYGOING";
+  return (S>=50?(EC>=50?"BALANCE":"ENERGETIC"):(EC>=50?"CAUTIOUS":"EASYGOING"));
+}
+
+function calcCompatScore(pTraits, cTraits){
+  const p={}, c={};
+  for(const [k,v] of Object.entries(pTraits)) p[k]=v/100;
+  for(const [k,v] of Object.entries(cTraits)) c[k]=v/100;
+  const pW=p.WARMTH||.5,pS=p.STRUCTURE||.5,pC=p.CONTROL||.5,pA=p.AUTONOMY_SUPPORT||.5,pCo=p.CONSISTENCY||.5,pR=p.RESPONSIVENESS||.5;
+  const cSu=c.SURGENCY||.5,cEC=c.EFFORTFUL_CONTROL||.5,cNA=c.NEGATIVE_AFFECT||.5,cCu=c.CURIOSITY||.5;
+  const nStr=cSu*(1-cEC),nSoo=cNA,nAut=cCu*(1-cNA);
+  const sStr=.6*pS+.4*pCo,sSoo=.55*pW+.45*pR,sAut=.7*pA+.3*pW;
+  const mt=(a,b)=>1-Math.abs(a-b);
+  const fit01=.45*mt(nStr,sStr)+.35*mt(nSoo,sSoo)+.20*mt(nAut,sAut);
+  const fitP=40*fit01;
+  const frA=pC*cSu,frB=(1-pS)*(1-cEC),frC=(1-pR)*cNA,frD=(1-pA)*cCu;
+  const friction01=.35*frA+.25*frB+.25*frC+.15*frD;
+  const frictionP=35*friction01;
+  const buffer01=.30*pW+.30*pR+.20*pCo+.20*pA;
+  const bufferP=20*buffer01;
+  const raw=40+fitP-frictionP+bufferP;
+  const shrink=.6+.4*.8;
+  const centered=60+(raw-60)*shrink;
+  return Math.max(0,Math.min(100,Math.round(centered)));
+}
+function getScoreLabel(s){if(s>=80)return"強みが活きる";if(s>=60)return"噛み合いやすい";if(s>=40)return"慣れると安定";return"工夫で伸びる"}
+function getScoreStars(s){if(s>=80)return 5;if(s>=60)return 4;return 3}
+
+// ===== RENDER HELPERS =====
+function renderScale(labels, currentVal, onSelect){
+  const order=[1,2,3,4,5];
+  return `<div class="likert-scale">${order.map(v=>{
+    const sel = currentVal===v ? 'selected' : '';
+    const label = labels[v].replace('\n','<br>');
+    return `<div class="scale-option ${sel}" data-val="${v}" onclick="${onSelect}(${v})">
+      <div class="scale-dot">${v}</div>
+      <div class="scale-label">${label}</div>
+    </div>`;
+  }).join('')}</div>
+  <div class="scale-ends"><span>← 当てはまらない</span><span>当てはまる →</span></div>`;
+}
+function renderStars(n){return '★'.repeat(n)+'☆'.repeat(5-n)}
+
+// ===== SHARE BUTTONS =====
+function buildShareUrl(pType, cType){
+  const base = location.origin + location.pathname;
+  const params = [];
+  if(pType) params.push('p='+pType);
+  if(cType) params.push('c='+cType);
+  return params.length ? base+'?'+params.join('&') : base;
+}
+function showCopyToast(msg){
+  const t=document.createElement('div');t.className='copy-toast';t.textContent=msg;
+  document.body.appendChild(t);setTimeout(()=>t.remove(),2000);
+}
+function copyToClipboard(text, msg){
+  const m = msg || 'コピーしました！';
+  if(navigator.clipboard){navigator.clipboard.writeText(text).then(()=>showCopyToast(m)).catch(()=>fallbackCopy(text, m))}
+  else fallbackCopy(text, m);
+}
+function fallbackCopy(text, msg){
+  const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showCopyToast(msg || 'コピーしました！');
+}
+let _shareData = {};
+let _shareId = 0;
+function renderShareButtons(shareText, pType, cType){
+  const url = buildShareUrl(pType, cType);
+  const encodedText = encodeURIComponent(shareText);
+  const encodedUrl = encodeURIComponent(url);
+  const sid = ++_shareId;
+  _shareData[sid] = {text: shareText, url: url};
+  return `<div class="social-share">
+    <a class="social-share-btn share-x" href="https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      X
+    </a>
+    <button class="social-share-btn share-insta" onclick="shareInsta(${sid})">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      Instagram
+    </button>
+    <a class="social-share-btn share-line" href="https://social-plugins.line.me/lineit/share?url=${encodedUrl}&text=${encodedText}" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      LINE
+    </a>
+    <button class="social-share-btn share-url" onclick="shareUrl(${sid})">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      URLコピー
+    </button>
+  </div>`;
+}
+function shareInsta(sid){
+  const d=_shareData[sid];if(!d)return;
+  copyToClipboard(d.text+'\n'+d.url, 'テキストをコピーしました！Instagramに貼り付けてね');
+}
+function shareUrl(sid){
+  const d=_shareData[sid];if(!d)return;
+  copyToClipboard(d.url, 'URLをコピーしました！');
+}
+function renderCompatCircle(score){
+  const r=42,circ=2*Math.PI*r,offset=circ*(1-score/100);
+  return `<div class="compat-circle">
+    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="${r}" fill="none" stroke="var(--bar-base)" stroke-width="6"/>
+    <circle cx="50" cy="50" r="${r}" fill="none" stroke="var(--gold)" stroke-width="6" stroke-dasharray="${circ}" stroke-dashoffset="${offset}" stroke-linecap="round"/></svg>
+    <span class="compat-pct">${score}%</span>
+  </div>`;
+}
+
+function renderTypeDetail(typeId){
+  const d=typeDetails[typeId];if(!d)return'';
+  const isParent=!!parentChara[typeId];
+  let html=`<div class="type-detail">
+    <div class="divider"></div>
+    <h3>💡 ${isParent?'あなた':'お子さま'}の本質</h3><p>${d.essence}</p>
+    <h3>✨ 強み</h3><ul>${d.strengths.map(s=>'<li>'+s+'</li>').join('')}</ul>
+    <h3>🔄 無意識のクセ</h3><ul>${d.habits.map(s=>'<li>'+s+'</li>').join('')}</ul>
+    <h3>⚡ ストレス時</h3><p>${d.stress}</p>
+    <h3>🌱 ${isParent?'成長レバー':'伸びる環境'}</h3><p>${d.lever}</p>
+    <div class="message-box">🌟 ${d.message}</div>`;
+  if(d.stages){
+    html+=`<div class="divider"></div>
+      <h3>🧠 発達段階ガイド<span style="font-size:.72rem;color:var(--text-light);font-weight:400;margin-left:6px">エリクソン理論ベース</span></h3>`;
+    d.stages.forEach(s=>{
+      html+=`<div class="stage-card">
+        <div class="stage-header">${s.label}</div>
+        <div class="stage-theme">${s.theme}</div>
+        <p class="stage-trait">${s.trait}</p>
+        <div class="stage-tips"><span class="stage-tips-label">親の支援：</span>${s.tips.map(t=>'<span class="stage-tip">'+t+'</span>').join('')}</div>
+      </div>`;
+    });
+  }
+  html+=`</div>`;
+  return html;
+}
+
+// ===== PARENT QUIZ =====
+function startParent(){
+  parentIdx=0;parentAnswers.fill(0);isTransitioning=false;
+  showScreen('parentQuiz');renderParentQ();
+}
+function renderParentQ(){
+  const q=parentQs[parentIdx];
+  const area=document.getElementById('parentQuestionArea');
+  const pct=((parentIdx)/parentQs.length*100).toFixed(0);
+  document.getElementById('parentProgress').style.width=pct+'%';
+  document.getElementById('parentProgressText').textContent=`${parentIdx+1} / ${parentQs.length}`;
+  area.innerHTML=`<div class="question-card slide-enter" id="parentQCard">
+    <div class="question-num">Q${parentIdx+1}</div>
+    <div class="question-text">${q.text}</div>
+    ${renderScale(parentLabels, parentAnswers[parentIdx], 'selectParentA')}
+  </div>`;
+  document.getElementById('parentPrev').style.visibility=parentIdx===0?'hidden':'visible';
+}
+function selectParentA(v){
+  if(isTransitioning) return;
+  parentAnswers[parentIdx]=v;
+  document.querySelectorAll('#parentQCard .scale-option').forEach(opt=>{
+    const dotEl=opt.querySelector('.scale-dot');
+    if(parseInt(opt.dataset.val)===v){opt.classList.add('selected');dotEl.classList.add('just-selected')}
+    else{opt.classList.remove('selected')}
+  });
+  isTransitioning=true;
+  setTimeout(()=>{isTransitioning=false;
+    if(parentIdx<parentQs.length-1){parentIdx++;renderParentQ()}else calcParent();
+  },400);
+}
+function parentNextQ(){if(!parentAnswers[parentIdx]||isTransitioning)return;if(parentIdx<parentQs.length-1){parentIdx++;renderParentQ()}else calcParent()}
+function parentPrevQ(){if(parentIdx>0&&!isTransitioning){parentIdx--;renderParentQ()}}
+
+function calcParent(){
+  const dimScores = calcDimensionScores(parentAnswers, parentQs);
+  const shares = calcParentTypeShares(dimScores);
+  const sorted = Object.entries(shares).sort((a,b)=>b[1]-a[1]);
+  const typeId = sorted[0][0];
+  const isMixed = sorted[0][1]-sorted[1][1] <= 7;
+
+  savedParentType=typeId;
+  savedParentTraits=dimScores;
+  savedParentShares=shares;
+  try{
+    localStorage.setItem('parentType',typeId);
+    localStorage.setItem('parentTraits',JSON.stringify(dimScores));
+    localStorage.setItem('parentShares',JSON.stringify(shares));
+  }catch(e){}
+
+  renderParentResultCard(typeId, dimScores, shares, sorted, isMixed);
+
+  const nav=document.getElementById('parentResultNav');
+  if(savedChildType){
+    nav.innerHTML=`<button class="btn btn-secondary" onclick="goTop()">トップへ</button>
+      <button class="btn btn-primary" onclick="startMatch()">組み合わせを見る</button>`;
+  } else {
+    nav.innerHTML=`<button class="btn btn-secondary" onclick="goTop()">トップへ</button>
+      <button class="btn btn-primary" onclick="startChild()">🧭 次は子どもの診断へ</button>`;
+  }
+  showScreen('parentResult');
+}
+
+function renderParentResultCard(typeId, dimScores, shares, sorted, isMixed){
+  const pt=parentTypes.find(d=>d.id===typeId);
+  const ch=parentChara[typeId];
+  let html=`<span class="badge badge-royal">あなたのタイプ</span>
+    <div class="result-chara"><img src="${ch.img}" alt="${ch.name}"></div>
+    <div class="result-chara-name" style="color:${ch.colorHex}">${ch.name}</div>
+    <div class="result-type-label">${pt.name}</div>
+    <div class="result-catchcopy">${ch.catch}</div>
+    ${isMixed?'<p style="font-size:.82rem;color:var(--gold);margin-bottom:12px">※ 2つのタイプが近いミックスタイプです</p>':''}`;
+
+  // Type share bars
+  html+='<div class="share-bars">';
+  sorted.forEach(([id,pct])=>{
+    const n=parentTypes.find(d=>d.id===id).name;
+    const c=parentChara[id].colorHex;
+    html+=`<div class="share-row">
+      <span class="share-label">${n}</span>
+      <div class="share-track"><div class="share-fill" style="width:${pct}%;background:${c}"></div></div>
+      <span class="share-pct" style="color:${c}">${pct}%</span>
+    </div>`;
+  });
+  html+='</div>';
+
+  // Dimension trait bars
+  html+='<div class="divider"></div><p style="font-size:.8rem;color:var(--text-light);text-align:left;margin-bottom:8px">特性プロフィール</p><div class="score-bars">';
+  parentDimDefs.forEach(dd=>{
+    const val=dimScores[dd.id]||0;
+    html+=`<div class="score-row"><div class="score-label"><span>${dd.name}</span><span>${val}%</span></div>
+      <div class="score-track"><div class="score-value" style="width:${val}%;background:${dd.color}"></div></div></div>`;
+  });
+  html+='</div>';
+
+  // Type detail
+  html+=renderTypeDetail(typeId);
+
+  // Share buttons
+  const pName=parentTypes.find(d=>d.id===typeId).name;
+  const pChName=parentChara[typeId].name;
+  const shareText=`⚔️ 親子クエストで「${pChName}（${pName}）」と診断されました！`;
+  html+=renderShareButtons(shareText, typeId, null);
+
+  document.getElementById('parentResultCard').innerHTML=html;
+}
+
+// ===== CHILD QUIZ =====
+function startChild(){
+  childIdx=0;childAnswers.fill(0);isTransitioning=false;
+  showScreen('childQuiz');renderChildQ();
+}
+function renderChildQ(){
+  const q=childQs[childIdx];
+  const area=document.getElementById('childQuestionArea');
+  const pct=((childIdx)/childQs.length*100).toFixed(0);
+  document.getElementById('childProgress').style.width=pct+'%';
+  document.getElementById('childProgressText').textContent=`${childIdx+1} / ${childQs.length}`;
+  area.innerHTML=`<div class="question-card slide-enter" id="childQCard">
+    <div class="question-num">Q${childIdx+1}</div>
+    <div class="question-text">${q.text}</div>
+    ${renderScale(childLabels, childAnswers[childIdx], 'selectChildA')}
+  </div>`;
+  document.getElementById('childPrev').style.visibility=childIdx===0?'hidden':'visible';
+}
+function selectChildA(v){
+  if(isTransitioning) return;
+  childAnswers[childIdx]=v;
+  document.querySelectorAll('#childQCard .scale-option').forEach(opt=>{
+    const dotEl=opt.querySelector('.scale-dot');
+    if(parseInt(opt.dataset.val)===v){opt.classList.add('selected');dotEl.classList.add('just-selected')}
+    else{opt.classList.remove('selected')}
+  });
+  isTransitioning=true;
+  setTimeout(()=>{isTransitioning=false;
+    if(childIdx<childQs.length-1){childIdx++;renderChildQ()}else calcChild();
+  },400);
+}
+function childNextQ(){if(!childAnswers[childIdx]||isTransitioning)return;if(childIdx<childQs.length-1){childIdx++;renderChildQ()}else calcChild()}
+function childPrevQ(){if(childIdx>0&&!isTransitioning){childIdx--;renderChildQ()}}
+
+function calcChild(){
+  const dimScores = calcDimensionScores(childAnswers, childQs);
+  const typeId = calcChildTypeFromDims(dimScores);
+  const naScore = dimScores.NEGATIVE_AFFECT||50;
+
+  savedChildType=typeId;
+  savedChildTraits=dimScores;
+  try{
+    localStorage.setItem('childType',typeId);
+    localStorage.setItem('childTraits',JSON.stringify(dimScores));
+  }catch(e){}
+
+  renderChildResultCard(typeId, dimScores, naScore);
+
+  const cnav=document.getElementById('childResultNav');
+  if(savedParentType){
+    cnav.innerHTML=`<button class="btn btn-secondary" onclick="goTop()">トップへ</button>
+      <button class="btn btn-primary" onclick="startMatch()">組み合わせを見る</button>`;
+  } else {
+    cnav.innerHTML=`<button class="btn btn-secondary" onclick="goTop()">トップへ</button>
+      <button class="btn btn-primary" onclick="startParent()">🛡 次は親の診断へ</button>`;
+  }
+  showScreen('childResult');
+}
+
+function renderChildResultCard(typeId, dimScores, naScore){
+  const ct=childTypes.find(c=>c.id===typeId);
+  const ch=childChara[typeId];
+  const naNote=naScore>=70?'ストレス反応がやや高めです。不安や怒りのケアを意識しましょう。':naScore>=50?'ストレス反応は平均的な範囲です。':'ストレス反応は穏やかです。';
+
+  // Badges
+  const S=dimScores.SURGENCY||50,EC=dimScores.EFFORTFUL_CONTROL||50,CU=dimScores.CURIOSITY||50,SO=dimScores.SOCIAL||50,NA=dimScores.NEGATIVE_AFFECT||50;
+  let badges=[];
+  if(CU>=70&&EC>=60) badges.push('📚 学びの加速者');
+  if(SO>=70&&S>=60) badges.push('🤝 ソーシャルドライバー');
+  if(NA>=70) badges.push('⚡ 高ストレス反応');
+
+  let html=`<span class="badge badge-gold">お子さまのタイプ</span>
+    <div class="result-chara"><img src="${ch.img}" alt="${ch.name}"></div>
+    <div class="result-chara-name" style="color:${ch.colorHex}">${ch.name}</div>
+    <div class="result-type-label">${ct.name}</div>
+    <div class="result-catchcopy">${ch.catch}</div>`;
+
+  if(badges.length>0){
+    html+=`<div style="margin:8px 0">${badges.map(b=>`<span class="badge badge-green" style="margin:2px 4px">${b}</span>`).join('')}</div>`;
+  }
+
+  // Dimension trait bars
+  html+='<div class="score-bars">';
+  childDimDefs.forEach(dd=>{
+    const val=dimScores[dd.id]||0;
+    html+=`<div class="score-row"><div class="score-label"><span>${dd.name}</span><span>${val}%</span></div>
+      <div class="score-track"><div class="score-value" style="width:${val}%;background:${dd.color}"></div></div></div>`;
+  });
+  html+='</div>';
+  html+=`<div class="divider"></div><p style="font-size:.85rem;color:var(--text-light);text-align:left">${naNote}</p>`;
+
+  // Type detail
+  html+=renderTypeDetail(typeId);
+
+  // Share buttons
+  const cName=childTypes.find(c=>c.id===typeId).name;
+  const cChName=childChara[typeId].name;
+  const shareTextC=`⚔️ 親子クエストで子どもが「${cChName}（${cName}）」と診断されました！`;
+  html+=renderShareButtons(shareTextC, null, typeId);
+
+  document.getElementById('childResultCard').innerHTML=html;
+}
+
+// ===== MATCH =====
+function startMatch(){
+  if(!savedParentType||!savedChildType){
+    alert('親と子どもの両方の診断を完了してから、相性ヒントをご覧ください。');
+    return;
+  }
+  selectedMatchParent=savedParentType;
+  selectedMatchChild=savedChildType;
+  showScreen('matchScreen');
+  showGuide();
+}
+
+function showGuide(){
+  const combo=comboComments[selectedMatchParent]?.[selectedMatchChild];
+  const guide=matchGuides[selectedMatchParent]?.[selectedMatchChild];
+  if(!combo){document.getElementById('guideArea').innerHTML='';return}
+  const pCh=parentChara[selectedMatchParent];
+  const cCh=childChara[selectedMatchChild];
+
+  // Dynamic compatibility score
+  let score=60, label="噛み合いやすい", stars=4;
+  if(savedParentTraits && savedChildTraits){
+    score=calcCompatScore(savedParentTraits,savedChildTraits);
+  } else {
+    // Fallback: estimate from type defaults
+    const defaultScores={AUTHORITATIVE:{BALANCE:82,ENERGETIC:68,CAUTIOUS:76,EASYGOING:65},AUTHORITARIAN:{BALANCE:72,ENERGETIC:55,CAUTIOUS:64,EASYGOING:60},PERMISSIVE:{BALANCE:75,ENERGETIC:58,CAUTIOUS:70,EASYGOING:62},NEGLECTFUL:{BALANCE:65,ENERGETIC:50,CAUTIOUS:58,EASYGOING:55}};
+    score=defaultScores[selectedMatchParent]?.[selectedMatchChild]||60;
+  }
+  label=getScoreLabel(score);
+  stars=getScoreStars(score);
+
+  let html=`<div class="card">
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:12px">
+        <img src="${pCh.img}" alt="${pCh.name}" style="width:56px;height:64px;border-radius:12px;object-fit:contain">
+        <span style="font-size:1.3rem;color:var(--gold)">×</span>
+        <img src="${cCh.img}" alt="${cCh.name}" style="width:56px;height:64px;border-radius:12px;object-fit:contain">
+      </div>
+      <h2 style="text-align:center;margin-bottom:4px">${pCh.name.split('・')[0]} × ${cCh.name.split('・')[0]}</h2>
+
+      <div class="compat-circle-wrap">
+        ${renderCompatCircle(score)}
+        <div class="compat-stars" style="color:var(--gold)">${renderStars(stars)}</div>
+        <div class="compat-label-tag">${label}</div>
+      </div>
+      <p class="ethics-note">※ スコアは相互理解のしやすさの目安です。タイプに優劣はありません。</p>
+
+      <div class="guide-section">
+        <h3>💛 相性の特徴</h3><p>${combo.feature}</p>
+        <h3>✨ 強み</h3><ul class="guide-list strengths">${combo.strengths.map(x=>'<li>'+x+'</li>').join('')}</ul>
+        <h3>⚠️ 注意ポイント</h3><p>${combo.caution}</p>
+        <h3>🌱 伸ばし方</h3><p>${combo.growth}</p>`;
+
+  if(guide){
+    html+=`<h3>✅ 有効な接し方</h3><ul class="guide-list do">${guide.do.map(x=>'<li>'+x+'</li>').join('')}</ul>
+        <h3>🚫 NG行動</h3><ul class="guide-list dont">${guide.dont.map(x=>'<li>'+x+'</li>').join('')}</ul>
+        <h3>💬 声かけ例</h3><ul class="guide-list examples">${guide.examples.map(x=>'<li>'+x+'</li>').join('')}</ul>`;
+  }
+  // Share buttons for combo
+  const pN=parentTypes.find(d=>d.id===selectedMatchParent).name;
+  const cN=childTypes.find(c=>c.id===selectedMatchChild).name;
+  const comboShareText=`⚔️ 親子クエスト｜${pCh.name.split('・')[0]}×${cCh.name.split('・')[0]}（${pN}×${cN}）の相性は「${label}」！`;
+  html+=renderShareButtons(comboShareText, selectedMatchParent, selectedMatchChild);
+
+  html+=`</div></div>`;
+  document.getElementById('guideArea').innerHTML=html;
+}
+
+// ===== SHOW SAVED RESULTS =====
+function showSavedParentResult(){
+  if(!savedParentType) return;
+  if(savedParentTraits && savedParentShares){
+    const sorted=Object.entries(savedParentShares).sort((a,b)=>b[1]-a[1]);
+    const isMixed=sorted[0][1]-sorted[1][1]<=7;
+    renderParentResultCard(savedParentType,savedParentTraits,savedParentShares,sorted,isMixed);
+  } else {
+    const ch=parentChara[savedParentType];
+    const pt=parentTypes.find(d=>d.id===savedParentType);
+    let html=`<span class="badge badge-royal">あなたのタイプ</span>
+      <div class="result-chara"><img src="${ch.img}" alt="${ch.name}"></div>
+      <div class="result-chara-name" style="color:${ch.colorHex}">${ch.name}</div>
+      <div class="result-type-label">${pt.name}</div>
+      <div class="result-catchcopy">${ch.catch}</div>`;
+    html+=renderTypeDetail(savedParentType);
+    document.getElementById('parentResultCard').innerHTML=html;
+  }
+  const nav=document.getElementById('parentResultNav');
+  if(savedChildType){
+    nav.innerHTML=`<button class="btn btn-secondary" onclick="goTop()">トップへ</button>
+      <button class="btn btn-primary" onclick="startMatch()">組み合わせを見る</button>`;
+  } else {
+    nav.innerHTML=`<button class="btn btn-secondary" onclick="goTop()">トップへ</button>
+      <button class="btn btn-primary" onclick="startChild()">🧭 次は子どもの診断へ</button>`;
+  }
+  showScreen('parentResult');
+}
+
+function showSavedChildResult(){
+  if(!savedChildType) return;
+  if(savedChildTraits){
+    const naScore=savedChildTraits.NEGATIVE_AFFECT||50;
+    renderChildResultCard(savedChildType,savedChildTraits,naScore);
+  } else {
+    const ch=childChara[savedChildType];
+    const ct=childTypes.find(c=>c.id===savedChildType);
+    let html=`<span class="badge badge-gold">お子さまのタイプ</span>
+      <div class="result-chara"><img src="${ch.img}" alt="${ch.name}"></div>
+      <div class="result-chara-name" style="color:${ch.colorHex}">${ch.name}</div>
+      <div class="result-type-label">${ct.name}</div>
+      <div class="result-catchcopy">${ch.catch}</div>`;
+    html+=renderTypeDetail(savedChildType);
+    document.getElementById('childResultCard').innerHTML=html;
+  }
+  const cnav=document.getElementById('childResultNav');
+  if(savedParentType){
+    cnav.innerHTML=`<button class="btn btn-secondary" onclick="goTop()">トップへ</button>
+      <button class="btn btn-primary" onclick="startMatch()">組み合わせを見る</button>`;
+  } else {
+    cnav.innerHTML=`<button class="btn btn-secondary" onclick="goTop()">トップへ</button>
+      <button class="btn btn-primary" onclick="startParent()">🛡 次は親の診断へ</button>`;
+  }
+  showScreen('childResult');
+}
+
+// ===== RESET =====
+function resetAll(){
+  if(!confirm('診断データをすべてリセットしますか？')) return;
+  parentAnswers.fill(0);childAnswers.fill(0);
+  parentIdx=0;childIdx=0;
+  savedParentType=null;savedChildType=null;
+  savedParentTraits=null;savedChildTraits=null;savedParentShares=null;
+  selectedMatchParent=null;selectedMatchChild=null;
+  try{localStorage.removeItem('parentType');localStorage.removeItem('childType');localStorage.removeItem('parentTraits');localStorage.removeItem('childTraits');localStorage.removeItem('parentShares')}catch(e){}
+  goTop();
+}
+
+// ===== INIT =====
+(function(){
+  const p=new URLSearchParams(location.search);
+  if(p.get('p')){savedParentType=p.get('p');try{localStorage.setItem('parentType',savedParentType)}catch(e){}}
+  if(p.get('c')){savedChildType=p.get('c');try{localStorage.setItem('childType',savedChildType)}catch(e){}}
+  if(!savedParentType)try{savedParentType=localStorage.getItem('parentType')}catch(e){}
+  if(!savedChildType)try{savedChildType=localStorage.getItem('childType')}catch(e){}
+  try{
+    const pt=localStorage.getItem('parentTraits');if(pt)savedParentTraits=JSON.parse(pt);
+    const ct=localStorage.getItem('childTraits');if(ct)savedChildTraits=JSON.parse(ct);
+    const ps=localStorage.getItem('parentShares');if(ps)savedParentShares=JSON.parse(ps);
+  }catch(e){}
+  updateTopDiagnosed();
+})();
+</script>
+
+  <div class="footer-wave-wrapper">
+    <svg class="footer-wave" viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0 40 Q120 0 240 40 Q360 80 480 40 Q600 0 720 40 Q840 80 960 40 Q1080 0 1200 40 Q1320 80 1440 40 V80 H0Z" fill="#FF53B0"/>
+    </svg>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-name">子育て応援隊ぱれっと</p>
+      <p class="footer-info">
+        任意団体｜東京都世田谷区｜設立 2023年11月
+      </p>
+      <div class="footer-links">
+        <a href="../index.html">ホーム</a>
+        <a href="../privacy.html">プライバシーポリシー</a>
+      </div>
+      <p class="footer-copy">&copy; 2023-2026 子育て応援隊ぱれっと All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  // Hamburger menu
+  (function(){
+    const btn = document.querySelector('.hamburger');
+    const nav = document.querySelector('.nav-list');
+    if (btn && nav) {
+      btn.addEventListener('click', function() {
+        nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', nav.classList.contains('active'));
+      });
+      nav.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          nav.classList.remove('active');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  })();
+  </script>
+</body>
+</html>
