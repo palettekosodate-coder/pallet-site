@@ -980,8 +980,8 @@ ul, ol {
 
 .shindan-fab-circle {
   position: relative;
-  width: 68px;
-  height: 68px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   background: linear-gradient(135deg, #FFE0F0 0%, #FFB6D9 40%, #FF8EC8 100%);
   display: flex;
@@ -991,8 +991,8 @@ ul, ol {
 }
 
 .shindan-fab-circle img {
-  width: 44px;
-  height: 44px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
   border-radius: 50%;
 }
