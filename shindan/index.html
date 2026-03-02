@@ -858,11 +858,17 @@ function renderStars(n){return '★'.repeat(n)+'☆'.repeat(5-n)}
 
 // ===== SHARE BUTTONS =====
 function buildShareUrl(pType, cType){
-  const base = location.origin + location.pathname;
-  const params = [];
-  if(pType) params.push('p='+pType);
-  if(cType) params.push('c='+cType);
-  return params.length ? base+'?'+params.join('&') : base;
+  const origin = location.origin || 'https://palette-kosodate.jp';
+  const basePath = location.pathname.replace(/\/[^/]*$/, '');
+  // 単体タイプ → OGP付き結果ページ、相性 → クエリパラメータ
+  if(pType && !cType){
+    return origin + basePath + '/result/' + pType.toLowerCase() + '.html';
+  } else if(cType && !pType){
+    return origin + basePath + '/result/' + cType.toLowerCase() + '.html';
+  } else if(pType && cType){
+    return origin + basePath + '/?p=' + pType + '&c=' + cType;
+  }
+  return origin + basePath + '/';
 }
 function showCopyToast(msg){
   const t=document.createElement('div');t.className='copy-toast';t.textContent=msg;
