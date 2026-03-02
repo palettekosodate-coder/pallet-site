@@ -1294,14 +1294,21 @@ function resetAll(){
 }
 
 // ===== INIT =====
+var isViewMode=false;
 (function(){
   const p=new URLSearchParams(location.search);
   const urlParent=p.get('p');
   const urlChild=p.get('c');
-  if(urlParent){savedParentType=urlParent;try{localStorage.setItem('parentType',savedParentType)}catch(e){}}
-  if(urlChild){savedChildType=urlChild;try{localStorage.setItem('childType',savedChildType)}catch(e){}}
-  if(!savedParentType)try{savedParentType=localStorage.getItem('parentType')}catch(e){}
-  if(!savedChildType)try{savedChildType=localStorage.getItem('childType')}catch(e){}
+
+  // URLパラメータがある場合は閲覧モード（localStorageに保存しない）
+  if(urlParent||urlChild){
+    isViewMode=true;
+    if(urlParent) savedParentType=urlParent;
+    if(urlChild) savedChildType=urlChild;
+  } else {
+    if(!savedParentType)try{savedParentType=localStorage.getItem('parentType')}catch(e){}
+    if(!savedChildType)try{savedChildType=localStorage.getItem('childType')}catch(e){}
+  }
   try{
     const pt=localStorage.getItem('parentTraits');if(pt)savedParentTraits=JSON.parse(pt);
     const ct=localStorage.getItem('childTraits');if(ct)savedChildTraits=JSON.parse(ct);
@@ -1309,15 +1316,63 @@ function resetAll(){
   }catch(e){}
   updateTopDiagnosed();
 
-  // URLパラメータで直接結果画面を表示
-  if(urlParent && urlChild){
-    startMatch();
-  } else if(urlParent){
-    showSavedParentResult();
-  } else if(urlChild){
-    showSavedChildResult();
+  // 閲覧モード：直接結果画面を表示
+  if(isViewMode){
+    if(urlParent && urlChild){
+      selectedMatchParent=urlParent;
+      selectedMatchChild=urlChild;
+      showScreen('matchScreen');
+      showGuide();
+      // 「トップに戻る」を「自分も診断してみる」に差し替え
+      const backLink=document.querySelector('#matchScreen .back-link');
+      if(backLink){
+        const ctaLink=document.createElement('a');
+        ctaLink.href='index.html';
+        ctaLink.className='btn btn-primary';
+        ctaLink.style.cssText='text-decoration:none;text-align:center;display:block;margin-top:20px';
+        ctaLink.textContent='🧭 自分も診断してみる';
+        backLink.replaceWith(ctaLink);
+      }
+    } else if(urlParent){
+      showViewResult('parent', urlParent);
+    } else if(urlChild){
+      showViewResult('child', urlChild);
+    }
   }
 })();
+
+// 閲覧モード用の結果表示
+function showViewResult(mode, typeId){
+  if(mode==='parent'){
+    const ch=parentChara[typeId];
+    const pt=parentTypes.find(d=>d.id===typeId);
+    if(!ch||!pt) return;
+    let html=`<span class="badge badge-royal">親タイプ診断結果</span>
+      <div class="result-chara"><img src="${ch.img}" alt="${ch.name}"></div>
+      <div class="result-chara-name" style="color:${ch.colorHex}">${ch.name}</div>
+      <div class="result-type-label">${pt.name}</div>
+      <div class="result-catchcopy">${ch.catch}</div>`;
+    html+=renderTypeDetail(typeId);
+    document.getElementById('parentResultCard').innerHTML=html;
+    const nav=document.getElementById('parentResultNav');
+    nav.innerHTML=`<a href="index.html" class="btn btn-primary" style="text-decoration:none;text-align:center">🧭 自分も診断してみる</a>`;
+    showScreen('parentResult');
+  } else {
+    const ch=childChara[typeId];
+    const ct=childTypes.find(c=>c.id===typeId);
+    if(!ch||!ct) return;
+    let html=`<span class="badge badge-gold">子どもタイプ診断結果</span>
+      <div class="result-chara"><img src="${ch.img}" alt="${ch.name}"></div>
+      <div class="result-chara-name" style="color:${ch.colorHex}">${ch.name}</div>
+      <div class="result-type-label">${ct.name}</div>
+      <div class="result-catchcopy">${ch.catch}</div>`;
+    html+=renderTypeDetail(typeId);
+    document.getElementById('childResultCard').innerHTML=html;
+    const cnav=document.getElementById('childResultNav');
+    cnav.innerHTML=`<a href="index.html" class="btn btn-primary" style="text-decoration:none;text-align:center">🧭 自分も診断してみる</a>`;
+    showScreen('childResult');
+  }
+}
 </script>
 
   <div class="footer-wave-wrapper">
