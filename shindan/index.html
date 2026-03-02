@@ -1296,8 +1296,10 @@ function resetAll(){
 // ===== INIT =====
 (function(){
   const p=new URLSearchParams(location.search);
-  if(p.get('p')){savedParentType=p.get('p');try{localStorage.setItem('parentType',savedParentType)}catch(e){}}
-  if(p.get('c')){savedChildType=p.get('c');try{localStorage.setItem('childType',savedChildType)}catch(e){}}
+  const urlParent=p.get('p');
+  const urlChild=p.get('c');
+  if(urlParent){savedParentType=urlParent;try{localStorage.setItem('parentType',savedParentType)}catch(e){}}
+  if(urlChild){savedChildType=urlChild;try{localStorage.setItem('childType',savedChildType)}catch(e){}}
   if(!savedParentType)try{savedParentType=localStorage.getItem('parentType')}catch(e){}
   if(!savedChildType)try{savedChildType=localStorage.getItem('childType')}catch(e){}
   try{
@@ -1306,6 +1308,15 @@ function resetAll(){
     const ps=localStorage.getItem('parentShares');if(ps)savedParentShares=JSON.parse(ps);
   }catch(e){}
   updateTopDiagnosed();
+
+  // URLパラメータで直接結果画面を表示
+  if(urlParent && urlChild){
+    startMatch();
+  } else if(urlParent){
+    showSavedParentResult();
+  } else if(urlChild){
+    showSavedChildResult();
+  }
 })();
 </script>
 
