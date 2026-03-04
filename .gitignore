@@ -1,3 +1,10 @@
 .DS_Store
 hero-design-proposal.html
 verify_links.py
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
