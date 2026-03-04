@@ -283,28 +283,37 @@ ul, ol {
 }
 
 /* --- Hero Safety Badges (⑦) --- */
-.hero-safety-badges {
+.hero-nav-badges {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 28px;
 }
 
-.hero-safety-badge {
+.hero-nav-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(255,255,255,0.85);
+  gap: 4px;
+  background: rgba(255,255,255,0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 2px solid #FFE0F0;
   border-radius: 30px;
-  padding: 6px 14px;
-  font-size: 0.78rem;
-  color: #c0408a;
-  font-weight: 700;
+  padding: 8px 16px;
+  font-size: 0.82rem;
+  color: #5A4A3E;
+  font-weight: 600;
   white-space: nowrap;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.hero-nav-badge:hover {
+  background: #fff;
+  border-color: #FF53B0;
+  color: #FF53B0;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(255,83,176,0.15);
 }
 
 /* --- Hero Actions (②⑤) --- */
@@ -1319,13 +1328,13 @@ ul, ol {
     max-width: 320px;
   }
 
-  .hero-safety-badges {
+  .hero-nav-badges {
     gap: 8px;
   }
 
-  .hero-safety-badge {
-    font-size: 0.72rem;
-    padding: 5px 10px;
+  .hero-nav-badge {
+    font-size: 0.75rem;
+    padding: 6px 12px;
   }
 
   .hero-sub-actions {
