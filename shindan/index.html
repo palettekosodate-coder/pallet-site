@@ -147,7 +147,7 @@ body{font-family:"M PLUS Rounded 1c","Hiragino Kaku Gothic ProN",sans-serif;back
 .score-row{margin:8px 0}
 .score-label{font-size:.82rem;color:var(--text-light);margin-bottom:2px;display:flex;justify-content:space-between}
 .score-track{height:8px;background:var(--bar-base);border-radius:4px;overflow:hidden}
-.score-value{height:100%;border-radius:4px;transition:width .6s ease}
+.score-value{height:100%;border-radius:4px;transition:width .8s cubic-bezier(.25,.46,.45,.94)}
 
 /* Type detail sections */
 .type-detail{text-align:left;margin:20px 0 0}
@@ -172,7 +172,7 @@ body{font-family:"M PLUS Rounded 1c","Hiragino Kaku Gothic ProN",sans-serif;back
 .share-row{display:flex;align-items:center;gap:8px;margin:6px 0}
 .share-label{font-size:.78rem;color:var(--text-light);min-width:100px;text-align:right}
 .share-track{flex:1;height:10px;background:var(--bar-base);border-radius:5px;overflow:hidden}
-.share-fill{height:100%;border-radius:5px;transition:width .6s ease}
+.share-fill{height:100%;border-radius:5px;transition:width .8s cubic-bezier(.25,.46,.45,.94)}
 .share-pct{font-size:.78rem;font-weight:700;min-width:36px}
 
 /* Diagnosed banner on top */
@@ -976,6 +976,34 @@ function triggerCharaReveal(cardEl){
   }
   charaDiv.appendChild(particleContainer);
   setTimeout(()=>particleContainer.remove(),1500);
+  // Animate bars after character reveal
+  setTimeout(()=>animateBars(cardEl),800);
+}
+
+function animateBars(container){
+  const duration=800;
+  const fills=container.querySelectorAll('.share-fill[data-target],.score-value[data-target]');
+  const nums=container.querySelectorAll('.share-pct[data-target],.score-num[data-target]');
+  fills.forEach((el,i)=>{
+    const target=parseInt(el.dataset.target);
+    setTimeout(()=>{el.style.width=target+'%'},i*60);
+  });
+  nums.forEach((el,i)=>{
+    const target=parseInt(el.dataset.target);
+    const start=performance.now();
+    const delay=i*60;
+    setTimeout(()=>{
+      function tick(now){
+        const elapsed=now-start-delay;
+        const progress=Math.min(elapsed/duration,1);
+        const eased=1-Math.pow(1-progress,3);
+        const current=Math.round(eased*target);
+        el.textContent=current+'%';
+        if(progress<1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    },delay);
+  });
 }
 
 // ===== SHARE BUTTONS =====
@@ -1157,8 +1185,8 @@ function renderParentResultCard(typeId, dimScores, shares, sorted, isMixed){
     const c=parentChara[id].colorHex;
     html+=`<div class="share-row">
       <span class="share-label">${n}</span>
-      <div class="share-track"><div class="share-fill" style="width:${pct}%;background:${c}"></div></div>
-      <span class="share-pct" style="color:${c}">${pct}%</span>
+      <div class="share-track"><div class="share-fill" data-target="${pct}" style="width:0%;background:${c}"></div></div>
+      <span class="share-pct" data-target="${pct}" style="color:${c}">0%</span>
     </div>`;
   });
   html+='</div>';
@@ -1167,8 +1195,8 @@ function renderParentResultCard(typeId, dimScores, shares, sorted, isMixed){
   html+='<div class="divider"></div><p style="font-size:.8rem;color:var(--text-light);text-align:left;margin-bottom:8px">特性プロフィール</p><div class="score-bars">';
   parentDimDefs.forEach(dd=>{
     const val=dimScores[dd.id]||0;
-    html+=`<div class="score-row"><div class="score-label"><span>${dd.name}</span><span>${val}%</span></div>
-      <div class="score-track"><div class="score-value" style="width:${val}%;background:${dd.color}"></div></div></div>`;
+    html+=`<div class="score-row"><div class="score-label"><span>${dd.name}</span><span class="score-num" data-target="${val}">0%</span></div>
+      <div class="score-track"><div class="score-value" data-target="${val}" style="width:0%;background:${dd.color}"></div></div></div>`;
   });
   html+='</div>';
 
@@ -1270,8 +1298,8 @@ function renderChildResultCard(typeId, dimScores, naScore){
   html+='<div class="score-bars">';
   childDimDefs.forEach(dd=>{
     const val=dimScores[dd.id]||0;
-    html+=`<div class="score-row"><div class="score-label"><span>${dd.name}</span><span>${val}%</span></div>
-      <div class="score-track"><div class="score-value" style="width:${val}%;background:${dd.color}"></div></div></div>`;
+    html+=`<div class="score-row"><div class="score-label"><span>${dd.name}</span><span class="score-num" data-target="${val}">0%</span></div>
+      <div class="score-track"><div class="score-value" data-target="${val}" style="width:0%;background:${dd.color}"></div></div></div>`;
   });
   html+='</div>';
   html+=`<div class="divider"></div><p style="font-size:.85rem;color:var(--text-light);text-align:left">${naNote}</p>`;
