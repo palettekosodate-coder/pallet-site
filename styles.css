@@ -245,28 +245,11 @@ ul, ol {
 
 .hero-description {
   font-size: 1.05rem;
-  color: #5A4A3E;
-  line-height: 1.8;
-  margin-bottom: 14px;
-  text-shadow: 0 1px 4px rgba(255,255,255,0.5);
-}
-.hero-keywords {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
+  color: #3A2E25;
+  line-height: 2;
   margin-bottom: 28px;
-}
-.hero-keyword {
-  display: inline-block;
-  padding: 5px 14px;
-  background: rgba(255,255,255,0.7);
-  border-radius: 20px;
-  font-size: 0.85rem;
-  color: #5A4A3E;
+  text-shadow: 0 1px 6px rgba(255,255,255,0.8), 0 0px 2px rgba(255,255,255,0.9);
   font-weight: 500;
-  letter-spacing: 0.02em;
-  backdrop-filter: blur(4px);
 }
 
 .hero-wave {
