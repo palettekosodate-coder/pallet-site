@@ -260,6 +260,8 @@ body{font-family:"M PLUS Rounded 1c","Hiragino Kaku Gothic ProN",sans-serif;back
 .status-pair{display:flex;gap:10px;margin-bottom:12px}
 .status-mini{flex:1;display:flex;align-items:center;gap:10px;background:var(--unselected);border-radius:14px;padding:10px 12px;cursor:pointer;transition:all .15s}
 .status-mini:hover{background:#E2E5EE}
+.status-mini-cta{background:var(--royal) !important;box-shadow:0 2px 10px rgba(58,111,247,.25)}
+.status-mini-cta:hover{background:#2D5FE0 !important}
 .status-mini img{width:64px;height:72px;border-radius:12px;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,.12))}
 .status-mini-info{min-width:0;flex:1}
 .status-mini-label{font-size:.72rem;color:var(--text-light);font-weight:500}
@@ -779,12 +781,12 @@ function updateTopDiagnosed(){
       </div>
     </div>`;
   } else {
-    html+=`<div class="status-mini" onclick="startParent()" style="cursor:pointer">
-      <div style="width:64px;height:64px;border-radius:50%;background:var(--bar-base);display:flex;align-items:center;justify-content:center;font-size:1.6rem">🛡</div>
+    html+=`<div class="status-mini status-mini-cta" onclick="startParent()" style="cursor:pointer">
+      <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:1.6rem">🛡</div>
       <div class="status-mini-info">
-        <div class="status-mini-label">親タイプ</div>
-        <div class="status-mini-name" style="color:var(--royal)">まず私から診断</div>
-        <div class="status-mini-type">16問・約3分</div>
+        <div class="status-mini-label" style="color:rgba(255,255,255,.8)">親タイプ</div>
+        <div class="status-mini-name" style="color:#fff">まず私から診断</div>
+        <div class="status-mini-type" style="color:rgba(255,255,255,.75)">16問・約3分</div>
       </div>
     </div>`;
   }
@@ -801,12 +803,12 @@ function updateTopDiagnosed(){
       </div>
     </div>`;
   } else {
-    html+=`<div class="status-mini" onclick="startChild()" style="cursor:pointer">
-      <div style="width:64px;height:64px;border-radius:50%;background:var(--bar-base);display:flex;align-items:center;justify-content:center;font-size:1.6rem">🧭</div>
+    html+=`<div class="status-mini status-mini-cta" onclick="startChild()" style="cursor:pointer">
+      <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:1.6rem">🧭</div>
       <div class="status-mini-info">
-        <div class="status-mini-label">子タイプ</div>
-        <div class="status-mini-name" style="color:var(--royal)">次に子どもを診断</div>
-        <div class="status-mini-type">16問・約3分</div>
+        <div class="status-mini-label" style="color:rgba(255,255,255,.8)">子タイプ</div>
+        <div class="status-mini-name" style="color:#fff">次に子どもを診断</div>
+        <div class="status-mini-type" style="color:rgba(255,255,255,.75)">16問・約3分</div>
       </div>
     </div>`;
   }
@@ -821,13 +823,11 @@ function updateTopDiagnosed(){
       <button onclick="resetAll()">リセット</button>
     </div>`;
   } else if(hasPar){
-    html+=`<div class="status-next"><button class="btn btn-primary btn-small" onclick="startChild()">🧭 次は子どもの診断へ</button></div>`;
     html+=`<div class="status-redo">
       <button onclick="startParent()">🛡 親を再診断</button>
       <button onclick="resetAll()">リセット</button>
     </div>`;
   } else if(hasChi){
-    html+=`<div class="status-next"><button class="btn btn-primary btn-small" onclick="startParent()">🛡 次は親の診断へ</button></div>`;
     html+=`<div class="status-redo">
       <button onclick="startChild()">🧭 子を再診断</button>
       <button onclick="resetAll()">リセット</button>
