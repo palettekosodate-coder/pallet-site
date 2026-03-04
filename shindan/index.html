@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>親子クエスト — 3分で"わが家の攻略ヒント"が見つかる</title>
+<title>親子のトリセツ — 3分でわが家の関わり方ヒントが見つかる</title>
 <meta name="description" content="親の養育スタイルと子どもの気質タイプをRPGキャラで楽しく診断。各16問・約3分で、わが家に合った接し方のヒントが見つかります。ぱれっとが無料で提供。">
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <!-- OGP (Open Graph Protocol) -->
-<meta property="og:title" content="親子クエスト — 3分で わが家の攻略ヒントが見つかる">
+<meta property="og:title" content="親子のトリセツ — 3分でわが家の関わり方ヒントが見つかる">
 <meta property="og:description" content="親の養育スタイルと子どもの気質タイプをRPGキャラで診断。各16問・約3分で、親子の接し方ヒントが見つかります。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://palette-kosodate.jp/shindan/">
 <meta property="og:image" content="https://palette-kosodate.jp/shindan/asset/ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:site_name" content="親子クエスト by ぱれっと">
+<meta property="og:site_name" content="親子のトリセツ by ぱれっと">
 <meta property="og:locale" content="ja_JP">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="親子クエスト — 3分で わが家の攻略ヒントが見つかる">
+<meta name="twitter:title" content="親子のトリセツ — 3分でわが家の関わり方ヒントが見つかる">
 <meta name="twitter:description" content="親の養育スタイルと子どもの気質タイプをRPGキャラで診断。各16問・約3分で、親子の接し方ヒントが見つかります。">
 <meta name="twitter:image" content="https://palette-kosodate.jp/shindan/asset/ogp.png">
 <link rel="canonical" href="https://palette-kosodate.jp/shindan/">
@@ -228,6 +228,7 @@ body{font-family:"M PLUS Rounded 1c","Hiragino Kaku Gothic ProN",sans-serif;back
 .hero{text-align:center;padding:32px 0 12px}
 .hero-title{font-size:1.55rem;font-weight:800;color:var(--text);letter-spacing:.03em}
 .hero-sub{font-size:.92rem;color:var(--text-light);margin-top:4px;font-weight:500}
+.hero-message{font-size:.82rem;color:#8B7355;margin-top:10px;line-height:1.6;font-style:italic;letter-spacing:0.02em}
 .hero-provider{font-size:.76rem;color:var(--text-light);margin-top:10px}
 .hero-badges{display:flex;justify-content:center;gap:10px;margin-top:14px;flex-wrap:wrap}
 .hero-badge{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600;background:var(--card-bg);box-shadow:0 1px 6px var(--shadow)}
@@ -324,8 +325,9 @@ body{font-family:"M PLUS Rounded 1c","Hiragino Kaku Gothic ProN",sans-serif;back
   <div class="screen active" id="top">
     <!-- A. Hero block -->
     <div class="hero">
-      <div class="hero-title">⚔️ 親子クエスト</div>
-      <div class="hero-sub">3分で"わが家の攻略ヒント"が見つかる</div>
+      <div class="hero-title">🎨 親子のトリセツ</div>
+      <div class="hero-sub">3分でわが家の関わり方ヒントが見つかる</div>
+      <div class="hero-message">子育てに正解はありません。<br>あなたと子どもの"ちがい"を知ることが、いちばんの近道です。</div>
       <div class="hero-provider">ぱれっとが無料で提供</div>
       <div class="hero-badges">
         <span class="hero-badge hb-free">🎁 無料</span>
@@ -409,7 +411,7 @@ body{font-family:"M PLUS Rounded 1c","Hiragino Kaku Gothic ProN",sans-serif;back
   <!-- ========== MATCH ========== -->
   <div class="screen" id="matchScreen">
     <div class="header">
-      <h1>⚔️ 相性ヒント</h1>
+      <h1>🤝 親子の関わり方ヒント</h1>
     </div>
     <div id="guideArea"></div>
     <button class="back-link" onclick="goTop()">トップに戻る</button>
@@ -812,7 +814,7 @@ function updateTopDiagnosed(){
 
   // Action buttons
   if(hasPar&&hasChi){
-    html+=`<div class="status-next"><button class="btn btn-gold btn-small" onclick="startMatch()">⚔️ 相性ヒントを見る</button></div>`;
+    html+=`<div class="status-next"><button class="btn btn-gold btn-small" onclick="startMatch()">🤝 関わり方ヒントを見る</button></div>`;
     html+=`<div class="status-redo">
       <button onclick="startParent()">🛡 親を再診断</button>
       <button onclick="startChild()">🧭 子を再診断</button>
@@ -1145,7 +1147,7 @@ function renderParentResultCard(typeId, dimScores, shares, sorted, isMixed){
   // Share buttons
   const pName=parentTypes.find(d=>d.id===typeId).name;
   const pChName=parentChara[typeId].name;
-  const shareText=`⚔️ 親子クエストで「${pChName}（${pName}）」と診断されました！`;
+  const shareText=`🎨 親子のトリセツで「${pChName}（${pName}）」と診断されました！`;
   html+=renderShareButtons(shareText, typeId, null);
 
   document.getElementById('parentResultCard').innerHTML=html;
@@ -1248,7 +1250,7 @@ function renderChildResultCard(typeId, dimScores, naScore){
   // Share buttons
   const cName=childTypes.find(c=>c.id===typeId).name;
   const cChName=childChara[typeId].name;
-  const shareTextC=`⚔️ 親子クエストで子どもが「${cChName}（${cName}）」と診断されました！`;
+  const shareTextC=`🎨 親子のトリセツで子どもが「${cChName}（${cName}）」と診断されました！`;
   html+=renderShareButtons(shareTextC, null, typeId);
 
   document.getElementById('childResultCard').innerHTML=html;
@@ -1257,7 +1259,7 @@ function renderChildResultCard(typeId, dimScores, naScore){
 // ===== MATCH =====
 function startMatch(){
   if(!savedParentType||!savedChildType){
-    alert('親と子どもの両方の診断を完了してから、相性ヒントをご覧ください。');
+    alert('親と子どもの両方の診断を完了してから、関わり方ヒントをご覧ください。');
     return;
   }
   selectedMatchParent=savedParentType;
@@ -1314,7 +1316,7 @@ function showGuide(){
   // Share buttons for combo
   const pN=parentTypes.find(d=>d.id===selectedMatchParent).name;
   const cN=childTypes.find(c=>c.id===selectedMatchChild).name;
-  const comboShareText=`⚔️ 親子クエスト｜${pCh.name.split('・')[0]}×${cCh.name.split('・')[0]}（${pN}×${cN}）の相性は「${label}」！`;
+  const comboShareText=`🎨 親子のトリセツ｜${pCh.name.split('・')[0]}×${cCh.name.split('・')[0]}（${pN}×${cN}）の関わり方は「${label}」！`;
   html+=renderShareButtons(comboShareText, selectedMatchParent, selectedMatchChild);
 
   html+=`</div></div>`;
