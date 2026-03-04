@@ -912,6 +912,39 @@ ul, ol {
   font-size: 0.9rem;
 }
 
+.volunteer-box {
+  margin-top: 32px;
+  padding: 24px 20px;
+  background: #FFF9F0;
+  border: 1px solid #F0E6D8;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.volunteer-title {
+  font-size: 1.1rem;
+  color: #5A4A3E;
+  margin-bottom: 10px;
+}
+.volunteer-desc {
+  font-size: 0.9rem;
+  color: #6D5D4E;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+.volunteer-condition {
+  font-size: 0.95rem;
+  color: #FF53B0;
+  margin-bottom: 8px;
+}
+.volunteer-contact {
+  font-size: 0.82rem;
+  color: #999;
+  line-height: 1.6;
+}
+
 /* --- Footer --- */
 .site-footer {
   background: #FF53B0;
