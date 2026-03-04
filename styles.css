@@ -1060,6 +1060,13 @@ ul, ol {
   transform: translateY(0);
 }
 
+@media (max-width: 600px) {
+  .shindan-fab-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* --- Event Detail Page --- */
 .event-hero {
   padding: 50px 20px 40px;
