@@ -783,7 +783,7 @@ function updateTopDiagnosed(){
       <div style="width:64px;height:64px;border-radius:50%;background:var(--bar-base);display:flex;align-items:center;justify-content:center;font-size:1.6rem">🛡</div>
       <div class="status-mini-info">
         <div class="status-mini-label">親タイプ</div>
-        <div class="status-mini-name" style="color:var(--royal)">診断する</div>
+        <div class="status-mini-name" style="color:var(--royal)">まず私から診断</div>
         <div class="status-mini-type">16問・約3分</div>
       </div>
     </div>`;
@@ -805,7 +805,7 @@ function updateTopDiagnosed(){
       <div style="width:64px;height:64px;border-radius:50%;background:var(--bar-base);display:flex;align-items:center;justify-content:center;font-size:1.6rem">🧭</div>
       <div class="status-mini-info">
         <div class="status-mini-label">子タイプ</div>
-        <div class="status-mini-name" style="color:var(--royal)">診断する</div>
+        <div class="status-mini-name" style="color:var(--royal)">次に子どもを診断</div>
         <div class="status-mini-type">16問・約3分</div>
       </div>
     </div>`;
@@ -832,10 +832,6 @@ function updateTopDiagnosed(){
       <button onclick="startChild()">🧭 子を再診断</button>
       <button onclick="resetAll()">リセット</button>
     </div>`;
-  } else {
-    // Both undiagnosed — show start buttons
-    html+=`<div class="status-next"><button class="btn btn-primary" onclick="startParent()" style="margin-bottom:8px">🛡 まず親のタイプを見る</button>
-    <button class="btn btn-secondary" onclick="startChild()">🧭 子どものタイプを見る</button></div>`;
   }
 
   html+='</div>';
