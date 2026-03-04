@@ -470,6 +470,18 @@
 
     })();
   </script>
+  <script>
+  (function(){
+    var fab=document.querySelector('.shindan-fab');
+    if(!fab)return;
+    var hero=document.querySelector('.hero');
+    if(!hero){fab.classList.add('is-visible');return;}
+    var observer=new IntersectionObserver(function(entries){
+      fab.classList.toggle('is-visible',!entries[0].isIntersecting);
+    },{threshold:0});
+    observer.observe(hero);
+  })();
+  </script>
 
 </body>
 </html>
