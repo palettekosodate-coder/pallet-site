@@ -15,6 +15,7 @@
   <link rel="icon" href="images/palette-logo.png" type="image/png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
+  <link rel="preload" href="styles.min.css" as="style">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles.min.css">
@@ -69,7 +70,7 @@
     <video class="hero-video" autoplay muted loop playsinline preload="none" poster="images/palette-hero-poster.webp" id="heroVideo">
     </video>
     <script>
-    if(window.innerWidth>768){
+    if(window.matchMedia('(min-width:769px)').matches){
       var v=document.getElementById('heroVideo');
       var s=document.createElement('source');
       s.src='images/palette-hero-compressed.mp4';
@@ -417,27 +418,26 @@
         });
       }
 
-      // Scroll-based active nav highlighting
-      var sections = document.querySelectorAll('section[id]');
+      // Scroll-based active nav highlighting (IntersectionObserver)
       var navLinks = document.querySelectorAll('.nav-list a[href^="#"]');
-      function onScroll() {
-        var scrollY = window.scrollY + 120;
-        var current = '';
-        sections.forEach(function(section) {
-          if (scrollY >= section.offsetTop) {
-            current = section.getAttribute('id');
+      var currentSection = '';
+      var navObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            currentSection = entry.target.getAttribute('id');
+            navLinks.forEach(function(link) {
+              if (link.getAttribute('href') === '#' + currentSection) {
+                link.setAttribute('aria-current', 'true');
+              } else {
+                link.removeAttribute('aria-current');
+              }
+            });
           }
         });
-        navLinks.forEach(function(link) {
-          if (link.getAttribute('href') === '#' + current) {
-            link.setAttribute('aria-current', 'true');
-          } else {
-            link.removeAttribute('aria-current');
-          }
-        });
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
+      }, { rootMargin: '-20% 0px -70% 0px' });
+      document.querySelectorAll('section[id]').forEach(function(s) {
+        navObserver.observe(s);
+      });
 
       // Modal
       var modal = document.getElementById('registerModal');
