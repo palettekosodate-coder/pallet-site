@@ -1091,8 +1091,7 @@ ul, ol {
 
 @media (max-width: 600px) {
   .shindan-fab-tooltip {
-    opacity: 1;
-    transform: translateY(0);
+    display: none;
   }
 }
 
@@ -1266,11 +1265,11 @@ ul, ol {
   .hero-container {
     grid-template-columns: 1fr;
     padding: 100px 24px 80px;
-    text-align: center;
+    text-align: left;
   }
 
   .hero-text {
-    text-align: center;
+    text-align: left;
   }
 
   .hero-video-area {
@@ -1328,6 +1327,7 @@ ul, ol {
 
   .hero-nav-badges {
     gap: 8px;
+    justify-content: flex-start;
   }
 
   .hero-nav-badge {
