@@ -295,26 +295,23 @@ ul, ol {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 2px solid #FFE0F0;
+  background: #fff;
+  border: none;
   border-radius: 30px;
-  padding: 8px 16px;
-  font-size: 0.82rem;
+  padding: 10px 20px;
+  font-size: 0.85rem;
   color: #3A2E25;
   font-weight: 700;
   white-space: nowrap;
   text-decoration: none;
   transition: all 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
 }
 .hero-nav-badge:hover {
   background: #fff;
-  border-color: #FF53B0;
   color: #FF53B0;
-  transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(255,83,176,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.16);
 }
 
 /* --- Hero Actions (②⑤) --- */
