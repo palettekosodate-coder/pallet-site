@@ -912,21 +912,9 @@ ul, ol {
   font-size: 0.9rem;
 }
 
-.volunteer-box {
-  margin-top: 32px;
-  padding: 24px 20px;
-  background: #FFF9F0;
-  border: 1px solid #F0E6D8;
-  border-radius: 16px;
-  text-align: center;
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.volunteer-title {
-  font-size: 1.1rem;
-  color: #5A4A3E;
-  margin-bottom: 10px;
+.contact-card-wide {
+  flex: 1 1 100%;
+  max-width: 100%;
 }
 .volunteer-desc {
   font-size: 0.9rem;
@@ -1325,6 +1313,9 @@ ul, ol {
 
   .contact-card {
     width: 100%;
+    max-width: 320px;
+  }
+  .contact-card-wide {
     max-width: 320px;
   }
 
