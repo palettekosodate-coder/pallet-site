@@ -486,40 +486,40 @@ const childLabels = {1:"ぜんぜん\nない",2:"あまり\nない",3:"どっち
 
 // ===== QUESTIONS v2 (16 each, multi-dim mapping) =====
 const parentQs = [
-  {id:"P01",text:"子どもの気持ちをまず受け止めてから話すことが多い",maps:[{dim:"WARMTH",w:1.0},{dim:"RESPONSIVENESS",w:0.7}],rev:false},
-  {id:"P02",text:"子どもが困っている時、声をかけて状況を一緒に整理する",maps:[{dim:"RESPONSIVENESS",w:1.0},{dim:"WARMTH",w:0.6}],rev:false},
-  {id:"P03",text:"子どもをほめる時、結果よりも取り組み方をほめる",maps:[{dim:"AUTONOMY_SUPPORT",w:0.7},{dim:"WARMTH",w:0.5}],rev:false},
-  {id:"P04",text:"子どもが話している最中は、途中で遮らず最後まで聞くようにしている",maps:[{dim:"RESPONSIVENESS",w:1.0},{dim:"CONTROL",w:-0.4}],rev:false},
-  {id:"P05",text:"家庭のルールは短く明確にしている（例：3つまで）",maps:[{dim:"STRUCTURE",w:1.0}],rev:false},
-  {id:"P06",text:"約束を破った時の対応は、場面が違っても大きくブレない",maps:[{dim:"CONSISTENCY",w:1.0},{dim:"STRUCTURE",w:0.3}],rev:false},
-  {id:"P07",text:"忙しいと、子どもの話に反応できないまま終わることが多い",maps:[{dim:"RESPONSIVENESS",w:1.0}],rev:true},
-  {id:"P08",text:"ルールを作る時は、理由（目的）もセットで伝える",maps:[{dim:"AUTONOMY_SUPPORT",w:0.6},{dim:"STRUCTURE",w:0.5},{dim:"CONTROL",w:-0.3}],rev:false},
-  {id:"P09",text:"子どもが自分で決められる場面は、意識して任せる",maps:[{dim:"AUTONOMY_SUPPORT",w:1.0},{dim:"CONTROL",w:-0.5}],rev:false},
-  {id:"P10",text:"やる順番ややり方は、まず子どもに考えさせてから必要なら助ける",maps:[{dim:"AUTONOMY_SUPPORT",w:0.8},{dim:"CONTROL",w:-0.4}],rev:false},
-  {id:"P11",text:"危ない/迷惑になる時は、すぐ止めて指示することが多い",maps:[{dim:"CONTROL",w:1.0},{dim:"AUTONOMY_SUPPORT",w:-0.3}],rev:false},
-  {id:"P12",text:"子どもにはまず「言われた通りに」動いてほしいと思う",maps:[{dim:"CONTROL",w:0.9},{dim:"AUTONOMY_SUPPORT",w:-0.5},{dim:"WARMTH",w:-0.3},{dim:"STRUCTURE",w:-0.3}],rev:false},
-  {id:"P13",text:"子どもの学校や日々の様子を、把握できていないと感じることがある",maps:[{dim:"RESPONSIVENESS",w:-0.7},{dim:"WARMTH",w:-0.5},{dim:"STRUCTURE",w:-0.3}],rev:false},
-  {id:"P14",text:"しつけやルール作りは、気分や状況で変わりやすい",maps:[{dim:"CONSISTENCY",w:1.0},{dim:"STRUCTURE",w:0.4}],rev:true},
-  {id:"P15",text:"子どもの相談を後回しにしてしまうことがある",maps:[{dim:"RESPONSIVENESS",w:0.8},{dim:"WARMTH",w:0.4}],rev:true},
-  {id:"P16",text:"子どもが困っていても、まず自分で何とかしてほしいと思うことが多い",maps:[{dim:"AUTONOMY_SUPPORT",w:-0.4},{dim:"RESPONSIVENESS",w:-0.6}],rev:false}
+  {id:"P01",text:"小学校から帰ってきた子どもが「今日、友だちとケンカした…」と言っています。あなたの最初の反応は？",choices:{1:"まったく関心を\n示さない",2:"「まあ、そういう\nこともあるよ」\nと軽く流す",3:"話は聞くが\n特にコメント\nしない",4:"「そっか、嫌\nだったね」と\n気持ちを受け止める",5:"気持ちを受け止め\n「どうしたい？」\nと一緒に考える"},maps:[{dim:"WARMTH",w:1.0},{dim:"RESPONSIVENESS",w:0.7}],rev:false},
+  {id:"P02",text:"子どもが宿題に詰まって固まっています。あなたはどうしますか？",choices:{1:"気づかない\n放っておく",2:"気づいているが\n自分で解決する\nのを待つ",3:"「大丈夫？」と\n声はかけるが\nそれ以上はしない",4:"「どこで詰まった？」\nと声をかけて\n状況を聞く",5:"一緒にノートを\n見ながら「ここまでは\n合ってるよ」と整理"},maps:[{dim:"RESPONSIVENESS",w:1.0},{dim:"WARMTH",w:0.6}],rev:false},
+  {id:"P03",text:"子どもがテストで80点を取って見せに来ました。あなたの声かけは？",choices:{1:"特に反応\nしない",2:"「もっと取れた\nんじゃない？」\nと指摘する",3:"「よかったね」\nとだけ言う",4:"「がんばって\n勉強してた\nもんね」と過程を褒める",5:"「どの部分を\n工夫したの？」と\n取り組み方を掘り下げる"},maps:[{dim:"AUTONOMY_SUPPORT",w:0.7},{dim:"WARMTH",w:0.5}],rev:false},
+  {id:"P04",text:"子どもが今日あったことを長々と話しています。でも夕飯の準備が忙しい。あなたは？",choices:{1:"聞いているふり\nで実は聞いて\nいない",2:"「あとにして」\nとすぐ遮る",3:"途中まで聞いて\n「続きは\nあとでね」と言う",4:"手を動かし\nながらも\n最後まで聞く",5:"手を止めて\n目を見て\n最後まで聞く"},maps:[{dim:"RESPONSIVENESS",w:1.0},{dim:"CONTROL",w:-0.4}],rev:false},
+  {id:"P05",text:"ゲームの時間について、家庭のルールはどうなっていますか？",choices:{1:"特にルール\nはない",2:"ルールはあるが\n曖昧で子どもも\n把握していない",3:"なんとなく\n決めているが\n明文化はしていない",4:"「平日は1時間」\nなど明確に\n決めている",5:"短いルールを\n子どもと一緒に\n決めて貼っている"},maps:[{dim:"STRUCTURE",w:1.0}],rev:false},
+  {id:"P06",text:"子どもがゲーム時間のルールを破りました。先週も同じことがあった時と、今回の対応は？",choices:{1:"その時の気分で\n対応が全然違う",2:"先週は怒ったが\n今回は面倒で\n見て見ぬふり",3:"なんとなく\n注意するが\n一貫しているか微妙",4:"前回と同じ対応\nをとるように\nしている",5:"ルールと対応を\nセットで決めてあり\n毎回同じに伝える"},maps:[{dim:"CONSISTENCY",w:1.0},{dim:"STRUCTURE",w:0.3}],rev:false},
+  {id:"P07",text:"仕事で疲れて帰宅。子どもが「ねぇ聞いて！」と寄ってきます。あなたは？",choices:{1:"「今日は無理。\n一人にして」\nと断る",2:"スマホを見ながら\n「うん、うん」\nと生返事",3:"少し聞くが\n途中で自分の\nことを始める",4:"疲れていても\n「どうしたの？」\nと聞く姿勢を見せる",5:"「5分だけ\n聞かせて」と\n時間を作って集中"},maps:[{dim:"RESPONSIVENESS",w:1.0}],rev:true},
+  {id:"P08",text:"子どもに「なんで9時に寝なきゃいけないの？」と聞かれました。あなたの対応は？",choices:{1:"無視する\n答えない",2:"「決まりだから」\nと理由は\n言わない",3:"「体に悪いから」\nと一言だけ\n答える",4:"「成長ホルモンが\n出る時間だよ」\nと理由を説明",5:"理由を説明した上で\n「何時がいいと\n思う？」と一緒に考える"},maps:[{dim:"AUTONOMY_SUPPORT",w:0.6},{dim:"STRUCTURE",w:0.5},{dim:"CONTROL",w:-0.3}],rev:false},
+  {id:"P09",text:"週末の過ごし方について、子どもに「何したい？」と聞くと「わからない」と言います。あなたは？",choices:{1:"全部親が決めて\n「これに行くよ」\nと通告する",2:"親が決めるが\n「これでいい？」\nと一応確認",3:"いくつか提案して\n「好きなの\n選んで」と言う",4:"「じゃあ一緒に\n考えよう」と\nアイデアを出し合う",5:"「自分で考えて\nごらん。決まったら\n教えて」と待つ"},maps:[{dim:"AUTONOMY_SUPPORT",w:1.0},{dim:"CONTROL",w:-0.5}],rev:false},
+  {id:"P10",text:"子どもが自由研究のテーマ選びに迷っています。あなたの対応は？",choices:{1:"「これにしなさい」\nと親が決める",2:"親が候補を出して\n「これにしたら？」\nと強くすすめる",3:"候補をいくつか\n出して\n選ばせる",4:"「何が好き？\nそこから考えて\nみたら？」とヒント",5:"「まず自分で\n考えてみて。\n困ったら相談してね」"},maps:[{dim:"AUTONOMY_SUPPORT",w:0.8},{dim:"CONTROL",w:-0.4}],rev:false},
+  {id:"P11",text:"公園で子どもが高いところに登ろうとしています。少し危なそうです。あなたは？",choices:{1:"気づかない\n見ていない",2:"見ているが\n何も言わない",3:"「気をつけてね〜」\nと声だけかける",4:"「降りなさい！\n危ないよ」\nとすぐ止める",5:"駆け寄って\n手を引いて\n降ろす"},maps:[{dim:"CONTROL",w:1.0},{dim:"AUTONOMY_SUPPORT",w:-0.3}],rev:false},
+  {id:"P12",text:"出かける準備が遅い子どもに、あなたが普段よく言う言葉は？",choices:{1:"何も言わない\n放っておく",2:"「好きにして\nいいよ」と\n急かさない",3:"「そろそろ\n準備しようか」\nと声をかける",4:"「早く着替えて！\n靴履いて！」\nと具体的に指示",5:"「今すぐ\n言った通りに\nしなさい！」と命令"},maps:[{dim:"CONTROL",w:0.9},{dim:"AUTONOMY_SUPPORT",w:-0.5},{dim:"WARMTH",w:-0.3},{dim:"STRUCTURE",w:-0.3}],rev:false},
+  {id:"P13",text:"子どもの仲の良い友だちの名前を何人言えますか？",choices:{1:"1人も\n思い浮かばない",2:"名前は出ないが\n「いるらしい」\nとは知っている",3:"1〜2人は\nなんとなく\nわかる",4:"3人以上知って\nいてエピソード\nも聞いている",5:"よく家に来る子も\n含めて把握し\n保護者とも連絡可"},maps:[{dim:"RESPONSIVENESS",w:-0.7},{dim:"WARMTH",w:-0.5},{dim:"STRUCTURE",w:-0.3}],rev:false},
+  {id:"P14",text:"子どもが「この前はOKだったのに！」と抗議しています。心当たりは？",choices:{1:"よくある。\nその日の気分で\n対応が変わる",2:"たまにある。\n忙しいと\n判断がブレる",3:"どちらとも\nいえない",4:"あまりない。\n基本ルールは\n守っている",5:"ほとんどない。\nルールは\n一貫している"},maps:[{dim:"CONSISTENCY",w:1.0},{dim:"STRUCTURE",w:0.4}],rev:true},
+  {id:"P15",text:"子どもが「ちょっと相談したいことがある…」と言ってきました。でも今、自分の用事の途中です。あなたは？",choices:{1:"聞こえない\nふりをする",2:"「あとでね」\nと言って\n結局聞かない",3:"「あとでね」と言い\n忘れなければ\n後で聞く",4:"「5分だけ待って」\nと言い約束通り\n聞く",5:"用事を中断して\n「どうしたの？」\nとすぐ対応する"},maps:[{dim:"RESPONSIVENESS",w:0.8},{dim:"WARMTH",w:0.4}],rev:true},
+  {id:"P16",text:"子どもが友だち関係で悩んでいるようです。でも自分からは話しません。あなたは？",choices:{1:"気づいて\nいない",2:"気づいているが\n自分の問題だと\n放っておく",3:"「何かあった？」\nと一度聞くが\n深追いしない",4:"タイミングを見て\n「最近どう？」\nと声をかける",5:"「話したくなったら\nいつでも聞くよ」\nと伝え見守る"},maps:[{dim:"AUTONOMY_SUPPORT",w:-0.4},{dim:"RESPONSIVENESS",w:-0.6}],rev:false}
 ];
 const childQs = [
-  {id:"C01",text:"新しい遊びや場所に行くと、すぐやってみたくなる",maps:[{dim:"SURGENCY",w:1.0}],rev:false},
-  {id:"C02",text:"思いついたらすぐ動くほうだ",maps:[{dim:"SURGENCY",w:0.9}],rev:false},
-  {id:"C03",text:"体を動かす遊びが好き",maps:[{dim:"SURGENCY",w:0.8}],rev:false},
-  {id:"C04",text:"人がいる場所はわくわくする",maps:[{dim:"SOCIAL",w:0.8},{dim:"SURGENCY",w:0.3}],rev:false},
-  {id:"C05",text:"「あとでね」と言われたら待てることが多い",maps:[{dim:"EFFORTFUL_CONTROL",w:1.0}],rev:false},
-  {id:"C06",text:"急に予定が変わると、気持ちを切り替えるのがむずかしい",maps:[{dim:"EFFORTFUL_CONTROL",w:1.0}],rev:true},
-  {id:"C07",text:"やることを最後まで続けられるほうだ",maps:[{dim:"EFFORTFUL_CONTROL",w:0.9}],rev:false},
-  {id:"C08",text:"落ち着くために深呼吸したり、少し休んだりできる",maps:[{dim:"EFFORTFUL_CONTROL",w:0.8}],rev:false},
-  {id:"C09",text:"心配ごとがあると、頭の中でずっと考えてしまう",maps:[{dim:"NEGATIVE_AFFECT",w:0.9},{dim:"CURIOSITY",w:0.1}],rev:false},
-  {id:"C10",text:"思い通りにならないと、イライラしやすい",maps:[{dim:"NEGATIVE_AFFECT",w:1.0}],rev:false},
-  {id:"C11",text:"失敗しても、すぐ気持ちを立て直せる",maps:[{dim:"NEGATIVE_AFFECT",w:1.0}],rev:true},
-  {id:"C12",text:"「なんでだろう？」と考えるのが好き",maps:[{dim:"CURIOSITY",w:1.0}],rev:false},
-  {id:"C13",text:"本や動画で知ったことを試してみたくなる",maps:[{dim:"CURIOSITY",w:0.8},{dim:"SURGENCY",w:0.2}],rev:false},
-  {id:"C14",text:"友だちに自分から話しかけることが多い",maps:[{dim:"SOCIAL",w:1.0}],rev:false},
-  {id:"C15",text:"一人の時間も好き",maps:[{dim:"SOCIAL",w:0.8}],rev:true},
-  {id:"C16",text:"知らない人の前だと、少し緊張する",maps:[{dim:"NEGATIVE_AFFECT",w:0.6},{dim:"SOCIAL",w:0.3}],rev:false}
+  {id:"C01",text:"初めて行く公園に大きなアスレチックがあります。お子さんの反応は？",choices:{1:"怖がって\n近づかない",2:"遠くから\n眺めるだけ",3:"他の子がやるのを\n見てから考える",4:"「やってみたい！」\nと向かっていく",5:"走って飛びつき\nすぐ登り始める"},maps:[{dim:"SURGENCY",w:1.0}],rev:false},
+  {id:"C02",text:"子どもが工作中に「あ、こうしたらいいかも！」と思いつきました。どうしますか？",choices:{1:"じっくり考えて\nから動く",2:"一度手を止めて\n計画を立てる",3:"少し考えて\nから試す",4:"すぐに\n試し始める",5:"考える前に\n手が動いている"},maps:[{dim:"SURGENCY",w:0.9}],rev:false},
+  {id:"C03",text:"休み時間、お子さんは何をしていることが多いですか？",choices:{1:"教室で静かに\n座っている",2:"絵を描いたり\n読書をしている",3:"友だちと\nおしゃべり\nしている",4:"校庭に出て\n鬼ごっこや\nボール遊び",5:"汗だくになるまで\n走り回っている"},maps:[{dim:"SURGENCY",w:0.8}],rev:false},
+  {id:"C04",text:"お祭りのような人混みの中で、お子さんはどんな様子ですか？",choices:{1:"人混みが苦手で\n行きたがらない",2:"緊張して親の\nそばから離れない",3:"楽しむが\n疲れやすい",4:"ワクワクして\nあちこち\n見て回る",5:"テンションが\n上がって\n走り出す"},maps:[{dim:"SOCIAL",w:0.8},{dim:"SURGENCY",w:0.3}],rev:false},
+  {id:"C05",text:"おやつを欲しがりましたが「ごはんの後ね」と伝えました。お子さんの反応は？",choices:{1:"泣いて暴れる",2:"何度も\n「まだ？」と\n聞いてくる",3:"不満そうだが\nなんとか\n我慢する",4:"「わかった」と\n言って別のことを\nして待つ",5:"納得して\nごはんの時間まで\n気にしない"},maps:[{dim:"EFFORTFUL_CONTROL",w:1.0}],rev:false},
+  {id:"C06",text:"楽しみにしていた外出が雨で中止になりました。お子さんの反応は？",choices:{1:"すぐ「じゃあ\n家で遊ぼう！」\nと切り替える",2:"少しがっかり\nするが\nすぐ立ち直る",3:"しばらく不機嫌\nだが別の提案で\n気が紛れる",4:"かなり長い時間\nぐずったり\n怒ったりする",5:"一日中引きずって\n何をしても\n楽しめない"},maps:[{dim:"EFFORTFUL_CONTROL",w:1.0}],rev:true},
+  {id:"C07",text:"パズルを始めました。途中で難しくなってきた時のお子さんは？",choices:{1:"すぐにやめて\n別のことを\n始める",2:"数分で\n飽きてしまう",3:"気が向けば\n続けるが\n集中は切れがち",4:"「もうちょっと」\nと粘って\n続ける",5:"完成するまで\nずっと集中して\n取り組む"},maps:[{dim:"EFFORTFUL_CONTROL",w:0.9}],rev:false},
+  {id:"C08",text:"お子さんが怒ったりイライラした時、自分で落ち着く方法はありますか？",choices:{1:"まったくない\n爆発するだけ",2:"ほとんどない\n誰かが止める\nまで続く",3:"たまに少し\n離れたりするが\n安定しない",4:"深呼吸や好きな\n場所に移動する\nなどの方法あり",5:"自分から\n「少し休む」と\n言って落ち着ける"},maps:[{dim:"EFFORTFUL_CONTROL",w:0.8}],rev:false},
+  {id:"C09",text:"明日は初めての発表会。お子さんは寝る前にどうしていますか？",choices:{1:"何も気にせず\n普通に寝る",2:"少し気にするが\nすぐ忘れる",3:"「大丈夫かな…」\nと少し\n心配している",4:"「失敗したら\nどうしよう」と\n何度も言う",5:"心配で眠れず\n布団の中で\nずっと考えている"},maps:[{dim:"NEGATIVE_AFFECT",w:0.9},{dim:"CURIOSITY",w:0.1}],rev:false},
+  {id:"C10",text:"ゲームで負けた時のお子さんの反応は？",choices:{1:"「次がんばろう」\nとケロッと\nしている",2:"少し悔しがるが\nすぐ切り替わる",3:"しばらく\nムッとしている",4:"コントローラーを\n投げたり\n怒ったりする",5:"泣いたり怒鳴ったり\nしばらく\n手がつけられない"},maps:[{dim:"NEGATIVE_AFFECT",w:1.0}],rev:false},
+  {id:"C11",text:"鉄棒の逆上がりに失敗しました。お子さんの様子は？",choices:{1:"「もう一回やる！」\nとすぐ再挑戦",2:"少し落ち込むが\n「次はできるかも」\nと前向き",3:"しばらく凹むが\n声をかけたら\n立ち直る",4:"「もう絶対\nやらない」と\nその場を離れる",5:"泣いてしまい\nその後しばらく\n他も楽しめない"},maps:[{dim:"NEGATIVE_AFFECT",w:1.0}],rev:true},
+  {id:"C12",text:"散歩中に珍しい虫を見つけました。お子さんの反応は？",choices:{1:"全く興味を\n示さない",2:"ちらっと\n見るだけ",3:"「虫だね」と\n言って\n通り過ぎる",4:"「この虫なんて\n名前？」と\n聞いてくる",5:"観察し始めて\n「なんで足が6本\nあるの？」と質問攻め"},maps:[{dim:"CURIOSITY",w:1.0}],rev:false},
+  {id:"C13",text:"YouTubeで面白い実験動画を見た後のお子さんは？",choices:{1:"見たら満足して\n次の動画を見る",2:"「面白かった」\nと言って終わり",3:"「やってみたい\nな〜」と言うが\n実行はしない",4:"材料を探して\n「やってみたい！」\nと言う",5:"自分で材料を\n集めてすぐ\n実験を始める"},maps:[{dim:"CURIOSITY",w:0.8},{dim:"SURGENCY",w:0.2}],rev:false},
+  {id:"C14",text:"習い事の初日。知らない子ばかりの教室で、お子さんはどうしますか？",choices:{1:"端っこで一人で\n過ごす",2:"話しかけられれば\n答えるが自分\nからは動かない",3:"様子を見てから\n近くの子に\n話しかける",4:"「一緒にやろう！」\nと自分から\n声をかける",5:"すぐにみんなと\n仲良くなり\n場の中心にいる"},maps:[{dim:"SOCIAL",w:1.0}],rev:false},
+  {id:"C15",text:"日曜日、友だちと遊ぶ予定がなくなりました。お子さんの反応は？",choices:{1:"一人で好きな\nことを楽しむ\n（読書・工作など）",2:"一人でも平気\nのんびり過ごす",3:"少し退屈だが\n自分で遊びを\n見つける",4:"「誰か遊べる子\nいないかな？」\nと探し始める",5:"「つまらない！\n誰かと遊びたい！」\nと不満を言う"},maps:[{dim:"SOCIAL",w:0.8}],rev:true},
+  {id:"C16",text:"親戚の集まりで、あまり会わないおじさんに話しかけられました。お子さんは？",choices:{1:"笑顔で自分から\n話し始める",2:"普通に\n受け答えする",3:"親の後ろに\n隠れるが\n少しずつ話す",4:"恥ずかしがって\n親の後ろから\n出てこない",5:"固まってしまい\nまったく\n話せない"},maps:[{dim:"NEGATIVE_AFFECT",w:0.6},{dim:"SOCIAL",w:0.3}],rev:false}
 ];
 
 // ===== 8 TYPE DETAILS =====
@@ -937,13 +937,12 @@ function renderScale(labels, currentVal, onSelect){
   const order=[1,2,3,4,5];
   return `<div class="likert-scale">${order.map(v=>{
     const sel = currentVal===v ? 'selected' : '';
-    const label = labels[v].replace('\n','<br>');
+    const label = labels[v].replace(/\n/g,'<br>');
     return `<div class="scale-option ${sel}" data-val="${v}" onclick="${onSelect}(${v})">
       <div class="scale-dot">${v}</div>
       <div class="scale-label">${label}</div>
     </div>`;
-  }).join('')}</div>
-  <div class="scale-ends"><span>← 当てはまらない</span><span>当てはまる →</span></div>`;
+  }).join('')}</div>`;
 }
 function renderStars(n){return '★'.repeat(n)+'☆'.repeat(5-n)}
 
@@ -1059,7 +1058,7 @@ function renderParentQ(){
   area.innerHTML=`<div class="question-card slide-enter" id="parentQCard">
     <div class="question-num">Q${parentIdx+1}</div>
     <div class="question-text">${q.text}</div>
-    ${renderScale(parentLabels, parentAnswers[parentIdx], 'selectParentA')}
+    ${renderScale(q.choices || parentLabels, parentAnswers[parentIdx], 'selectParentA')}
   </div>`;
   document.getElementById('parentPrev').style.visibility=parentIdx===0?'hidden':'visible';
 }
@@ -1166,7 +1165,7 @@ function renderChildQ(){
   area.innerHTML=`<div class="question-card slide-enter" id="childQCard">
     <div class="question-num">Q${childIdx+1}</div>
     <div class="question-text">${q.text}</div>
-    ${renderScale(childLabels, childAnswers[childIdx], 'selectChildA')}
+    ${renderScale(q.choices || childLabels, childAnswers[childIdx], 'selectChildA')}
   </div>`;
   document.getElementById('childPrev').style.visibility=childIdx===0?'hidden':'visible';
 }
