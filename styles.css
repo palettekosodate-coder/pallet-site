@@ -527,6 +527,12 @@ ul, ol {
   margin-bottom: 40px;
 }
 
+.about-body {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 /* --- Activity Cards --- */
 .card-grid {
   display: grid;
@@ -1265,11 +1271,11 @@ ul, ol {
   .hero-container {
     grid-template-columns: 1fr;
     padding: 100px 24px 80px;
-    text-align: left;
+    text-align: center;
   }
 
   .hero-text {
-    text-align: left;
+    text-align: center;
   }
 
   .hero-video-area {
@@ -1308,6 +1314,10 @@ ul, ol {
     font-size: 1.3rem;
   }
 
+  .about-body {
+    text-align: left;
+  }
+
   .card-grid {
     grid-template-columns: 1fr;
   }
@@ -1327,7 +1337,7 @@ ul, ol {
 
   .hero-nav-badges {
     gap: 8px;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .hero-nav-badge {
