@@ -1399,6 +1399,74 @@ ul, ol {
   overflow: hidden;
 }
 
+/* --- Photo Strip (About section) --- */
+.photo-strip {
+  margin-top: 36px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.photo-strip-track {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+}
+
+.photo-strip-track::-webkit-scrollbar {
+  height: 4px;
+}
+
+.photo-strip-track::-webkit-scrollbar-thumb {
+  background: #ffb8d9;
+  border-radius: 4px;
+}
+
+.photo-strip-track img {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 600px) {
+  .photo-strip-track img {
+    width: 160px;
+    height: 120px;
+  }
+}
+
+/* --- Trust Photo Grid --- */
+.trust-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 700px;
+  margin: 0 auto 28px;
+}
+
+.trust-photo-grid img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .trust-photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .trust-photo-grid img {
+    height: 120px;
+  }
+}
+
 /* --- Donation Page --- */
 .donation-intro {
   max-width: 700px;
