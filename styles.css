@@ -977,9 +977,11 @@ ul, ol {
 }
 
 .footer-links a {
-  color: rgba(255,255,255,0.85);
-  font-size: 0.8rem;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
   margin: 0 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
 }
 
 .footer-links a:hover {
