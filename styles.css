@@ -1137,6 +1137,19 @@ ul, ol {
   margin: 0 auto;
 }
 
+/* Donation hero: more bottom padding for wave spacing + gallery inside */
+.donation-hero {
+  padding-bottom: 0;
+}
+
+.donation-hero .hero-inner {
+  padding-bottom: 60px;
+}
+
+.donation-hero p {
+  margin-bottom: 32px;
+}
+
 .event-details {
   max-width: 700px;
   margin: 0 auto;
@@ -1477,8 +1490,9 @@ ul, ol {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
-  max-width: 800px;
+  max-width: 720px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .donation-gallery img {
